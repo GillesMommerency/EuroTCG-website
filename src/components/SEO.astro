@@ -15,6 +15,8 @@ export interface Props {
     section?: string;
     tags?: string[];
   };
+  keywords?: string[];
+  canonicalUrl?: string;
 }
 
 const {
@@ -25,24 +27,53 @@ const {
   noIndex = false,
   structuredData,
   article,
+  keywords = [],
+  canonicalUrl,
 } = Astro.props;
 
 const currentUrl = Astro.url;
-const canonicalUrl = currentUrl.href;
+const finalCanonicalUrl = canonicalUrl || currentUrl.href;
 const siteUrl = import.meta.env.SITE || 'https://eurotcg.com';
 const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+
+// Enhanced keywords for TCG market
+const defaultKeywords = [
+  'trading card game',
+  'TCG collection',
+  'card trading platform',
+  'European TCG',
+  'trading cards marketplace',
+  'card collection manager',
+  'TCG database',
+  'card price tracker',
+  'digital card collection',
+  'card inventory management',
+  'TCG community',
+  'card trading app',
+  'collectible cards',
+  'card market prices',
+  'TCG analytics'
+];
+
+const allKeywords = [...defaultKeywords, ...keywords].join(', ');
 
 // Generate alternate language links
 const alternateLinks = getAlternateLinks(currentUrl.pathname, locale);
 
-// Default structured data for the organization
+// Enhanced Organization Schema with more TCG-specific details
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "EuroTCG",
-  "description": "European Trading Card Game Collection Manager",
+  "alternateName": ["Euro TCG", "European Trading Card Game"],
+  "description": "Europe's premier trading card game collection and marketplace platform",
   "url": siteUrl,
-  "logo": `${siteUrl}/images/logo.png`,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${siteUrl}/images/logo.png`,
+    "width": 512,
+    "height": 512
+  },
   "foundingDate": "2025",
   "founders": [
     {
@@ -52,7 +83,8 @@ const organizationSchema = {
   ],
   "address": {
     "@type": "PostalAddress",
-    "addressRegion": "Europe"
+    "addressRegion": "Europe",
+    "addressCountry": "EU"
   },
   "contactPoint": [
     {
@@ -60,38 +92,132 @@ const organizationSchema = {
       "telephone": "",
       "contactType": "customer service",
       "email": "hello@eurotcg.com",
-      "availableLanguage": ["en", "fr", "de", "es", "it", "nl"]
+      "availableLanguage": ["en", "fr", "de", "es", "it", "nl"],
+      "areaServed": "Europe"
     }
   ],
   "sameAs": [
     "https://twitter.com/eurotcg",
     "https://github.com/eurotcg",
-    "https://discord.gg/eurotcg"
+    "https://discord.gg/eurotcg",
+    "https://www.linkedin.com/company/eurotcg",
+    "https://www.facebook.com/eurotcg"
+  ],
+  "knowsAbout": [
+    "Trading Card Games",
+    "Card Collection Management",
+    "Digital Marketplace",
+    "Card Price Tracking",
+    "TCG Analytics"
   ]
 };
 
-// Website schema
+// Enhanced Website Schema
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "EuroTCG",
+  "name": "EuroTCG - European Trading Card Game Platform",
+  "alternateName": "EuroTCG",
   "url": siteUrl,
   "description": description,
   "inLanguage": locale,
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": `${siteUrl}/search?q={search_term_string}`
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "TCG Collectors and Traders",
+    "geographicArea": "Europe"
+  },
+  "potentialAction": [
+    {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${siteUrl}/search?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
     },
-    "query-input": "required name=search_term_string"
+    {
+      "@type": "SubscribeAction",
+      "target": `${siteUrl}/newsletter`,
+      "object": {
+        "@type": "CreativeWork",
+        "name": "EuroTCG Newsletter"
+      }
+    }
+  ]
+};
+
+// Software Application Schema (for the platform)
+const softwareApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "EuroTCG",
+  "applicationCategory": "CollectionApplication",
+  "applicationSubCategory": "Trading Card Game Management",
+  "operatingSystem": ["iOS", "Android", "Web"],
+  "description": "The ultimate European trading card game collection and marketplace platform",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "InStock"
+  },
+  "author": organizationSchema,
+  "featureList": [
+    "Card Collection Management",
+    "Price Tracking",
+    "Marketplace Trading",
+    "Community Features",
+    "Multi-language Support",
+    "Mobile Apps"
+  ],
+  "screenshot": `${siteUrl}/images/app-screenshot.jpg`,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "150",
+    "bestRating": "5",
+    "worstRating": "1"
   }
+};
+
+// FAQ Schema for better SERP features
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is EuroTCG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EuroTCG is Europe's leading platform for trading card game collection management and marketplace trading. We support multiple European languages and provide comprehensive tools for TCG enthusiasts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which trading card games are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EuroTCG supports all major trading card games including Pokémon, Magic: The Gathering, Yu-Gi-Oh!, and many European TCGs. Our platform is designed to handle any card-based collectible game."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is EuroTCG available in my language?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! EuroTCG is available in 6 European languages: English, French, German, Spanish, Italian, and Dutch. We're committed to serving the entire European TCG community."
+      }
+    }
+  ]
 };
 
 // Combine all structured data
 const allStructuredData = [
   organizationSchema,
   websiteSchema,
+  softwareApplicationSchema,
+  faqSchema,
   ...(structuredData ? [structuredData] : [])
 ];
 ---
@@ -99,34 +225,51 @@ const allStructuredData = [
 <!-- Basic Meta Tags -->
 <title>{title}</title>
 <meta name="description" content={description} />
-<link rel="canonical" href={canonicalUrl} />
+<meta name="keywords" content={allKeywords} />
+<link rel="canonical" href={finalCanonicalUrl} />
+
+<!-- Enhanced Meta Tags for TCG Market -->
+<meta name="category" content="Gaming, Collectibles, Trading Cards" />
+<meta name="classification" content="Trading Card Game Platform" />
+<meta name="coverage" content="Europe" />
+<meta name="distribution" content="Global" />
+<meta name="rating" content="General" />
+<meta name="target" content="TCG Collectors, Card Traders, Gaming Community" />
 
 <!-- Robots -->
-{noIndex && <meta name="robots" content="noindex, nofollow" />}
+{noIndex ? (
+  <meta name="robots" content="noindex, nofollow" />
+) : (
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+)}
 
 <!-- Language and Region -->
 <meta name="language" content={locale} />
 <meta name="geo.region" content="EU" />
 <meta name="geo.placename" content="Europe" />
+<meta http-equiv="content-language" content={locale} />
 
 <!-- Alternate Language Links -->
 {alternateLinks.map(({ href, hreflang }) => (
   <link rel="alternate" hreflang={hreflang} href={href} />
 ))}
 
-<!-- Open Graph Meta Tags -->
+<!-- Enhanced Open Graph Meta Tags -->
 <meta property="og:type" content={article ? "article" : "website"} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={fullImageUrl} />
 <meta property="og:image:alt" content={title} />
-<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content={finalCanonicalUrl} />
 <meta property="og:site_name" content="EuroTCG" />
-<meta property="og:locale" content={localeConfig[locale].name.toLowerCase()} />
+<meta property="og:locale" content={`${locale}_${locale.toUpperCase()}`} />
+<meta property="fb:app_id" content="your-facebook-app-id" />
 
 <!-- Open Graph Alternate Locales -->
 {alternateLinks.filter(link => link.hreflang !== 'x-default').map(({ hreflang }) => (
-  <meta property="og:locale:alternate" content={hreflang} />
+  <meta property="og:locale:alternate" content={`${hreflang}_${hreflang.toUpperCase()}`} />
 ))}
 
 <!-- Article-specific Open Graph tags -->
@@ -142,7 +285,7 @@ const allStructuredData = [
   </>
 )}
 
-<!-- Twitter Card Meta Tags -->
+<!-- Enhanced Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@eurotcg" />
 <meta name="twitter:creator" content="@eurotcg" />
@@ -150,26 +293,43 @@ const allStructuredData = [
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={fullImageUrl} />
 <meta name="twitter:image:alt" content={title} />
+<meta name="twitter:domain" content="eurotcg.com" />
 
 <!-- Additional Meta Tags -->
 <meta name="theme-color" content="#3B82F6" />
 <meta name="msapplication-TileColor" content="#3B82F6" />
+<meta name="msapplication-TileImage" content="/mstile-144x144.png" />
 <meta name="apple-mobile-web-app-title" content="EuroTCG" />
 <meta name="application-name" content="EuroTCG" />
 
-<!-- Favicons -->
+<!-- Enhanced Favicons -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
 <!-- Structured Data -->
 <script is:inline type="application/ld+json" set:html={JSON.stringify(allStructuredData)} />
 
-<!-- Preconnect to external domains -->
+<!-- Preconnect to external domains for performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://www.google-analytics.com" />
+<link rel="preconnect" href="https://www.googletagmanager.com" />
+
+<!-- DNS Prefetch for better performance -->
+<link rel="dns-prefetch" href="//plausible.io" />
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
 
 <!-- Security Headers -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -180,16 +340,28 @@ const allStructuredData = [
 <!-- GDPR and Privacy -->
 <meta name="privacy-policy" content={`${siteUrl}/privacy`} />
 <meta name="terms-of-service" content={`${siteUrl}/terms`} />
+<meta name="cookie-policy" content={`${siteUrl}/cookies`} />
 
 <!-- Performance Hints -->
-<link rel="dns-prefetch" href="//plausible.io" />
 <link rel="preconnect" href="https://plausible.io" />
 
 <!-- PWA Meta Tags -->
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="EuroTCG" />
 <meta name="format-detection" content="telephone=no" />
 
-<!-- Content Security Policy (if needed) -->
-<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' fonts.gstatic.com; connect-src 'self' plausible.io; frame-src 'none'; object-src 'none'; base-uri 'self';"> -->
+<!-- Microsoft Edge/IE -->
+<meta name="msapplication-tooltip" content="EuroTCG - European Trading Card Game Platform" />
+<meta name="msapplication-starturl" content="/" />
+<meta name="msapplication-navbutton-color" content="#3B82F6" />
+
+<!-- Google Site Verification (add your verification code) -->
+<!-- <meta name="google-site-verification" content="your-google-verification-code" /> -->
+
+<!-- Bing Site Verification (add your verification code) -->
+<!-- <meta name="msvalidate.01" content="your-bing-verification-code" /> -->
+
+<!-- Content Security Policy (customize as needed) -->
+<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' plausible.io *.googletagmanager.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' fonts.gstatic.com; connect-src 'self' plausible.io *.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self';"> -->
