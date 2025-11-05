@@ -30,6 +30,7 @@ export default defineConfig({
   integrations: [
     tailwind({
       applyBaseStyles: false, // We'll use our custom base styles
+      configFile: './config/tailwind.config.mjs',
     }),
     react({
       include: ['**/react/*'],

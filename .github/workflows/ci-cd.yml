@@ -170,6 +170,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+          file: ./docker/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -197,8 +198,8 @@ jobs:
           script: |
             cd /opt/eurotcg-website
             git pull origin main
-            docker-compose pull
-            docker-compose up -d
+            docker-compose -f docker/docker-compose.yml pull
+            docker-compose -f docker/docker-compose.yml up -d
             docker system prune -f
 
       - name: Health check

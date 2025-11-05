@@ -1,0 +1,42 @@
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    es2022: true,
+    node: true,
+  },
+  extends: [
+    'eslint:recommended'
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  rules: {
+    // General rules
+    'no-console': 'warn',
+    'no-debugger': 'error',
+    'prefer-const': 'error',
+    'no-var': 'error',
+    'eqeqeq': ['error', 'always'],
+    'curly': ['error', 'all'],
+    'no-eval': 'error',
+    'no-implied-eval': 'error',
+    'no-new-func': 'error',
+    'no-script-url': 'error',
+  },
+  ignorePatterns: [
+    'dist/',
+    '.astro/',
+    'node_modules/',
+    'public/',
+    'config/',
+    'docker/',
+    'scripts/',
+    '*.config.js',
+    '*.config.mjs',
+    '*.config.ts',
+    'playwright-report/',
+    'test-results/',
+  ],
+};
