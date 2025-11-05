@@ -1,0 +1,228 @@
+export default {
+  // Navigation
+  nav: {
+    home: 'Home',
+    features: 'Features',
+    pricing: 'Pricing',
+    about: 'About',
+    contact: 'Contact',
+    blog: 'Blog',
+    docs: 'Documentation',
+    login: 'Sign In',
+    signup: 'Sign Up',
+    dashboard: 'Dashboard',
+  },
+
+  // Common
+  common: {
+    loading: 'Loading...',
+    error: 'Error',
+    success: 'Success',
+    cancel: 'Cancel',
+    continue: 'Continue',
+    back: 'Back',
+    next: 'Next',
+    previous: 'Previous',
+    save: 'Save',
+    delete: 'Delete',
+    edit: 'Edit',
+    view: 'View',
+    close: 'Close',
+    open: 'Open',
+    submit: 'Submit',
+    reset: 'Reset',
+    clear: 'Clear',
+    search: 'Search',
+    filter: 'Filter',
+    sort: 'Sort',
+    download: 'Download',
+    upload: 'Upload',
+    share: 'Share',
+    copy: 'Copy',
+    print: 'Print',
+    email: 'Email',
+    phone: 'Phone',
+    address: 'Address',
+    name: 'Name',
+    description: 'Description',
+    date: 'Date',
+    time: 'Time',
+    price: 'Price',
+    quantity: 'Quantity',
+    total: 'Total',
+    subtotal: 'Subtotal',
+    tax: 'Tax',
+    shipping: 'Shipping',
+    discount: 'Discount',
+    free: 'Free',
+    new: 'New',
+    popular: 'Popular',
+    featured: 'Featured',
+    recommended: 'Recommended',
+    bestseller: 'Bestseller',
+    sale: 'Sale',
+    comingSoon: 'Coming Soon',
+    unavailable: 'Unavailable',
+    outOfStock: 'Out of Stock',
+    inStock: 'In Stock',
+    yes: 'Yes',
+    no: 'No',
+    true: 'True',
+    false: 'False',
+    on: 'On',
+    off: 'Off',
+    enabled: 'Enabled',
+    disabled: 'Disabled',
+    active: 'Active',
+    inactive: 'Inactive',
+    public: 'Public',
+    private: 'Private',
+    draft: 'Draft',
+    published: 'Published',
+    archived: 'Archived',
+    deleted: 'Deleted',
+  },
+
+  // Under Construction Page
+  underConstruction: {
+    title: 'EuroTCG - Under Construction',
+    heading: 'Something Amazing is Coming Soon',
+    subheading: 'We\'re building the ultimate European trading card game collection manager',
+    description: 'EuroTCG will be your go-to platform for scanning, organizing, and managing your trading card collections. Built with European collectors in mind, featuring multi-language support and GDPR compliance.',
+    features: {
+      title: 'What to Expect',
+      scanning: {
+        title: 'Advanced Card Scanning',
+        description: 'Use your phone camera to instantly identify and catalog your cards'
+      },
+      collection: {
+        title: 'Collection Management',
+        description: 'Organize your cards with custom categories, wishlists, and trading lists'
+      },
+      marketplace: {
+        title: 'European Marketplace',
+        description: 'Connect with collectors across Europe for trading and selling'
+      },
+      mobile: {
+        title: 'Mobile-First Design',
+        description: 'Optimized for mobile devices with offline capabilities'
+      },
+      privacy: {
+        title: 'GDPR Compliant',
+        description: 'Your data is protected with European privacy standards'
+      },
+      multilingual: {
+        title: 'Multilingual Support',
+        description: 'Available in English, French, German, Spanish, Italian, and Dutch'
+      }
+    },
+    newsletter: {
+      title: 'Stay Updated',
+      description: 'Be the first to know when we launch',
+      placeholder: 'Enter your email address',
+      button: 'Notify Me',
+      success: 'Thank you! We\'ll keep you updated.',
+      error: 'Please enter a valid email address.'
+    },
+    social: {
+      title: 'Follow Our Progress',
+      description: 'Get behind-the-scenes updates and sneak peeks'
+    },
+    progress: {
+      title: 'Development Progress',
+      design: 'Design & UX',
+      backend: 'Backend Development',
+      mobile: 'Mobile App',
+      testing: 'Testing & QA',
+      launch: 'Launch Preparation'
+    },
+    estimatedLaunch: 'Estimated Launch: Q2 2024',
+    contact: {
+      title: 'Questions?',
+      description: 'Get in touch with our team',
+      email: 'hello@eurotcg.com'
+    }
+  },
+
+  // SEO and Meta
+  seo: {
+    defaultTitle: 'EuroTCG - European Trading Card Game Collection Manager',
+    defaultDescription: 'The ultimate platform for European TCG collectors. Scan, organize, and manage your trading card collections with advanced tools and GDPR compliance.',
+    keywords: 'trading card games, TCG, collection manager, card scanner, European marketplace, GDPR compliant, Pokemon, Magic, Yu-Gi-Oh'
+  },
+
+  // Footer
+  footer: {
+    company: {
+      title: 'Company',
+      about: 'About Us',
+      careers: 'Careers',
+      press: 'Press',
+      blog: 'Blog',
+      contact: 'Contact'
+    },
+    product: {
+      title: 'Product',
+      features: 'Features',
+      pricing: 'Pricing',
+      security: 'Security',
+      roadmap: 'Roadmap',
+      changelog: 'Changelog'
+    },
+    support: {
+      title: 'Support',
+      help: 'Help Center',
+      documentation: 'Documentation',
+      api: 'API Reference',
+      status: 'Status',
+      community: 'Community'
+    },
+    legal: {
+      title: 'Legal',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Service',
+      cookies: 'Cookie Policy',
+      gdpr: 'GDPR Compliance',
+      imprint: 'Imprint'
+    },
+    copyright: '© 2024 EuroTCG. All rights reserved.',
+    madeWith: 'Made with ❤️ in Europe'
+  },
+
+  // Forms
+  forms: {
+    validation: {
+      required: 'This field is required',
+      email: 'Please enter a valid email address',
+      minLength: 'Must be at least {min} characters',
+      maxLength: 'Must be no more than {max} characters',
+      pattern: 'Please enter a valid format',
+      numeric: 'Please enter a valid number',
+      url: 'Please enter a valid URL'
+    }
+  },
+
+  // Time and dates
+  time: {
+    just_now: 'Just now',
+    minutes_ago: '{count} minutes ago',
+    hours_ago: '{count} hours ago',
+    days_ago: '{count} days ago',
+    weeks_ago: '{count} weeks ago',
+    months_ago: '{count} months ago',
+    years_ago: '{count} years ago'
+  },
+
+  // Accessibility
+  a11y: {
+    skipToContent: 'Skip to main content',
+    menu: 'Menu',
+    close: 'Close',
+    loading: 'Loading',
+    search: 'Search',
+    languageSwitcher: 'Change language',
+    themeSwitcher: 'Toggle theme',
+    expandMenu: 'Expand menu',
+    collapseMenu: 'Collapse menu'
+  }
+} as const;
