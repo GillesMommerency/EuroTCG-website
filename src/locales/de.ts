@@ -141,6 +141,7 @@ export default {
     },
     progress: {
       title: 'Entwicklungsfortschritt',
+      design: 'Design & UX',
       backend: 'Backend-Entwicklung',
       frontend: 'Frontend-Entwicklung',
       mobile: 'Mobile App',
@@ -157,6 +158,7 @@ export default {
     },
     social: {
       title: 'Folgen Sie unserem Fortschritt',
+      description: 'Erhalten Sie Einblicke hinter die Kulissen und exklusive Vorschauen',
       github: 'Quellcode auf GitHub ansehen',
       twitter: 'Updates auf Twitter folgen',
       discord: 'Treten Sie unserer Discord-Community bei'
@@ -168,9 +170,11 @@ export default {
     contact: {
       title: 'Haben Sie Fragen?',
       subtitle: 'Wir würden gerne von Ihnen hören',
+      description: 'Kontaktieren Sie unser Team',
       email: 'E-Mail senden',
       github: 'GitHub Issues'
-    }
+    },
+    estimatedLaunch: 'Geschätzter Start: Q2 2024'
   },
 
   // SEO and metadata

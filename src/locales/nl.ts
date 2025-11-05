@@ -139,8 +139,14 @@ export default {
         description: 'Beschikbaar in 6 Europese talen'
       }
     },
+    design: {
+      title: "Design & UI/UX",
+      description: "Modern design en intuïtieve interface voor een uitstekende gebruikerservaring."
+    },
+    estimatedLaunch: "Geschatte lancering begin 2025",
     progress: {
       title: 'Ontwikkelingsvoortgang',
+      design: 'Design & UX',
       backend: 'Backend Ontwikkeling',
       frontend: 'Frontend Ontwikkeling',
       mobile: 'Mobiele App',
@@ -157,6 +163,7 @@ export default {
     },
     social: {
       title: 'Volg onze voortgang',
+      description: 'Blijf op de hoogte van de ontwikkeling van ons project.',
       github: 'Bekijk broncode op GitHub',
       twitter: 'Volg ons op Twitter voor updates',
       discord: 'Doe mee met onze Discord community'
@@ -168,6 +175,7 @@ export default {
     contact: {
       title: 'Vragen?',
       subtitle: 'We horen graag van je',
+      description: 'Aarzel niet om contact met ons op te nemen voor vragen of suggesties.',
       email: 'Stuur E-mail',
       github: 'GitHub Issues'
     }

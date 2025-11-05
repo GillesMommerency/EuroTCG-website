@@ -139,8 +139,14 @@ export default {
         description: 'Disponibile in 6 lingue europee'
       }
     },
+    design: {
+      title: "Design & UI/UX",
+      description: "Design moderno e interfaccia intuitiva per un'esperienza utente eccellente."
+    },
+    estimatedLaunch: "Lancio stimato per l'inizio del 2025",
     progress: {
       title: 'Progresso dello Sviluppo',
+      design: 'Design & UX',
       backend: 'Sviluppo Backend',
       frontend: 'Sviluppo Frontend',
       mobile: 'App Mobile',
@@ -157,6 +163,7 @@ export default {
     },
     social: {
       title: 'Segui i nostri progressi',
+      description: 'Resta aggiornato sullo sviluppo del nostro progetto.',
       github: 'Vedi il codice sorgente su GitHub',
       twitter: 'Seguici su Twitter per aggiornamenti',
       discord: 'Unisciti alla nostra comunità Discord'
@@ -168,6 +175,7 @@ export default {
     contact: {
       title: 'Hai Domande?',
       subtitle: 'Ci piacerebbe sentirti',
+      description: 'Non esitare a contattarci per qualsiasi domanda o suggerimento.',
       email: 'Invia Email',
       github: 'GitHub Issues'
     }
