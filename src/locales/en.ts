@@ -86,6 +86,7 @@ export default {
   // Under Construction Page
   underConstruction: {
     title: 'EuroTCG - Under Construction',
+    comingSoon: 'Coming Soon',
     heading: 'Something Amazing is Coming Soon',
     subheading: 'We\'re building the ultimate European trading card game collection manager',
     description: 'EuroTCG will be your go-to platform for scanning, organizing, and managing your trading card collections. Built with European collectors in mind, featuring multi-language support and GDPR compliance.',

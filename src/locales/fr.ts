@@ -86,6 +86,7 @@ export default {
   // Under Construction Page
   underConstruction: {
     title: 'EuroTCG - En Construction',
+    comingSoon: 'Bientôt disponible',
     heading: 'Quelque chose d\'incroyable arrive bientôt',
     subheading: 'Nous construisons le gestionnaire de collection de cartes à jouer européen ultime',
     description: 'EuroTCG sera votre plateforme de référence pour scanner, organiser et gérer vos collections de cartes à jouer. Conçu pour les collectionneurs européens, avec un support multilingue et la conformité RGPD.',

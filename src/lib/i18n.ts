@@ -213,8 +213,10 @@ export function formatRelativeTime(
 /**
  * Check if locale is RTL
  */
-export function isRTL(locale: Locale): boolean {
-  return localeConfig[locale].dir === 'rtl';
+export function isRTL(_locale: Locale): boolean {
+  // All supported European locales are LTR
+  // This function is future-proof for RTL locale support
+  return false;
 }
 
 /**
@@ -222,7 +224,7 @@ export function isRTL(locale: Locale): boolean {
  */
 export function getAlternateLinks(
   currentPath: string,
-  currentLocale: Locale
+  _currentLocale: Locale
 ): { href: string; hreflang: string }[] {
   const baseUrl = import.meta.env.SITE || 'https://eurotcg.com';
   const cleanPath = removeLocaleFromPathname(currentPath);

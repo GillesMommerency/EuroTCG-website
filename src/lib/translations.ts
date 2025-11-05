@@ -1,5 +1,5 @@
 // Simple translation function
-export function useTranslations(locale: string) {
+export function useTranslations(_locale: string) {
   // In a real app, you'd dynamically import the locale files
   // For now, we'll just return a simple function
   return (key: string, fallback: string = '') => {
