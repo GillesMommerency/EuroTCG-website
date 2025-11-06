@@ -247,23 +247,48 @@ jobs:
         run: |
           sleep 30
           curl -f ${{ secrets.PRODUCTION_URL }}/health || exit 1
-
   notify:
     name: Notify Results
     runs-on: ubuntu-latest
     needs: [ deploy-production, deploy-staging ]
     if: always()
     steps:
-      - name: Set outcome
-        id: outcome
+      - name: Post Discord embed
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          PROD_RESULT: ${{ needs.deploy-production.result }}
+          STAGE_RESULT: ${{ needs.deploy-staging.result }}
+          REPO: ${{ github.repository }}
+          REF: ${{ github.ref_name }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          PROD=${{ needs.deploy-production.result }}
-          STAGE=${{ needs.deploy-staging.result }}
-          echo "prod=${PROD}" >> $GITHUB_OUTPUT
-          echo "stage=${STAGE}" >> $GITHUB_OUTPUT
+          set -e
+          # Pick a color: green if any success, yellow if all skipped, red if any failure
+          COLOR=16776960 # yellow
+          if [ "$PROD_RESULT" = "success" ] || [ "$STAGE_RESULT" = "success" ]; then COLOR=5793266; fi     # green
+          if [ "$PROD_RESULT" = "failure" ] || [ "$STAGE_RESULT" = "failure" ]; then COLOR=15548997; fi    # red
 
-      - name: Notify Discord
-        run: |
-          STATUS_MSG="Deployment summary:\nProduction: ${{ steps.outcome.outputs.prod }}\nStaging: ${{ steps.outcome.outputs.stage }}\nRepo: ${{ github.repository }}\nRef: ${{ github.ref }}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          PAYLOAD=$(jq -Rn --arg content "$STATUS_MSG" '{content:$content}')
-          curl -s -H "Content-Type: application/json" -d "$PAYLOAD" "${{ secrets.DISCORD_WEBHOOK_URL }}"
+          # Build a nice embed payload; angle brackets around URL prevent a second rich preview
+          jq -n \
+            --arg prod "$PROD_RESULT" \
+            --arg stage "$STAGE_RESULT" \
+            --arg repo "$REPO" \
+            --arg ref "$REF" \
+            --arg run_url "$RUN_URL" \
+            --argjson color "$COLOR" \
+            '{
+              "embeds": [{
+                "title": "Deployment summary",
+                "color": $color,
+                "fields": [
+                  {"name": "Production", "value": $prod, "inline": true},
+                  {"name": "Staging", "value": $stage, "inline": true},
+                  {"name": "Ref", "value": $ref, "inline": true},
+                  {"name": "Run", "value": "<\($run_url)>"}
+                ],
+                "footer": {"text": $repo}
+              }],
+              "allowed_mentions": {"parse":[]},
+              "flags": 4096
+            }' \
+          | curl -sS -H "Content-Type: application/json" -d @- "$WEBHOOK"
