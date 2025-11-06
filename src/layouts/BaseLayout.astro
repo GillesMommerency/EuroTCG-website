@@ -10,6 +10,7 @@ export interface Props {
   locale?: Locale;
   noIndex?: boolean;
   structuredData?: Record<string, any>;
+  keywords?: string[];
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   locale: propLocale,
   noIndex = false,
   structuredData,
+  keywords,
 } = Astro.props;
 
 const currentUrl = Astro.url;
@@ -61,6 +63,7 @@ const dir = localeInfo.dir;
       locale={locale}
       noIndex={noIndex}
       structuredData={structuredData}
+      keywords={keywords}
     />
     
     <!-- Theme script (inline to prevent FOUC) -->

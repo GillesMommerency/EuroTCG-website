@@ -5,9 +5,10 @@ interface ProgressBarProps {
   label: string;
   progress: number;
   delay?: number;
+  className?: string;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ label, progress, delay = 0 }) => {
+const ProgressBar: React.FC<ProgressBarProps> = ({ label, progress, delay = 0, className }) => {
   const [animatedProgress, setAnimatedProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -27,7 +28,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ label, progress, delay = 0 })
         <span className="text-sm text-muted-foreground">{progress}%</span>
       </div>
       
-      <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+      <div className={cn("h-2 w-full rounded-full bg-muted overflow-hidden", className)}>
         <div
           className={cn(
             "h-full rounded-full bg-gradient-to-r from-primary to-primary/80 transition-all duration-1000 ease-out",

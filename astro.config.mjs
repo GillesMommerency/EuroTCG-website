@@ -94,11 +94,6 @@ export default defineConfig({
     checkOrigin: true,
   },
 
-  // Experimental features
-  experimental: {
-    contentCollectionCache: true,
-  },
-
   // Output configuration
   output: 'static',
   adapter: undefined, // Static generation for Docker deployment

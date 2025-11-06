@@ -3,9 +3,10 @@ import { cn } from '@/lib/utils';
 
 interface LanguageSwitcherProps {
   currentLocale: string;
+  languageUrls?: Record<string, string>;
 }
 
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale }) => {
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale, languageUrls }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
@@ -20,11 +21,15 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale }) =>
   const currentLanguage = languages.find(lang => lang.code === currentLocale) || languages[0];
 
   const handleLanguageChange = (langCode: string) => {
-    const currentPath = window.location.pathname;
-    const currentPathWithoutLocale = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '');
-    const newPath = langCode === 'en' ? currentPathWithoutLocale || '/' : `/${langCode}${currentPathWithoutLocale || '/'}`;
-    
-    window.location.href = newPath;
+    if (languageUrls && languageUrls[langCode]) {
+      window.location.href = languageUrls[langCode];
+    } else {
+      const currentPath = window.location.pathname;
+      const currentPathWithoutLocale = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '');
+      const newPath = langCode === 'en' ? currentPathWithoutLocale || '/' : `/${langCode}${currentPathWithoutLocale || '/'}`;
+      
+      window.location.href = newPath;
+    }
   };
 
   return (
