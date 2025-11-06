@@ -272,4 +272,3 @@ jobs:
               flags: 4096
             }' \
           | curl -sS -H "Content-Type: application/json" -d @- "$WEBHOOK"
-          
