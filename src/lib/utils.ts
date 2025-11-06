@@ -163,27 +163,15 @@ export const storage = {
  */
 export async function copyToClipboard(text: string): Promise<boolean> {
   if (typeof window === 'undefined') return false;
-
+  if (!navigator.clipboard || typeof navigator.clipboard.writeText !== 'function') {
+    // Clipboard API not available — let caller show a UI fallback (selectable text + "Press Ctrl/Cmd+C")
+    return false;
+  }
   try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      return true;
-    } else {
-      // Fallback for older browsers
-      const textArea = document.createElement('textarea');
-      textArea.value = text;
-      textArea.style.position = 'fixed';
-      textArea.style.left = '-999999px';
-      textArea.style.top = '-999999px';
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
-
-      const success = document.execCommand('copy');
-      document.body.removeChild(textArea);
-      return success;
-    }
-  } catch {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (err) {
+    console.warn('navigator.clipboard.writeText failed:', err);
     return false;
   }
 }
