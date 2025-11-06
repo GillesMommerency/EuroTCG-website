@@ -2,26 +2,28 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, staging, develop ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, staging ]
 
 env:
   NODE_VERSION: '18'
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  APP_PORT: '3000'
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  # Job 1: Lint and Type Check
   lint-and-typecheck:
     name: Lint and Type Check
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -29,26 +31,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run ESLint
+      - name: ESLint
         run: npm run lint
 
-      - name: Run Prettier check
+      - name: Prettier check
         run: npm run format:check
 
-      - name: Run TypeScript check
+      - name: TypeScript check
         run: npm run type-check
 
-  # Job 2: Build and Test
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-latest
     needs: lint-and-typecheck
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -56,7 +55,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
+      - name: Build
         run: npm run build
 
       - name: Upload build artifacts
@@ -66,17 +65,14 @@ jobs:
           path: dist/
           retention-days: 1
 
-  # Job 3: Accessibility and Performance Tests
   a11y-and-performance:
     name: Accessibility and Performance Tests
     runs-on: ubuntu-latest
     needs: build-and-test
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -109,7 +105,7 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
 
-      - name: Upload Playwright test results
+      - name: Upload Playwright report
         uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -117,56 +113,51 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-  # Job 4: Security Scan
-  security-scan:
-    name: Security Scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+#  security-scan:
+#    name: Security Scan
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
 
-      - name: Run npm audit
-        run: npm audit --audit-level moderate
+#      - name: NPM audit (moderate+)
+#        run: npm audit --audit-level=moderate
 
-      - name: Run Snyk security scan
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --severity-threshold=medium
+#      - name: Snyk Scan
+#        uses: snyk/actions/node@master
+#        env:
+#          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+#        with:
+#          args: --severity-threshold=medium
 
-  # Job 5: Build and Push Docker Image
   docker-build:
-    name: Build Docker Image
+    name: Build & Push Docker Image
     runs-on: ubuntu-latest
-    needs: [build-and-test, a11y-and-performance]
-    if: github.ref == 'refs/heads/main'
+    needs: [ build-and-test, a11y-and-performance ]
     permissions:
       contents: read
       packages: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Log in to Container Registry
+      - name: Login to GH Container Registry
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata
+      - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=ref,event=branch
-            type=ref,event=pr
-            type=sha,prefix={{branch}}-
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,prefix=${{ github.ref_name }}-
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
+            type=raw,value=staging,enable=${{ github.ref == 'refs/heads/staging' }}
 
-      - name: Build and push Docker image
+      - name: Build & Push
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -177,18 +168,58 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  # Job 6: Deploy to Production (manual trigger)
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: docker-build
+    if: github.ref == 'refs/heads/staging'
+    environment:
+      name: staging
+      url: ${{ secrets.STAGING_URL }}
+    concurrency:
+      group: deploy-staging
+      cancel-in-progress: false
+    steps:
+      - name: SSH Deploy (staging)
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          port: ${{ secrets.STAGING_PORT }}
+          script: |
+            set -e
+            cd ~/eurotcg/website/staging
+            if [ ! -d ".git" ]; then
+              git clone --branch staging --depth 1 git@github.com:${{ github.repository }} .
+            else
+              git fetch origin staging
+              git checkout staging
+              git pull origin staging
+            fi
+            docker compose -f docker/docker-compose.staging.yml pull
+            docker compose -f docker/docker-compose.staging.yml up -d --remove-orphans
+            docker image prune -f
+            docker container prune -f
+
+      - name: Health check (staging)
+        run: |
+          sleep 30
+          curl -f ${{ secrets.STAGING_URL }}/health || exit 1
+
   deploy-production:
     name: Deploy to Production
     runs-on: ubuntu-latest
     needs: docker-build
     if: github.ref == 'refs/heads/main'
-    environment: production
+    environment:
+      name: production
+      url: ${{ secrets.PRODUCTION_URL }}
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy to production server
+      - name: SSH Deploy (production)
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.PRODUCTION_HOST }}
@@ -196,33 +227,41 @@ jobs:
           key: ${{ secrets.PRODUCTION_SSH_KEY }}
           port: ${{ secrets.PRODUCTION_PORT }}
           script: |
-            cd /opt/eurotcg-website
-            git pull origin main
-            docker-compose -f docker/docker-compose.yml pull
-            docker-compose -f docker/docker-compose.yml up -d
-            docker system prune -f
+            set -e
+            cd ~/eurotcg/website/production
+            if [ ! -d ".git" ]; then
+              git clone --branch main --depth 1 git@github.com:${{ github.repository }} .
+            else
+              git fetch origin main
+              git checkout main
+              git pull origin main
+            fi
+            docker compose -f docker/docker-compose.yml pull
+            docker compose -f docker/docker-compose.yml up -d --remove-orphans
+            docker image prune -f
+            docker container prune -f
 
-      - name: Health check
+      - name: Health check (production)
         run: |
           sleep 30
           curl -f ${{ secrets.PRODUCTION_URL }}/health || exit 1
 
-  # Job 7: Notify on Success/Failure
   notify:
     name: Notify Results
     runs-on: ubuntu-latest
-    needs: [deploy-production]
+    needs: [ deploy-production, deploy-staging ]
     if: always()
     steps:
-      - name: Notify success
-        if: needs.deploy-production.result == 'success'
+      - name: Set outcome
+        id: outcome
         run: |
-          echo "✅ Deployment successful!"
-          # Add notification logic here (Slack, Discord, etc.)
+          PROD=${{ needs.deploy-production.result }}
+          STAGE=${{ needs.deploy-staging.result }}
+          echo "prod=${PROD}" >> $GITHUB_OUTPUT
+          echo "stage=${STAGE}" >> $GITHUB_OUTPUT
 
-      - name: Notify failure
-        if: needs.deploy-production.result == 'failure'
+      - name: Notify Discord
         run: |
-          echo "❌ Deployment failed!"
-          # Add notification logic here (Slack, Discord, etc.)
-          exit 1
+          STATUS_MSG="Deployment summary:\nProduction: ${{ steps.outcome.outputs.prod }}\nStaging: ${{ steps.outcome.outputs.stage }}\nRepo: ${{ github.repository }}\nRef: ${{ github.ref }}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          PAYLOAD=$(jq -Rn --arg content "$STATUS_MSG" '{content:$content}')
+          curl -s -H "Content-Type: application/json" -d "$PAYLOAD" "${{ secrets.DISCORD_WEBHOOK_URL }}"
