@@ -3,9 +3,10 @@ import { cn } from '@/lib/utils';
 
 interface LanguageSwitcherProps {
   currentLocale: string;
+  languageUrls?: Record<string, string>;
 }
 
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale }) => {
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale, languageUrls }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
@@ -20,11 +21,18 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale }) =>
   const currentLanguage = languages.find(lang => lang.code === currentLocale) || languages[0];
 
   const handleLanguageChange = (langCode: string) => {
-    const currentPath = window.location.pathname;
-    const currentPathWithoutLocale = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '');
-    const newPath = langCode === 'en' ? currentPathWithoutLocale || '/' : `/${langCode}${currentPathWithoutLocale || '/'}`;
-    
-    window.location.href = newPath;
+    if (languageUrls && languageUrls[langCode]) {
+      window.location.href = languageUrls[langCode];
+    } else {
+      const currentPath = window.location.pathname;
+      const currentPathWithoutLocale = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '');
+      const newPath =
+        langCode === 'en'
+          ? currentPathWithoutLocale || '/'
+          : `/${langCode}${currentPathWithoutLocale || '/'}`;
+
+      window.location.href = newPath;
+    }
   };
 
   return (
@@ -32,10 +40,10 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale }) =>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "flex items-center gap-2 rounded-md border border-input bg-background px-3 py-2",
-          "text-sm text-foreground transition-colors",
-          "hover:bg-accent hover:text-accent-foreground",
-          "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          'border-input bg-background flex items-center gap-2 rounded-md border px-3 py-2',
+          'text-foreground text-sm transition-colors',
+          'hover:bg-accent hover:text-accent-foreground',
+          'focus:ring-primary focus:outline-none focus:ring-2 focus:ring-offset-2'
         )}
         aria-label="Change language"
         aria-expanded={isOpen}
@@ -45,10 +53,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale }) =>
         <span className="hidden sm:inline">{currentLanguage.name}</span>
         <span className="sm:hidden">{currentLanguage.code.toUpperCase()}</span>
         <svg
-          className={cn(
-            "h-4 w-4 transition-transform",
-            isOpen && "rotate-180"
-          )}
+          className={cn('h-4 w-4 transition-transform', isOpen && 'rotate-180')}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -61,12 +66,12 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale }) =>
       {isOpen && (
         <div
           className={cn(
-            "absolute right-0 top-full mt-2 z-50",
-            "min-w-[160px] rounded-md border border-input bg-background shadow-lg",
-            "py-1 text-sm text-foreground"
+            'absolute right-0 top-full z-50 mt-2',
+            'border-input bg-background min-w-[160px] rounded-md border shadow-lg',
+            'text-foreground py-1 text-sm'
           )}
         >
-          {languages.map((language) => (
+          {languages.map(language => (
             <button
               key={language.code}
               onClick={() => {
@@ -74,10 +79,10 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale }) =>
                 setIsOpen(false);
               }}
               className={cn(
-                "flex w-full items-center gap-3 px-4 py-2 text-left",
-                "hover:bg-accent hover:text-accent-foreground",
-                "focus:outline-none focus:bg-accent focus:text-accent-foreground",
-                currentLocale === language.code && "bg-accent text-accent-foreground"
+                'flex w-full items-center gap-3 px-4 py-2 text-left',
+                'hover:bg-accent hover:text-accent-foreground',
+                'focus:bg-accent focus:text-accent-foreground focus:outline-none',
+                currentLocale === language.code && 'bg-accent text-accent-foreground'
               )}
             >
               <span className="text-lg leading-none">{language.flag}</span>
@@ -102,11 +107,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale }) =>
       )}
 
       {isOpen && (
-        <div
-          className="fixed inset-0 z-40"
-          onClick={() => setIsOpen(false)}
-          aria-hidden="true"
-        />
+        <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} aria-hidden="true" />
       )}
     </div>
   );

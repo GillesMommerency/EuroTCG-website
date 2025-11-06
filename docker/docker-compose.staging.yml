@@ -1,0 +1,27 @@
+services:
+  eurotcg-website-staging:
+    image: ghcr.io/<owner>/<repo>:staging
+    container_name: eurotcg-website-staging
+    restart: always
+    environment:
+      - NODE_ENV=staging
+      - TZ=Europe/Brussels
+    networks:
+      - traefik
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:3000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.eurotcg-staging.rule=Host(`staging.eurotcg.com`)
+      - traefik.http.routers.eurotcg-staging.entrypoints=websecure
+      - traefik.http.routers.eurotcg-staging.tls.certresolver=letsencrypt
+      - traefik.http.services.eurotcg-staging.loadbalancer.server.port=3000
+
+networks:
+  traefik:
+    external: true

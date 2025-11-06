@@ -5,9 +5,10 @@ interface ProgressBarProps {
   label: string;
   progress: number;
   delay?: number;
+  className?: string;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ label, progress, delay = 0 }) => {
+const ProgressBar: React.FC<ProgressBarProps> = ({ label, progress, delay = 0, className }) => {
   const [animatedProgress, setAnimatedProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -21,17 +22,17 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ label, progress, delay = 0 })
   }, [progress, delay]);
 
   return (
-    <div className={cn("space-y-2", isVisible && "animate-fade-up")}>
+    <div className={cn('space-y-2', isVisible && 'animate-fade-up')}>
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-foreground">{label}</span>
-        <span className="text-sm text-muted-foreground">{progress}%</span>
+        <span className="text-foreground text-sm font-medium">{label}</span>
+        <span className="text-muted-foreground text-sm">{progress}%</span>
       </div>
-      
-      <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+
+      <div className={cn('bg-muted h-2 w-full overflow-hidden rounded-full', className)}>
         <div
           className={cn(
-            "h-full rounded-full bg-gradient-to-r from-primary to-primary/80 transition-all duration-1000 ease-out",
-            !isVisible && "w-0"
+            'from-primary to-primary/80 h-full rounded-full bg-gradient-to-r transition-all duration-1000 ease-out',
+            !isVisible && 'w-0'
           )}
           style={{
             width: isVisible ? `${animatedProgress}%` : '0%',

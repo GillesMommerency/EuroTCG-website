@@ -111,37 +111,40 @@ export default {
     comingSoon: 'Prossimamente',
     heading: 'Qualcosa di Incredibile Sta Arrivando',
     subheading: 'Stiamo costruendo il gestore di collezioni di carte europeo definitivo',
-    description: 'EuroTCG sarà la tua piattaforma di riferimento per scansionare, organizzare e gestire le tue collezioni di carte. Costruito pensando ai collezionisti europei, con supporto multilingue e conformità GDPR.',
+    description:
+      'EuroTCG sarà la tua piattaforma di riferimento per scansionare, organizzare e gestire le tue collezioni di carte. Costruito pensando ai collezionisti europei, con supporto multilingue e conformità GDPR.',
     features: {
       title: 'Cosa Aspettarsi',
       scanning: {
         title: 'Scansione Avanzata delle Carte',
-        description: 'Usa la fotocamera del tuo telefono per identificare e catalogare istantaneamente le tue carte'
+        description:
+          'Usa la fotocamera del tuo telefono per identificare e catalogare istantaneamente le tue carte',
       },
       collection: {
         title: 'Gestione delle Collezioni',
-        description: 'Organizza le tue carte con categorie personalizzate, liste dei desideri e liste di scambio'
+        description:
+          'Organizza le tue carte con categorie personalizzate, liste dei desideri e liste di scambio',
       },
       marketplace: {
         title: 'Mercato Europeo',
-        description: 'Connettiti con collezionisti in tutta Europa per scambiare e vendere'
+        description: 'Connettiti con collezionisti in tutta Europa per scambiare e vendere',
       },
       mobile: {
         title: 'Design Mobile-First',
-        description: 'Ottimizzato per dispositivi mobili con capacità offline'
+        description: 'Ottimizzato per dispositivi mobili con capacità offline',
       },
       privacy: {
         title: 'Conforme GDPR',
-        description: 'I tuoi dati sono protetti con standard di privacy europei'
+        description: 'I tuoi dati sono protetti con standard di privacy europei',
       },
       multilingual: {
         title: 'Supporto Multilingue',
-        description: 'Disponibile in 6 lingue europee'
-      }
+        description: 'Disponibile in 6 lingue europee',
+      },
     },
     design: {
-      title: "Design & UI/UX",
-      description: "Design moderno e interfaccia intuitiva per un'esperienza utente eccellente."
+      title: 'Design & UI/UX',
+      description: "Design moderno e interfaccia intuitiva per un'esperienza utente eccellente.",
     },
     estimatedLaunch: "Lancio stimato per l'inizio del 2025",
     progress: {
@@ -151,40 +154,43 @@ export default {
       frontend: 'Sviluppo Frontend',
       mobile: 'App Mobile',
       testing: 'Test e QA',
-      launch: 'Preparazione al Lancio'
+      launch: 'Preparazione al Lancio',
     },
     newsletter: {
       title: 'Rimani Aggiornato',
-      subtitle: 'Ricevi aggiornamenti sui nostri progressi e sii il primo a sapere quando lanceremo',
+      subtitle:
+        'Ricevi aggiornamenti sui nostri progressi e sii il primo a sapere quando lanceremo',
       placeholder: 'Inserisci la tua email',
       button: 'Notificami',
       success: 'Grazie! Ti avviseremo quando saremo pronti.',
-      error: 'Qualcosa è andato storto. Riprova.'
+      error: 'Qualcosa è andato storto. Riprova.',
     },
     social: {
       title: 'Segui i nostri progressi',
       description: 'Resta aggiornato sullo sviluppo del nostro progetto.',
       github: 'Vedi il codice sorgente su GitHub',
       twitter: 'Seguici su Twitter per aggiornamenti',
-      discord: 'Unisciti alla nostra comunità Discord'
+      discord: 'Unisciti alla nostra comunità Discord',
     },
     tech: {
-      title: 'Costruito con Tecnologia All\'Avanguardia',
-      subtitle: 'Utilizziamo le ultime tecnologie web per garantire un\'esperienza veloce, affidabile e scalabile'
+      title: "Costruito con Tecnologia All'Avanguardia",
+      subtitle:
+        "Utilizziamo le ultime tecnologie web per garantire un'esperienza veloce, affidabile e scalabile",
     },
     contact: {
       title: 'Hai Domande?',
       subtitle: 'Ci piacerebbe sentirti',
       description: 'Non esitare a contattarci per qualsiasi domanda o suggerimento.',
       email: 'Invia Email',
-      github: 'GitHub Issues'
-    }
+      github: 'GitHub Issues',
+    },
   },
 
   // SEO and metadata
   seo: {
     defaultTitle: 'EuroTCG - Gestore Carte Collezionabili Europeo',
-    defaultDescription: 'La piattaforma definitiva per scansionare, organizzare e gestire le tue collezioni di carte. Costruito per collezionisti europei con supporto multilingue.',
+    defaultDescription:
+      'La piattaforma definitiva per scansionare, organizzare e gestire le tue collezioni di carte. Costruito per collezionisti europei con supporto multilingue.',
     keywords: 'carte collezionabili, TCG, collezione, scanner, Europa, scambio, GDPR, multilingue',
     author: 'Team EuroTCG',
     siteName: 'EuroTCG',
@@ -197,25 +203,25 @@ export default {
       product: 'Prodotto',
       company: 'Azienda',
       resources: 'Risorse',
-      legal: 'Legale'
+      legal: 'Legale',
     },
     legal: {
       privacy: 'Privacy',
       terms: 'Termini',
       cookies: 'Policy Cookie',
-      gdpr: 'GDPR'
+      gdpr: 'GDPR',
     },
     social: {
       followUs: 'Seguici',
       github: 'GitHub',
       twitter: 'Twitter',
-      discord: 'Discord'
+      discord: 'Discord',
     },
     newsletter: {
       title: 'Iscriviti alla Newsletter',
       subtitle: 'Gli ultimi aggiornamenti direttamente nella tua casella.',
       placeholder: 'Inserisci email',
-      button: 'Iscriviti'
+      button: 'Iscriviti',
     },
     copyright: 'Tutti i diritti riservati.',
   },
@@ -237,12 +243,12 @@ export default {
     404: {
       title: 'Pagina non trovata',
       description: 'La pagina che stai cercando non esiste.',
-      button: 'Torna alla home'
+      button: 'Torna alla home',
     },
     500: {
       title: 'Errore del server',
       description: 'Qualcosa è andato storto. Riprova più tardi.',
-      button: 'Aggiorna pagina'
-    }
-  }
+      button: 'Aggiorna pagina',
+    },
+  },
 } as const;

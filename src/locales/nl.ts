@@ -111,39 +111,42 @@ export default {
     comingSoon: 'Binnenkort beschikbaar',
     heading: 'Iets Geweldigs Komt Eraan',
     subheading: 'We bouwen de ultieme Europese ruilkaarten collectie manager',
-    description: 'EuroTCG wordt jouw go-to platform voor het scannen, organiseren en beheren van je ruilkaarten collecties. Gebouwd met Europese verzamelaars in gedachten, met meertalige ondersteuning en AVG-compliance.',
+    description:
+      'EuroTCG wordt jouw go-to platform voor het scannen, organiseren en beheren van je ruilkaarten collecties. Gebouwd met Europese verzamelaars in gedachten, met meertalige ondersteuning en AVG-compliance.',
     features: {
       title: 'Wat te Verwachten',
       scanning: {
         title: 'Geavanceerd Kaarten Scannen',
-        description: 'Gebruik je telefoon camera om je kaarten direct te identificeren en catalogiseren'
+        description:
+          'Gebruik je telefoon camera om je kaarten direct te identificeren en catalogiseren',
       },
       collection: {
         title: 'Collectie Beheer',
-        description: 'Organiseer je kaarten met aangepaste categorieën, verlanglijsten en ruillijsten'
+        description:
+          'Organiseer je kaarten met aangepaste categorieën, verlanglijsten en ruillijsten',
       },
       marketplace: {
         title: 'Europese Marktplaats',
-        description: 'Verbind met verzamelaars door heel Europa voor ruilen en verkopen'
+        description: 'Verbind met verzamelaars door heel Europa voor ruilen en verkopen',
       },
       mobile: {
         title: 'Mobile-First Design',
-        description: 'Geoptimaliseerd voor mobiele apparaten met offline mogelijkheden'
+        description: 'Geoptimaliseerd voor mobiele apparaten met offline mogelijkheden',
       },
       privacy: {
         title: 'AVG Compliant',
-        description: 'Je data is beschermd met Europese privacy standaarden'
+        description: 'Je data is beschermd met Europese privacy standaarden',
       },
       multilingual: {
         title: 'Meertalige Ondersteuning',
-        description: 'Beschikbaar in 6 Europese talen'
-      }
+        description: 'Beschikbaar in 6 Europese talen',
+      },
     },
     design: {
-      title: "Design & UI/UX",
-      description: "Modern design en intuïtieve interface voor een uitstekende gebruikerservaring."
+      title: 'Design & UI/UX',
+      description: 'Modern design en intuïtieve interface voor een uitstekende gebruikerservaring.',
     },
-    estimatedLaunch: "Geschatte lancering begin 2025",
+    estimatedLaunch: 'Geschatte lancering begin 2025',
     progress: {
       title: 'Ontwikkelingsvoortgang',
       design: 'Design & UX',
@@ -151,40 +154,43 @@ export default {
       frontend: 'Frontend Ontwikkeling',
       mobile: 'Mobiele App',
       testing: 'Tests & QA',
-      launch: 'Launch Voorbereiding'
+      launch: 'Launch Voorbereiding',
     },
     newsletter: {
       title: 'Blijf Op de Hoogte',
-      subtitle: 'Ontvang updates over onze voortgang en wees de eerste die het weet wanneer we lanceren',
+      subtitle:
+        'Ontvang updates over onze voortgang en wees de eerste die het weet wanneer we lanceren',
       placeholder: 'Voer je e-mail in',
       button: 'Meld me aan',
       success: 'Bedankt! We laten je weten wanneer we klaar zijn.',
-      error: 'Er ging iets mis. Probeer het opnieuw.'
+      error: 'Er ging iets mis. Probeer het opnieuw.',
     },
     social: {
       title: 'Volg onze voortgang',
       description: 'Blijf op de hoogte van de ontwikkeling van ons project.',
       github: 'Bekijk broncode op GitHub',
       twitter: 'Volg ons op Twitter voor updates',
-      discord: 'Doe mee met onze Discord community'
+      discord: 'Doe mee met onze Discord community',
     },
     tech: {
       title: 'Gebouwd met Geavanceerde Technologie',
-      subtitle: 'We gebruiken de nieuwste webtechnologieën om een snelle, betrouwbare en schaalbare ervaring te garanderen'
+      subtitle:
+        'We gebruiken de nieuwste webtechnologieën om een snelle, betrouwbare en schaalbare ervaring te garanderen',
     },
     contact: {
       title: 'Vragen?',
       subtitle: 'We horen graag van je',
       description: 'Aarzel niet om contact met ons op te nemen voor vragen of suggesties.',
       email: 'Stuur E-mail',
-      github: 'GitHub Issues'
-    }
+      github: 'GitHub Issues',
+    },
   },
 
   // SEO and metadata
   seo: {
     defaultTitle: 'EuroTCG - Europese Ruilkaarten Manager',
-    defaultDescription: 'Het ultieme platform voor het scannen, organiseren en beheren van je ruilkaarten collecties. Gebouwd voor Europese verzamelaars met meertalige ondersteuning.',
+    defaultDescription:
+      'Het ultieme platform voor het scannen, organiseren en beheren van je ruilkaarten collecties. Gebouwd voor Europese verzamelaars met meertalige ondersteuning.',
     keywords: 'ruilkaarten, TCG, collectie, scanner, Europa, ruilen, AVG, meertalig',
     author: 'EuroTCG Team',
     siteName: 'EuroTCG',
@@ -197,25 +203,25 @@ export default {
       product: 'Product',
       company: 'Bedrijf',
       resources: 'Bronnen',
-      legal: 'Juridisch'
+      legal: 'Juridisch',
     },
     legal: {
       privacy: 'Privacy',
       terms: 'Voorwaarden',
       cookies: 'Cookie Beleid',
-      gdpr: 'AVG'
+      gdpr: 'AVG',
     },
     social: {
       followUs: 'Volg ons',
       github: 'GitHub',
       twitter: 'Twitter',
-      discord: 'Discord'
+      discord: 'Discord',
     },
     newsletter: {
       title: 'Inschrijven voor Nieuwsbrief',
       subtitle: 'De laatste updates direct in je inbox.',
       placeholder: 'Voer e-mail in',
-      button: 'Inschrijven'
+      button: 'Inschrijven',
     },
     copyright: 'Alle rechten voorbehouden.',
   },
@@ -237,12 +243,12 @@ export default {
     404: {
       title: 'Pagina niet gevonden',
       description: 'De pagina die je zoekt bestaat niet.',
-      button: 'Terug naar home'
+      button: 'Terug naar home',
     },
     500: {
       title: 'Server fout',
       description: 'Er ging iets mis. Probeer het later opnieuw.',
-      button: 'Pagina vernieuwen'
-    }
-  }
+      button: 'Pagina vernieuwen',
+    },
+  },
 } as const;

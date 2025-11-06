@@ -88,46 +88,47 @@ export default {
     title: 'EuroTCG - Under Construction',
     comingSoon: 'Coming Soon',
     heading: 'Something Amazing is Coming Soon',
-    subheading: 'We\'re building the ultimate European trading card game collection manager',
-    description: 'EuroTCG will be your go-to platform for scanning, organizing, and managing your trading card collections. Built with European collectors in mind, featuring multi-language support and GDPR compliance.',
+    subheading: "We're building the ultimate European trading card game collection manager",
+    description:
+      'EuroTCG will be your go-to platform for scanning, organizing, and managing your trading card collections. Built with European collectors in mind, featuring multi-language support and GDPR compliance.',
     features: {
       title: 'What to Expect',
       scanning: {
         title: 'Advanced Card Scanning',
-        description: 'Use your phone camera to instantly identify and catalog your cards'
+        description: 'Use your phone camera to instantly identify and catalog your cards',
       },
       collection: {
         title: 'Collection Management',
-        description: 'Organize your cards with custom categories, wishlists, and trading lists'
+        description: 'Organize your cards with custom categories, wishlists, and trading lists',
       },
       marketplace: {
         title: 'European Marketplace',
-        description: 'Connect with collectors across Europe for trading and selling'
+        description: 'Connect with collectors across Europe for trading and selling',
       },
       mobile: {
         title: 'Mobile-First Design',
-        description: 'Optimized for mobile devices with offline capabilities'
+        description: 'Optimized for mobile devices with offline capabilities',
       },
       privacy: {
         title: 'GDPR Compliant',
-        description: 'Your data is protected with European privacy standards'
+        description: 'Your data is protected with European privacy standards',
       },
       multilingual: {
         title: 'Multilingual Support',
-        description: 'Available in English, French, German, Spanish, Italian, and Dutch'
-      }
+        description: 'Available in English, French, German, Spanish, Italian, and Dutch',
+      },
     },
     newsletter: {
       title: 'Stay Updated',
       description: 'Be the first to know when we launch',
       placeholder: 'Enter your email address',
       button: 'Notify Me',
-      success: 'Thank you! We\'ll keep you updated.',
-      error: 'Please enter a valid email address.'
+      success: "Thank you! We'll keep you updated.",
+      error: 'Please enter a valid email address.',
     },
     social: {
       title: 'Follow Our Progress',
-      description: 'Get behind-the-scenes updates and sneak peeks'
+      description: 'Get behind-the-scenes updates and sneak peeks',
     },
     progress: {
       title: 'Development Progress',
@@ -135,21 +136,23 @@ export default {
       backend: 'Backend Development',
       mobile: 'Mobile App',
       testing: 'Testing & QA',
-      launch: 'Launch Preparation'
+      launch: 'Launch Preparation',
     },
     estimatedLaunch: 'Estimated Launch: Q2 2024',
     contact: {
       title: 'Questions?',
       description: 'Get in touch with our team',
-      email: 'hello@eurotcg.com'
-    }
+      email: 'hello@eurotcg.com',
+    },
   },
 
   // SEO and Meta
   seo: {
     defaultTitle: 'EuroTCG - European Trading Card Game Collection Manager',
-    defaultDescription: 'The ultimate platform for European TCG collectors. Scan, organize, and manage your trading card collections with advanced tools and GDPR compliance.',
-    keywords: 'trading card games, TCG, collection manager, card scanner, European marketplace, GDPR compliant, Pokemon, Magic, Yu-Gi-Oh'
+    defaultDescription:
+      'The ultimate platform for European TCG collectors. Scan, organize, and manage your trading card collections with advanced tools and GDPR compliance.',
+    keywords:
+      'trading card games, TCG, collection manager, card scanner, European marketplace, GDPR compliant, Pokemon, Magic, Yu-Gi-Oh',
   },
 
   // Footer
@@ -160,7 +163,7 @@ export default {
       careers: 'Careers',
       press: 'Press',
       blog: 'Blog',
-      contact: 'Contact'
+      contact: 'Contact',
     },
     product: {
       title: 'Product',
@@ -168,7 +171,7 @@ export default {
       pricing: 'Pricing',
       security: 'Security',
       roadmap: 'Roadmap',
-      changelog: 'Changelog'
+      changelog: 'Changelog',
     },
     support: {
       title: 'Support',
@@ -176,7 +179,7 @@ export default {
       documentation: 'Documentation',
       api: 'API Reference',
       status: 'Status',
-      community: 'Community'
+      community: 'Community',
     },
     legal: {
       title: 'Legal',
@@ -184,10 +187,10 @@ export default {
       terms: 'Terms of Service',
       cookies: 'Cookie Policy',
       gdpr: 'GDPR Compliance',
-      imprint: 'Imprint'
+      imprint: 'Imprint',
     },
     copyright: '© 2024 EuroTCG. All rights reserved.',
-    madeWith: 'Made with ❤️ in Europe'
+    madeWith: 'Made with ❤️ in Europe',
   },
 
   // Forms
@@ -199,8 +202,8 @@ export default {
       maxLength: 'Must be no more than {max} characters',
       pattern: 'Please enter a valid format',
       numeric: 'Please enter a valid number',
-      url: 'Please enter a valid URL'
-    }
+      url: 'Please enter a valid URL',
+    },
   },
 
   // Time and dates
@@ -211,7 +214,7 @@ export default {
     days_ago: '{count} days ago',
     weeks_ago: '{count} weeks ago',
     months_ago: '{count} months ago',
-    years_ago: '{count} years ago'
+    years_ago: '{count} years ago',
   },
 
   // Accessibility
@@ -224,6 +227,6 @@ export default {
     languageSwitcher: 'Change language',
     themeSwitcher: 'Toggle theme',
     expandMenu: 'Expand menu',
-    collapseMenu: 'Collapse menu'
-  }
+    collapseMenu: 'Collapse menu',
+  },
 } as const;

@@ -111,33 +111,36 @@ export default {
     comingSoon: 'Próximamente',
     heading: 'Algo Increíble Viene Pronto',
     subheading: 'Estamos construyendo el gestor de colecciones de cartas europeo definitivo',
-    description: 'EuroTCG será tu plataforma principal para escanear, organizar y gestionar tus colecciones de cartas. Construido pensando en los coleccionistas europeos, con soporte multiidioma y cumplimiento GDPR.',
+    description:
+      'EuroTCG será tu plataforma principal para escanear, organizar y gestionar tus colecciones de cartas. Construido pensando en los coleccionistas europeos, con soporte multiidioma y cumplimiento GDPR.',
     features: {
       title: 'Qué Esperar',
       scanning: {
         title: 'Escaneo Avanzado de Cartas',
-        description: 'Usa la cámara de tu teléfono para identificar y catalogar instantáneamente tus cartas'
+        description:
+          'Usa la cámara de tu teléfono para identificar y catalogar instantáneamente tus cartas',
       },
       collection: {
         title: 'Gestión de Colecciones',
-        description: 'Organiza tus cartas con categorías personalizadas, listas de deseos y listas de intercambio'
+        description:
+          'Organiza tus cartas con categorías personalizadas, listas de deseos y listas de intercambio',
       },
       marketplace: {
         title: 'Mercado Europeo',
-        description: 'Conecta con coleccionistas de toda Europa para intercambiar y vender'
+        description: 'Conecta con coleccionistas de toda Europa para intercambiar y vender',
       },
       mobile: {
         title: 'Diseño Mobile-First',
-        description: 'Optimizado para dispositivos móviles con capacidades offline'
+        description: 'Optimizado para dispositivos móviles con capacidades offline',
       },
       privacy: {
         title: 'Cumple GDPR',
-        description: 'Tus datos están protegidos con estándares de privacidad europeos'
+        description: 'Tus datos están protegidos con estándares de privacidad europeos',
       },
       multilingual: {
         title: 'Soporte Multiidioma',
-        description: 'Disponible en 6 idiomas europeos'
-      }
+        description: 'Disponible en 6 idiomas europeos',
+      },
     },
     progress: {
       title: 'Progreso de Desarrollo',
@@ -146,42 +149,46 @@ export default {
       frontend: 'Desarrollo Frontend',
       mobile: 'App Móvil',
       testing: 'Pruebas y QA',
-      launch: 'Preparación de Lanzamiento'
+      launch: 'Preparación de Lanzamiento',
     },
     newsletter: {
       title: 'Mantente Actualizado',
-      subtitle: 'Recibe actualizaciones sobre nuestro progreso y sé el primero en saber cuando lancemos',
+      subtitle:
+        'Recibe actualizaciones sobre nuestro progreso y sé el primero en saber cuando lancemos',
       placeholder: 'Ingresa tu email',
       button: 'Notificarme',
       success: '¡Gracias! Te notificaremos cuando estemos listos.',
-      error: 'Algo salió mal. Por favor intenta de nuevo.'
+      error: 'Algo salió mal. Por favor intenta de nuevo.',
     },
     social: {
       title: 'Sigue nuestro progreso',
       description: 'Obtén actualizaciones detrás de escena y adelantos exclusivos',
       github: 'Ver código fuente en GitHub',
       twitter: 'Síguenos en Twitter para actualizaciones',
-      discord: 'Únete a nuestra comunidad Discord'
+      discord: 'Únete a nuestra comunidad Discord',
     },
     tech: {
       title: 'Construido con Tecnología de Vanguardia',
-      subtitle: 'Usamos las últimas tecnologías web para asegurar una experiencia rápida, confiable y escalable'
+      subtitle:
+        'Usamos las últimas tecnologías web para asegurar una experiencia rápida, confiable y escalable',
     },
     contact: {
       title: '¿Tienes Preguntas?',
       subtitle: 'Nos encantaría saber de ti',
       description: 'Ponte en contacto con nuestro equipo',
       email: 'Enviar Email',
-      github: 'GitHub Issues'
+      github: 'GitHub Issues',
     },
-    estimatedLaunch: 'Lanzamiento Estimado: Q2 2024'
+    estimatedLaunch: 'Lanzamiento Estimado: Q2 2024',
   },
 
   // SEO and metadata
   seo: {
     defaultTitle: 'EuroTCG - Gestor de Cartas Coleccionables Europeo',
-    defaultDescription: 'La plataforma definitiva para escanear, organizar y gestionar tus colecciones de cartas. Construido para coleccionistas europeos con soporte multiidioma.',
-    keywords: 'cartas coleccionables, TCG, colección, escáner, Europa, intercambio, GDPR, multiidioma',
+    defaultDescription:
+      'La plataforma definitiva para escanear, organizar y gestionar tus colecciones de cartas. Construido para coleccionistas europeos con soporte multiidioma.',
+    keywords:
+      'cartas coleccionables, TCG, colección, escáner, Europa, intercambio, GDPR, multiidioma',
     author: 'Equipo EuroTCG',
     siteName: 'EuroTCG',
   },
@@ -193,25 +200,25 @@ export default {
       product: 'Producto',
       company: 'Empresa',
       resources: 'Recursos',
-      legal: 'Legal'
+      legal: 'Legal',
     },
     legal: {
       privacy: 'Privacidad',
       terms: 'Términos',
       cookies: 'Política de Cookies',
-      gdpr: 'GDPR'
+      gdpr: 'GDPR',
     },
     social: {
       followUs: 'Síguenos',
       github: 'GitHub',
       twitter: 'Twitter',
-      discord: 'Discord'
+      discord: 'Discord',
     },
     newsletter: {
       title: 'Suscríbete al Boletín',
       subtitle: 'Las últimas actualizaciones directamente en tu bandeja de entrada.',
       placeholder: 'Ingresa email',
-      button: 'Suscribirse'
+      button: 'Suscribirse',
     },
     copyright: 'Todos los derechos reservados.',
   },
@@ -233,12 +240,12 @@ export default {
     404: {
       title: 'Página no encontrada',
       description: 'La página que buscas no existe.',
-      button: 'Volver al inicio'
+      button: 'Volver al inicio',
     },
     500: {
       title: 'Error del servidor',
       description: 'Algo salió mal. Por favor intenta de nuevo más tarde.',
-      button: 'Actualizar página'
-    }
-  }
+      button: 'Actualizar página',
+    },
+  },
 } as const;

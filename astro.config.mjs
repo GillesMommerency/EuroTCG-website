@@ -8,7 +8,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://eurotcg.com',
   trailingSlash: 'ignore',
-  
+
   // Internationalization
   i18n: {
     defaultLocale: 'en',
@@ -92,11 +92,6 @@ export default defineConfig({
   // Security headers
   security: {
     checkOrigin: true,
-  },
-
-  // Experimental features
-  experimental: {
-    contentCollectionCache: true,
   },
 
   // Output configuration

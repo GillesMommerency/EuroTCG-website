@@ -107,11 +107,11 @@ export function getContrastRatio(color1: string, color2: string): number {
     const r = parseInt(hex.slice(0, 2), 16) / 255;
     const g = parseInt(hex.slice(2, 4), 16) / 255;
     const b = parseInt(hex.slice(4, 6), 16) / 255;
-    
-    const [rs, gs, bs] = [r, g, b].map(c => 
+
+    const [rs, gs, bs] = [r, g, b].map(c =>
       c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)
     );
-    
+
     return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
   };
 
@@ -119,7 +119,7 @@ export function getContrastRatio(color1: string, color2: string): number {
   const lum2 = getLuminance(color2);
   const brightest = Math.max(lum1, lum2);
   const darkest = Math.min(lum1, lum2);
-  
+
   return (brightest + 0.05) / (darkest + 0.05);
 }
 
@@ -136,7 +136,7 @@ export const storage = {
       return defaultValue;
     }
   },
-  
+
   set: (key: string, value: any): void => {
     if (typeof window === 'undefined') return;
     try {
@@ -145,7 +145,7 @@ export const storage = {
       // Silently fail
     }
   },
-  
+
   remove: (key: string): void => {
     if (typeof window === 'undefined') return;
     try {
@@ -153,7 +153,7 @@ export const storage = {
     } catch {
       // Silently fail
     }
-  }
+  },
 };
 
 /**
@@ -163,27 +163,15 @@ export const storage = {
  */
 export async function copyToClipboard(text: string): Promise<boolean> {
   if (typeof window === 'undefined') return false;
-  
+  if (!navigator.clipboard || typeof navigator.clipboard.writeText !== 'function') {
+    // Clipboard API not available — let caller show a UI fallback (selectable text + "Press Ctrl/Cmd+C")
+    return false;
+  }
   try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      return true;
-    } else {
-      // Fallback for older browsers
-      const textArea = document.createElement('textarea');
-      textArea.value = text;
-      textArea.style.position = 'fixed';
-      textArea.style.left = '-999999px';
-      textArea.style.top = '-999999px';
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
-      
-      const success = document.execCommand('copy');
-      document.body.removeChild(textArea);
-      return success;
-    }
-  } catch {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (err) {
+    console.warn('navigator.clipboard.writeText failed:', err);
     return false;
   }
 }

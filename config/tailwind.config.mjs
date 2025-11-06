@@ -87,7 +87,7 @@ export default {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'bounce-subtle': 'bounceSubtle 2s infinite',
         'card-flip': 'cardFlip 0.6s ease-in-out',
-        'shimmer': 'shimmer 2s linear infinite',
+        shimmer: 'shimmer 2s linear infinite',
       },
       keyframes: {
         fadeIn: {

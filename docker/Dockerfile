@@ -32,7 +32,7 @@ WORKDIR /app
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Copy custom nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY docker/nginx.conf /etc/nginx/nginx.conf
 
 # Add labels for better container management
 LABEL org.opencontainers.image.title="EuroTCG Website"
