@@ -1,6 +1,8 @@
 # EuroTCG Website
 
-A modern, European-focused trading card game collection manager website built with Astro, featuring multilingual support, GDPR compliance, and performance optimization.
+A modern, European-focused trading card game collection manager website built
+with Astro, featuring multilingual support, GDPR compliance, and performance
+optimization.
 
 ## 🚀 Features
 
@@ -18,6 +20,7 @@ A modern, European-focused trading card game collection manager website built wi
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **Framework**: Astro 4.x (Static Site Generation)
 - **UI Framework**: React 18 (for interactive islands)
 - **Styling**: Tailwind CSS 3.x with CSS variables
@@ -26,6 +29,7 @@ A modern, European-focused trading card game collection manager website built wi
 - **Typography**: Inter Variable font
 
 ### Development
+
 - **Language**: TypeScript
 - **Package Manager**: npm
 - **Linting**: ESLint with accessibility rules
@@ -34,6 +38,7 @@ A modern, European-focused trading card game collection manager website built wi
 - **Performance**: Lighthouse CI
 
 ### Deployment
+
 - **Containerization**: Docker
 - **Web Server**: nginx
 - **Reverse Proxy**: Traefik (with SSL termination)
@@ -89,23 +94,25 @@ eurotcg-website/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/eurotcg/eurotcg-website.git
    cd eurotcg-website
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm run dev
    ```
 
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
+4. **Open your browser** Navigate to `http://localhost:3000`
 
 ### Development Commands
 
@@ -217,12 +224,7 @@ export default defineConfig({
     defaultLocale: 'en',
     locales: ['en', 'fr', 'de', 'es', 'it', 'nl'],
   },
-  integrations: [
-    tailwind(),
-    react(),
-    mdx(),
-    sitemap(),
-  ],
+  integrations: [tailwind(), react(), mdx(), sitemap()],
 });
 ```
 
@@ -231,12 +233,14 @@ export default defineConfig({
 ### Docker Deployment
 
 1. **Build and run locally**
+
    ```bash
    npm run docker:build
    npm run docker:run
    ```
 
 2. **Production deployment**
+
    ```bash
    # Using the deployment script
    chmod +x deploy.sh
@@ -373,18 +377,21 @@ chore: maintenance tasks
 ## 📈 Roadmap
 
 ### Phase 1: Under Construction (Current)
+
 - [x] Basic site structure
 - [x] Multilingual support
 - [x] Performance optimization
 - [x] Deployment pipeline
 
 ### Phase 2: MVP Features
+
 - [ ] User authentication
 - [ ] Card scanning functionality
 - [ ] Collection management
 - [ ] Basic marketplace
 
 ### Phase 3: Advanced Features
+
 - [ ] Social features
 - [ ] Advanced analytics
 - [ ] Mobile app
@@ -392,7 +399,8 @@ chore: maintenance tasks
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file
+for details.
 
 ## 🙏 Acknowledgments
 
@@ -404,7 +412,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## 📞 Support
 
 - **Email**: hello@eurotcg.com
-- **GitHub Issues**: [Report a bug](https://github.com/eurotcg/eurotcg-website/issues)
+- **GitHub Issues**:
+  [Report a bug](https://github.com/eurotcg/eurotcg-website/issues)
 - **Discord**: [Join our community](https://discord.gg/eurotcg)
 
 ---

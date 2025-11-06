@@ -9,10 +9,12 @@ const blog = defineCollection({
     publishDate: z.date(),
     updatedDate: z.date().optional(),
     author: z.string().default('EuroTCG Team'),
-    image: z.object({
-      src: z.string(),
-      alt: z.string(),
-    }).optional(),
+    image: z
+      .object({
+        src: z.string(),
+        alt: z.string(),
+      })
+      .optional(),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),

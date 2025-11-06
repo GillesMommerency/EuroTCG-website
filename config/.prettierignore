@@ -73,6 +73,7 @@ temp/
 *.tmp
 
 # Package manager
+package-lock.json
 package-lock.json.backup
 yarn.lock.backup
 
