@@ -1,10 +1,10 @@
 name: CI/CD Pipeline
 
-on:
+on:  
   push:
-    branches: [ main, staging, staging, dev ]
+      branches: [ dev ]
   pull_request:
-    branches: [ main, staging ]
+      branches: [ main, staging ]
 
 env:
   NODE_VERSION: '18'
@@ -113,14 +113,16 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-#  security-scan:
-#    name: Security Scan
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v4
+  # Job 4: Security Scan
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-#      - name: NPM audit (moderate+)
-#        run: npm audit --audit-level=moderate
+      - name: Run npm audit
+        run: npm audit --audit-level moderate
 
 #      - name: Snyk Scan
 #        uses: snyk/actions/node@master
@@ -175,7 +177,7 @@ jobs:
     if: github.ref == 'refs/heads/staging'
     environment:
       name: staging
-      url: ${{ secrets.STAGING_URL }}
+      url: ${{ vars.STAGING_URL }}
     concurrency:
       group: deploy-staging
       cancel-in-progress: false
@@ -214,7 +216,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     environment:
       name: production
-      url: ${{ secrets.PRODUCTION_URL }}
+      url: ${{ vars.PRODUCTION_URL }}
     concurrency:
       group: deploy-production
       cancel-in-progress: false
