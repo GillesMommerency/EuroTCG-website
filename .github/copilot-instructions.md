@@ -72,21 +72,6 @@ npm run build            # Build + type check
 npm run preview          # Preview build (port 4321)
 ```
 
-### Testing Strategy
-```bash
-npm run test             # Playwright E2E tests (all browsers)
-npm run test:ui          # Interactive test runner
-npm run test:headed      # Visual debugging mode
-```
-**Config**: `config/playwright.config.ts` - tests expect preview server on port 4321
-
-**Test Coverage**:
-- Cross-browser compatibility (Chrome, Firefox, Safari)
-- Mobile responsiveness (Pixel 5, iPhone 12)
-- Accessibility compliance (WCAG AA)
-- Performance budgets and Core Web Vitals
-- Multilingual functionality across all locales
-
 ### Deployment Environments
 ```bash
 npm run docker:build     # Multi-stage Alpine build
@@ -103,7 +88,7 @@ npm run deploy           # Full deployment pipeline
 ## Project-Specific Conventions
 
 ### 1. File Organization
-- **Configs in `config/`**: `tailwind.config.mjs`, `playwright.config.ts`
+- **Configs in `config/`**: `tailwind.config.mjs`
 - **Absolute imports**: Use `@/` alias for `src/` (configured in `tsconfig.json`)
 - **React components**: Only in `src/components/react/` directory
 

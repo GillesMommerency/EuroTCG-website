@@ -34,7 +34,6 @@ optimization.
 - **Package Manager**: npm
 - **Linting**: ESLint with accessibility rules
 - **Formatting**: Prettier with Astro plugin
-- **Testing**: Playwright for E2E testing
 - **Performance**: Lighthouse CI
 
 ### Deployment
@@ -128,11 +127,6 @@ npm run lint:fix         # Fix ESLint issues
 npm run format           # Format with Prettier
 npm run format:check     # Check Prettier formatting
 npm run type-check       # TypeScript type checking
-
-# Testing
-npm run test             # Run Playwright tests
-npm run test:ui          # Run tests with UI
-npm run test:headed      # Run tests in headed mode
 
 # Docker
 npm run docker:build     # Build Docker image
