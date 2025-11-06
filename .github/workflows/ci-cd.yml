@@ -87,14 +87,38 @@ jobs:
           name: build-files
           path: dist/
 
-      - name: Serve build locally on port 4321
-        # Start a static server in background and wait until it's ready.
+      - name: Debug show dist contents
         run: |
-          # Start a lightweight static server serving 'dist' on port 4321 in background
-          # npx will fetch http-server if not present.
-          npx http-server dist -p 4321 --silent > /tmp/http-server.log 2>&1 & echo $! > /tmp/http-server.pid
-          # Wait for http://localhost:4321 to respond (wait-on will be fetched by npx)
-          npx wait-on http://localhost:4321 --timeout 120000
+          echo "Listing dist/ (for debugging)"
+          ls -la dist || true
+          if [ -f dist/index.html ]; then
+            echo "dist/index.html exists (first 20 lines):"
+            sed -n '1,20p' dist/index.html || true
+          else
+            echo "WARNING: dist/index.html not found."
+          fi
+
+      - name: Serve build on port 4321 (python3) and wait for ready
+        run: |
+          set -euo pipefail
+          # Start simple HTTP server in background and capture logs and PID
+          echo "Starting python3 http.server on port 4321 serving 'dist'..."
+          python3 -m http.server 4321 --directory dist > /tmp/simple-http.log 2>&1 & echo $! > /tmp/http.pid
+          # Wait up to 120 seconds for the server to respond
+          MAX_WAIT=120
+          i=0
+          until curl -sSf http://localhost:4321/ > /dev/null 2>&1; do
+            i=$((i+1))
+            if [ "$i" -ge "$MAX_WAIT" ]; then
+              echo "Timed out waiting for http://localhost:4321 after ${MAX_WAIT}s"
+              echo "---- server log (/tmp/simple-http.log) ----"
+              sed -n '1,200p' /tmp/simple-http.log || true
+              if [ -f /tmp/http.pid ]; then kill $(cat /tmp/http.pid) || true; fi
+              exit 1
+            fi
+            sleep 1
+          done
+          echo "Server is responding on http://localhost:4321 (waited ${i}s)"
 
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v10
@@ -278,3 +302,4 @@ jobs:
               flags: 4096
             }' \
           | curl -sS -H "Content-Type: application/json" -d @- "$WEBHOOK"
+          
