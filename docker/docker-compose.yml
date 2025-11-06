@@ -1,18 +1,13 @@
-version: '3.8'
-
 services:
   eurotcg-website:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile
+    image: ghcr.io/<owner>/<repo>:latest
     container_name: eurotcg-website
-    restart: unless-stopped
-    ports:
-      - "3000:3000"
+    restart: always
     environment:
       - NODE_ENV=production
+      - TZ=Europe/Brussels
     networks:
-      - eurotcg-network
+      - traefik
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
       interval: 30s
@@ -20,96 +15,20 @@ services:
       retries: 3
       start_period: 40s
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.eurotcg.rule=Host(`eurotcg.com`,`www.eurotcg.com`)"
-      - "traefik.http.routers.eurotcg.entrypoints=websecure"
-      - "traefik.http.routers.eurotcg.tls.certresolver=letsencrypt"
-      - "traefik.http.services.eurotcg.loadbalancer.server.port=3000"
-      # Redirect www to non-www
-      - "traefik.http.routers.eurotcg-www.rule=Host(`www.eurotcg.com`)"
-      - "traefik.http.routers.eurotcg-www.entrypoints=websecure"
-      - "traefik.http.routers.eurotcg-www.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.eurotcg-www.middlewares=www-redirect"
-      - "traefik.http.middlewares.www-redirect.redirectregex.regex=^https://www.eurotcg.com/(.*)"
-      - "traefik.http.middlewares.www-redirect.redirectregex.replacement=https://eurotcg.com/$${1}"
-      - "traefik.http.middlewares.www-redirect.redirectregex.permanent=true"
-
-  # Reverse proxy (optional, for SSL termination and load balancing)
-  traefik:
-    image: traefik:v3.0
-    container_name: eurotcg-traefik
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-      - "8080:8080" # Traefik dashboard (remove in production)
-    command:
-      - --api.dashboard=true
-      - --api.insecure=true # Remove in production
-      - --providers.docker=true
-      - --providers.docker.exposedbydefault=false
-      - --entrypoints.web.address=:80
-      - --entrypoints.websecure.address=:443
-      - --certificatesresolvers.letsencrypt.acme.httpchallenge=true
-      - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
-      - --certificatesresolvers.letsencrypt.acme.email=admin@eurotcg.com
-      - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
-      # Redirect HTTP to HTTPS
-      - --entrypoints.web.http.redirections.entryPoint.to=websecure
-      - --entrypoints.web.http.redirections.entryPoint.scheme=https
-      - --entrypoints.web.http.redirections.entrypoint.permanent=true
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - letsencrypt:/letsencrypt
-    networks:
-      - eurotcg-network
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.dashboard.rule=Host(`traefik.eurotcg.com`)"
-      - "traefik.http.routers.dashboard.entrypoints=websecure"
-      - "traefik.http.routers.dashboard.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.dashboard.service=api@internal"
-
-  # Database (for future use when adding dynamic features)
-  # postgres:
-  #   image: postgres:15-alpine
-  #   container_name: eurotcg-postgres
-  #   restart: unless-stopped
-  #   environment:
-  #     POSTGRES_DB: eurotcg
-  #     POSTGRES_USER: eurotcg
-  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-  #   volumes:
-  #     - postgres_data:/var/lib/postgresql/data
-  #   networks:
-  #     - eurotcg-network
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "pg_isready -U eurotcg"]
-  #     interval: 30s
-  #     timeout: 10s
-  #     retries: 5
-
-  # Redis (for future caching needs)
-  # redis:
-  #   image: redis:7-alpine
-  #   container_name: eurotcg-redis
-  #   restart: unless-stopped
-  #   command: redis-server --appendonly yes
-  #   volumes:
-  #     - redis_data:/data
-  #   networks:
-  #     - eurotcg-network
-  #   healthcheck:
-  #     test: ["CMD", "redis-cli", "ping"]
-  #     interval: 30s
-  #     timeout: 10s
-  #     retries: 5
-
-volumes:
-  letsencrypt:
-  # postgres_data:
-  # redis_data:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.eurotcg.rule=Host(`eurotcg.com`,`www.eurotcg.com`)
+      - traefik.http.routers.eurotcg.entrypoints=websecure
+      - traefik.http.routers.eurotcg.tls.certresolver=letsencrypt
+      - traefik.http.services.eurotcg.loadbalancer.server.port=3000
+      - traefik.http.routers.eurotcg-www.rule=Host(`www.eurotcg.com`)
+      - traefik.http.routers.eurotcg-www.entrypoints=websecure
+      - traefik.http.routers.eurotcg-www.tls.certresolver=letsencrypt
+      - traefik.http.routers.eurotcg-www.middlewares=www-redirect
+      - traefik.http.middlewares.www-redirect.redirectregex.regex=^https://www.eurotcg.com/(.*)
+      - traefik.http.middlewares.www-redirect.redirectregex.replacement=https://eurotcg.com/$${1}
+      - traefik.http.middlewares.www-redirect.redirectregex.permanent=true
 
 networks:
-  eurotcg-network:
-    driver: bridge
+  traefik:
+    external: true
