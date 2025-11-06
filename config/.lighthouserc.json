@@ -2,7 +2,9 @@
   "ci": {
     "collect": {
       "url": ["http://localhost:4321/"],
-      "startServerCommand": "npm run preview"
+      "startServerCommand": "npx http-server dist -p 4321 --silent",
+      "startServerReadyPattern": "Available on",
+      "startServerTimeout": 120000
     },
     "assert": {
       "assertions": {

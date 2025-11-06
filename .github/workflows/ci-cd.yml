@@ -1,3 +1,4 @@
+# (modified a11y-and-performance job to serve the build before running Lighthouse CI)
 name: CI/CD Pipeline
 
 on:
@@ -86,6 +87,15 @@ jobs:
           name: build-files
           path: dist/
 
+      - name: Serve build locally on port 4321
+        # Start a static server in background and wait until it's ready.
+        run: |
+          # Start a lightweight static server serving 'dist' on port 4321 in background
+          # npx will fetch http-server if not present.
+          npx http-server dist -p 4321 --silent > /tmp/http-server.log 2>&1 & echo $! > /tmp/http-server.pid
+          # Wait for http://localhost:4321 to respond (wait-on will be fetched by npx)
+          npx wait-on http://localhost:4321 --timeout 120000
+
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v10
         with:
@@ -103,13 +113,6 @@ jobs:
 
       - name: Run npm audit
         run: npm audit --audit-level moderate
-
-  #      - name: Snyk Scan
-  #        uses: snyk/actions/node@master
-  #        env:
-  #          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-  #        with:
-  #          args: --severity-threshold=medium
 
   docker-build:
     name: Build & Push Docker Image
