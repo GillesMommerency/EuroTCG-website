@@ -1,0 +1,46 @@
+name: Auto Format
+
+on:
+  workflow_dispatch: # Allow manual trigger
+  push:
+    branches: [dev, staging, main]
+
+jobs:
+  format:
+    name: Auto Format Code
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Format code
+        run: npm run format
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "formatted=false" >> $GITHUB_OUTPUT
+          else
+            echo "formatted=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit formatted code
+        if: steps.changes.outputs.formatted == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "🎨 Auto-format code with Prettier [skip ci]"
+          git push
