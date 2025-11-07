@@ -1,6 +1,6 @@
 services:
   eurotcg-website-staging:
-    image: ghcr.io/<owner>/<repo>:staging
+    image: ghcr.io/gillesmommerency/eurotcg-website:staging
     container_name: eurotcg-website-staging
     restart: always
     environment:
