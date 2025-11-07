@@ -27,6 +27,14 @@ const currentUrl = Astro.url;
 const locale = propLocale || getLocaleFromUrl(currentUrl);
 const localeInfo = localeConfig[locale];
 
+// Auto-detect staging environment and set noIndex
+const isStaging =
+  import.meta.env.NODE_ENV === 'staging' ||
+  currentUrl.hostname.includes('staging') ||
+  currentUrl.hostname.includes('dev') ||
+  currentUrl.hostname.includes('preview');
+const shouldNoIndex = noIndex || isStaging;
+
 // Default meta values
 const defaultTitle = 'EuroTCG - European Trading Card Game Collection Manager';
 const defaultDescription =
@@ -62,7 +70,7 @@ const dir = localeInfo.dir;
       description={siteDescription}
       image={siteImage}
       locale={locale}
-      noIndex={noIndex}
+      noIndex={shouldNoIndex}
       structuredData={structuredData}
       keywords={keywords}
     />

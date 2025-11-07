@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://eurotcg.com/sitemap.xml
+
+# Disallow crawling of utility pages
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /admin/
+Disallow: /test/
+Disallow: /health
+
+# Allow all other content
+Allow: /en/
+Allow: /fr/
+Allow: /de/
+Allow: /es/
+Allow: /it/
+Allow: /nl/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

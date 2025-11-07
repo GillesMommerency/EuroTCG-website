@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+
+# Staging environment - not for public indexing
+# This is a staging/development environment
+# Please visit https://eurotcg.com for the production site

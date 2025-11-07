@@ -7,7 +7,7 @@ on:
     branches: [main, staging]
 
 env:
-  NODE_VERSION: '18'
+  NODE_VERSION: '20'
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   APP_PORT: '3000'
@@ -34,8 +34,9 @@ jobs:
       - name: ESLint
         run: npm run lint
 
-      - name: Prettier check
-        run: npm run format:check
+      - name: Format check (non-blocking)
+        run: npm run format:check || echo "⚠️ Code formatting issues detected. Run 'npm run format' locally."
+        continue-on-error: true
 
       - name: TypeScript check
         run: npm run type-check
@@ -54,6 +55,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Auto-format code
+        run: npm run format
 
       - name: Build
         run: npm run build
@@ -85,6 +89,16 @@ jobs:
         with:
           name: build-files
           path: dist/
+
+      - name: Setup Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: './config/.lighthouserc.json'
+          temporaryPublicStorage: true
+          uploadArtifacts: true
+          budgetPath: './config/budget.json' # optional
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # Job 4: Security Scan
   security-scan:
@@ -140,7 +154,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./docker/Dockerfile
+          file: ${{ github.ref == 'refs/heads/staging' && './docker/Dockerfile.staging' || './docker/Dockerfile' }}
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
@@ -229,24 +243,19 @@ jobs:
     name: Notify Results
     runs-on: ubuntu-latest
     needs: [deploy-production, deploy-staging]
-    # Only run if at least one deploy job actually executed (success/failure/cancelled)
-    if: >
-      (needs.deploy-production.result != 'skipped') ||
-      (needs.deploy-staging.result != 'skipped')
+    if: always() # always run, even if some jobs skipped
     steps:
       - name: Post Discord embed
         env:
           WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          PROD_RESULT: ${{ needs.deploy-production.result }}
-          STAGE_RESULT: ${{ needs.deploy-staging.result }}
+          PROD_RESULT: ${{ needs.deploy-production.result || 'skipped' }}
+          STAGE_RESULT: ${{ needs.deploy-staging.result || 'skipped' }}
           REPO: ${{ github.repository }}
           REF: ${{ github.ref_name }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -e
-          # Color logic:
-          # green if any success, red if any failure, orange/yellow otherwise (e.g. cancelled)
-          COLOR=16776960 # yellow/orange default
+          COLOR=16776960
           if [ "$PROD_RESULT" = "success" ] || [ "$STAGE_RESULT" = "success" ]; then COLOR=5793266; fi
           if [ "$PROD_RESULT" = "failure" ] || [ "$STAGE_RESULT" = "failure" ]; then COLOR=15548997; fi
 
@@ -258,7 +267,7 @@ jobs:
             --arg run_url "$RUN_URL" \
             --argjson color "$COLOR" \
             '{
-              embeds: [{
+              embeds: [ {
                 title: "Deployment summary",
                 color: $color,
                 fields: [

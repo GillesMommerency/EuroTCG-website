@@ -76,7 +76,8 @@ dist
 
 # Gatsby files
 .cache/
-public
+# Note: public/ directory should NOT be ignored in Astro projects
+# public/
 
 # Storybook build outputs
 .out
