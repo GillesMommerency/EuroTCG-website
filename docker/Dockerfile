@@ -1,5 +1,5 @@
 # Multi-stage build for production
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -9,7 +9,8 @@ WORKDIR /app
 
 # Install dependencies based on the preferred package manager
 COPY package.json package-lock.json* ./
-RUN npm ci --only=production
+# Skip prepare script (Husky) and install only production deps
+RUN npm ci --omit=dev --ignore-scripts
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -20,6 +21,9 @@ COPY . .
 # Set environment variables for build
 ENV NODE_ENV=production
 ENV ASTRO_TELEMETRY_DISABLED=1
+
+# Install all dependencies (including dev deps) for build
+RUN npm ci --ignore-scripts
 
 # Build the application
 RUN npm run build

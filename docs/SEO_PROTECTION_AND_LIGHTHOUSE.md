@@ -46,9 +46,9 @@ pipeline.
 #### A. Configuration
 
 - **Updated**: `config/.lighthouserc.json`
-  - Tests multiple language pages (EN, FR, DE)
+  - Tests only the main page (EN) - other languages have identical performance
   - Uses Astro preview server instead of http-server
-  - Runs 3 tests per URL for accuracy
+  - Runs 3 tests for statistical accuracy
   - Realistic performance thresholds for development:
     - Performance: 70+ score (warn level)
     - Accessibility: 80+ score (error level)
@@ -120,7 +120,7 @@ npx lighthouse http://localhost:4321 --output html --output-path ./lighthouse-re
 ### Monitoring
 
 - View Lighthouse results in GitHub Actions artifacts
-- Each run tests 3 pages with 3 runs each for statistical accuracy
+- - Tests main page (EN) with 3 runs for accuracy
 - Results include detailed performance metrics and suggestions
 
 ## Environment Variables
