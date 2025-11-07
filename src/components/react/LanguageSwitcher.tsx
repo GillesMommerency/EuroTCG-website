@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils';
 import React, { useState } from 'react';
 
 interface LanguageSwitcherProps {
@@ -39,12 +38,25 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale, lang
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={cn(
-          'border-input bg-background flex items-center gap-2 rounded-md border px-3 py-2',
-          'text-foreground text-sm transition-colors',
-          'hover:bg-accent hover:text-accent-foreground',
-          'focus:ring-primary focus:outline-none focus:ring-2 focus:ring-offset-2'
-        )}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          padding: '0.5rem 0.75rem',
+          border: '1px solid hsl(var(--border))',
+          borderRadius: '0.375rem',
+          backgroundColor: 'hsl(var(--background))',
+          color: 'hsl(var(--foreground))',
+          fontSize: '0.875rem',
+          cursor: 'pointer',
+          transition: 'all 0.2s',
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.backgroundColor = 'hsl(var(--accent))';
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.backgroundColor = 'hsl(var(--background))';
+        }}
         aria-label="Change language"
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -53,7 +65,12 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale, lang
         <span className="hidden sm:inline">{currentLanguage.name}</span>
         <span className="sm:hidden">{currentLanguage.code.toUpperCase()}</span>
         <svg
-          className={cn('h-4 w-4 transition-transform', isOpen && 'rotate-180')}
+          style={{
+            height: '1rem',
+            width: '1rem',
+            transition: 'transform 0.2s',
+            transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+          }}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -65,11 +82,21 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale, lang
 
       {isOpen && (
         <div
-          className={cn(
-            'absolute right-0 top-full z-50 mt-2',
-            'border-input bg-background min-w-[160px] rounded-md border shadow-lg',
-            'text-foreground py-1 text-sm'
-          )}
+          style={{
+            position: 'absolute',
+            right: 0,
+            top: '100%',
+            zIndex: 50,
+            marginTop: '0.5rem',
+            minWidth: '160px',
+            borderRadius: '0.375rem',
+            border: '1px solid hsl(var(--border))',
+            backgroundColor: 'hsl(var(--background))',
+            color: 'hsl(var(--foreground))',
+            padding: '0.25rem 0',
+            fontSize: '0.875rem',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          }}
         >
           {languages.map(language => (
             <button
@@ -78,12 +105,35 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale, lang
                 handleLanguageChange(language.code);
                 setIsOpen(false);
               }}
-              className={cn(
-                'flex w-full items-center gap-3 px-4 py-2 text-left',
-                'hover:bg-accent hover:text-accent-foreground',
-                'focus:bg-accent focus:text-accent-foreground focus:outline-none',
-                currentLocale === language.code && 'bg-accent text-accent-foreground'
-              )}
+              style={{
+                display: 'flex',
+                width: '100%',
+                alignItems: 'center',
+                gap: '0.75rem',
+                padding: '0.5rem 1rem',
+                textAlign: 'left',
+                backgroundColor:
+                  currentLocale === language.code ? 'hsl(var(--accent))' : 'transparent',
+                color:
+                  currentLocale === language.code
+                    ? 'hsl(var(--accent-foreground))'
+                    : 'hsl(var(--foreground))',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+              }}
+              onMouseEnter={e => {
+                if (currentLocale !== language.code) {
+                  e.currentTarget.style.backgroundColor = 'hsl(var(--accent))';
+                  e.currentTarget.style.color = 'hsl(var(--accent-foreground))';
+                }
+              }}
+              onMouseLeave={e => {
+                if (currentLocale !== language.code) {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = 'hsl(var(--foreground))';
+                }
+              }}
             >
               <span className="text-lg leading-none">{language.flag}</span>
               <span>{language.name}</span>
