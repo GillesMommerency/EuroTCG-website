@@ -7,7 +7,7 @@ services:
       - NODE_ENV=staging
       - TZ=Europe/Brussels
     networks:
-      - traefik
+      - proxy
     healthcheck:
       test: ['CMD', 'curl', '-f', 'http://localhost:3000/health']
       interval: 30s
@@ -16,7 +16,7 @@ services:
       start_period: 40s
     labels:
       - traefik.enable=true
-      - traefik.docker.network=traefik
+      - traefik.docker.network=proxy
       - traefik.http.routers.eurotcg-staging.rule=Host(`staging.eurotcg.com`)
       - traefik.http.routers.eurotcg-staging.entrypoints=websecure
       - traefik.http.routers.eurotcg-staging.tls.certresolver=letsencrypt
