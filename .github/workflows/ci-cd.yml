@@ -193,13 +193,22 @@ jobs:
             fi
             docker compose -f docker/docker-compose.staging.yml pull
             docker compose -f docker/docker-compose.staging.yml up -d --remove-orphans
-            docker image prune -f
+            docker image prune -f --filter "label!=keep"
             docker container prune -f
 
       - name: Health check (staging)
         run: |
-          sleep 30
-          curl -f ${{ secrets.STAGING_URL }}/health || exit 1
+          echo "Waiting for staging container to be ready..."
+          for i in {1..12}; do
+            if curl -f ${{ secrets.STAGING_URL }}/health; then
+              echo "✅ Staging health check passed"
+              exit 0
+            fi
+            echo "Attempt $i/12 failed, waiting 10s..."
+            sleep 10
+          done
+          echo "❌ Staging health check failed after 2 minutes"
+          exit 1
 
   deploy-production:
     name: Deploy to Production
@@ -232,13 +241,22 @@ jobs:
             fi
             docker compose -f docker/docker-compose.yml pull
             docker compose -f docker/docker-compose.yml up -d --remove-orphans
-            docker image prune -f
+            docker image prune -f --filter "label!=keep"
             docker container prune -f
 
       - name: Health check (production)
         run: |
-          sleep 30
-          curl -f ${{ secrets.PRODUCTION_URL }}/health || exit 1
+          echo "Waiting for production container to be ready..."
+          for i in {1..12}; do
+            if curl -f ${{ secrets.PRODUCTION_URL }}/health; then
+              echo "✅ Production health check passed"
+              exit 0
+            fi
+            echo "Attempt $i/12 failed, waiting 10s..."
+            sleep 10
+          done
+          echo "❌ Production health check failed after 2 minutes"
+          exit 1
   notify:
     name: Notify Results
     runs-on: ubuntu-latest

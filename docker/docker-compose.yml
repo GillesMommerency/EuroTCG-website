@@ -1,3 +1,5 @@
+name: eurotcg-website-production
+
 services:
   eurotcg-website:
     image: ghcr.io/gillesmommerency/eurotcg-website:latest
