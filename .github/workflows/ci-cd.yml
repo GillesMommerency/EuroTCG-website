@@ -56,9 +56,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Auto-format code
-        run: npm run format
-
       - name: Build
         run: npm run build
 
@@ -96,7 +93,7 @@ jobs:
           configPath: './config/.lighthouserc.json'
           temporaryPublicStorage: true
           uploadArtifacts: true
-          budgetPath: './config/budget.json' # optional
+          budgetPath: './config/budget.json'
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
