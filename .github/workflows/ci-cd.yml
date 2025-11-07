@@ -56,9 +56,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Auto-format code
-        run: npm run format
-
       - name: Build
         run: npm run build
 
@@ -96,7 +93,7 @@ jobs:
           configPath: './config/.lighthouserc.json'
           temporaryPublicStorage: true
           uploadArtifacts: true
-          budgetPath: './config/budget.json' # optional
+          budgetPath: './config/budget.json'
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -184,6 +181,8 @@ jobs:
           script: |
             set -e
             cd ~/eurotcg/website/staging
+
+            # Update repository
             if [ ! -d ".git" ]; then
               git clone --branch staging --depth 1 git@github.com:${{ github.repository }} .
             else
@@ -191,16 +190,38 @@ jobs:
               git checkout staging
               git pull origin staging
             fi
+
+            # Stop existing containers gracefully
+            echo "Stopping existing containers..."
+            docker compose -f docker/docker-compose.staging.yml down --remove-orphans || true
+
+            # Pull latest images
+            echo "Pulling latest Docker images..."
             docker compose -f docker/docker-compose.staging.yml pull
+
+            # Start new containers
+            echo "Starting updated containers..."
             docker compose -f docker/docker-compose.staging.yml up -d --remove-orphans
-            docker image prune -f --filter "label!=keep"
-            docker container prune -f
+
+            # Cleanup old images and containers
+            echo "Cleaning up unused Docker resources..."
+            docker image prune -f --filter "label!=keep" || true
+            docker container prune -f || true
+
+            echo "Deployment completed successfully!"
 
       - name: Health check (staging)
         run: |
           echo "Waiting for staging container to be ready..."
+          STAGING_URL="${{ vars.STAGING_URL }}"
+          # Ensure URL has protocol
+          if [[ ! "$STAGING_URL" =~ ^https?:// ]]; then
+            STAGING_URL="https://$STAGING_URL"
+          fi
+          echo "Health checking: $STAGING_URL/health"
+
           for i in {1..12}; do
-            if curl -f ${{ secrets.STAGING_URL }}/health; then
+            if curl -f "$STAGING_URL/health"; then
               echo "✅ Staging health check passed"
               exit 0
             fi
@@ -232,6 +253,8 @@ jobs:
           script: |
             set -e
             cd ~/eurotcg/website/production
+
+            # Update repository
             if [ ! -d ".git" ]; then
               git clone --branch main --depth 1 git@github.com:${{ github.repository }} .
             else
@@ -239,16 +262,38 @@ jobs:
               git checkout main
               git pull origin main
             fi
+
+            # Stop existing containers gracefully
+            echo "Stopping existing containers..."
+            docker compose -f docker/docker-compose.yml down --remove-orphans || true
+
+            # Pull latest images
+            echo "Pulling latest Docker images..."
             docker compose -f docker/docker-compose.yml pull
+
+            # Start new containers
+            echo "Starting updated containers..."
             docker compose -f docker/docker-compose.yml up -d --remove-orphans
-            docker image prune -f --filter "label!=keep"
-            docker container prune -f
+
+            # Cleanup old images and containers
+            echo "Cleanup unused Docker resources..."
+            docker image prune -f --filter "label!=keep" || true
+            docker container prune -f || true
+
+            echo "Deployment completed successfully!"
 
       - name: Health check (production)
         run: |
           echo "Waiting for production container to be ready..."
+          PRODUCTION_URL="${{ vars.PRODUCTION_URL }}"
+          # Ensure URL has protocol
+          if [[ ! "$PRODUCTION_URL" =~ ^https?:// ]]; then
+            PRODUCTION_URL="https://$PRODUCTION_URL"
+          fi
+          echo "Health checking: $PRODUCTION_URL/health"
+
           for i in {1..12}; do
-            if curl -f ${{ secrets.PRODUCTION_URL }}/health; then
+            if curl -f "$PRODUCTION_URL/health"; then
               echo "✅ Production health check passed"
               exit 0
             fi
