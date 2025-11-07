@@ -1,5 +1,5 @@
 ---
-import { type Locale, getAlternateLinks, localeConfig } from '@/lib/i18n';
+import { type Locale, getAlternateLinks } from '@/lib/i18n';
 
 export interface Props {
   title: string;
@@ -52,7 +52,7 @@ const defaultKeywords = [
   'card trading app',
   'collectible cards',
   'card market prices',
-  'TCG analytics'
+  'TCG analytics',
 ];
 
 const allKeywords = [...defaultKeywords, ...keywords].join(', ');
@@ -62,154 +62,154 @@ const alternateLinks = getAlternateLinks(currentUrl.pathname, locale);
 
 // Enhanced Organization Schema with more TCG-specific details
 const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "EuroTCG",
-  "alternateName": ["Euro TCG", "European Trading Card Game"],
-  "description": "Europe's premier trading card game collection and marketplace platform",
-  "url": siteUrl,
-  "logo": {
-    "@type": "ImageObject",
-    "url": `${siteUrl}/images/logo.png`,
-    "width": 512,
-    "height": 512
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'EuroTCG',
+  alternateName: ['Euro TCG', 'European Trading Card Game'],
+  description: "Europe's premier trading card game collection and marketplace platform",
+  url: siteUrl,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/images/logo.png`,
+    width: 512,
+    height: 512,
   },
-  "foundingDate": "2025",
-  "founders": [
+  foundingDate: '2025',
+  founders: [
     {
-      "@type": "Person",
-      "name": "EuroTCG Team"
-    }
+      '@type': 'Person',
+      name: 'EuroTCG Team',
+    },
   ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "Europe",
-    "addressCountry": "EU"
+  address: {
+    '@type': 'PostalAddress',
+    addressRegion: 'Europe',
+    addressCountry: 'EU',
   },
-  "contactPoint": [
+  contactPoint: [
     {
-      "@type": "ContactPoint",
-      "telephone": "",
-      "contactType": "customer service",
-      "email": "hello@eurotcg.com",
-      "availableLanguage": ["en", "fr", "de", "es", "it", "nl"],
-      "areaServed": "Europe"
-    }
+      '@type': 'ContactPoint',
+      telephone: '',
+      contactType: 'customer service',
+      email: 'hello@eurotcg.com',
+      availableLanguage: ['en', 'fr', 'de', 'es', 'it', 'nl'],
+      areaServed: 'Europe',
+    },
   ],
-  "sameAs": [
-    "https://twitter.com/eurotcg",
-    "https://github.com/eurotcg",
-    "https://discord.gg/eurotcg",
-    "https://www.linkedin.com/company/eurotcg",
-    "https://www.facebook.com/eurotcg"
+  sameAs: [
+    'https://twitter.com/eurotcg',
+    'https://github.com/eurotcg',
+    'https://discord.gg/eurotcg',
+    'https://www.linkedin.com/company/eurotcg',
+    'https://www.facebook.com/eurotcg',
   ],
-  "knowsAbout": [
-    "Trading Card Games",
-    "Card Collection Management",
-    "Digital Marketplace",
-    "Card Price Tracking",
-    "TCG Analytics"
-  ]
+  knowsAbout: [
+    'Trading Card Games',
+    'Card Collection Management',
+    'Digital Marketplace',
+    'Card Price Tracking',
+    'TCG Analytics',
+  ],
 };
 
 // Enhanced Website Schema
 const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "EuroTCG - European Trading Card Game Platform",
-  "alternateName": "EuroTCG",
-  "url": siteUrl,
-  "description": description,
-  "inLanguage": locale,
-  "audience": {
-    "@type": "Audience",
-    "audienceType": "TCG Collectors and Traders",
-    "geographicArea": "Europe"
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'EuroTCG - European Trading Card Game Platform',
+  alternateName: 'EuroTCG',
+  url: siteUrl,
+  description: description,
+  inLanguage: locale,
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'TCG Collectors and Traders',
+    geographicArea: 'Europe',
   },
-  "potentialAction": [
+  potentialAction: [
     {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `${siteUrl}/search?q={search_term_string}`
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteUrl}/search?q={search_term_string}`,
       },
-      "query-input": "required name=search_term_string"
+      'query-input': 'required name=search_term_string',
     },
     {
-      "@type": "SubscribeAction",
-      "target": `${siteUrl}/newsletter`,
-      "object": {
-        "@type": "CreativeWork",
-        "name": "EuroTCG Newsletter"
-      }
-    }
-  ]
+      '@type': 'SubscribeAction',
+      target: `${siteUrl}/newsletter`,
+      object: {
+        '@type': 'CreativeWork',
+        name: 'EuroTCG Newsletter',
+      },
+    },
+  ],
 };
 
 // Software Application Schema (for the platform)
 const softwareApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "EuroTCG",
-  "applicationCategory": "CollectionApplication",
-  "applicationSubCategory": "Trading Card Game Management",
-  "operatingSystem": ["iOS", "Android", "Web"],
-  "description": "The ultimate European trading card game collection and marketplace platform",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR",
-    "availability": "InStock"
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'EuroTCG',
+  applicationCategory: 'CollectionApplication',
+  applicationSubCategory: 'Trading Card Game Management',
+  operatingSystem: ['iOS', 'Android', 'Web'],
+  description: 'The ultimate European trading card game collection and marketplace platform',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'EUR',
+    availability: 'InStock',
   },
-  "author": organizationSchema,
-  "featureList": [
-    "Card Collection Management",
-    "Price Tracking",
-    "Marketplace Trading",
-    "Community Features",
-    "Multi-language Support",
-    "Mobile Apps"
+  author: organizationSchema,
+  featureList: [
+    'Card Collection Management',
+    'Price Tracking',
+    'Marketplace Trading',
+    'Community Features',
+    'Multi-language Support',
+    'Mobile Apps',
   ],
-  "screenshot": `${siteUrl}/images/app-screenshot.jpg`,
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "150",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
+  screenshot: `${siteUrl}/images/app-screenshot.jpg`,
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '150',
+    bestRating: '5',
+    worstRating: '1',
+  },
 };
 
 // FAQ Schema for better SERP features
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
     {
-      "@type": "Question",
-      "name": "What is EuroTCG?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "EuroTCG is Europe's leading platform for trading card game collection management and marketplace trading. We support multiple European languages and provide comprehensive tools for TCG enthusiasts."
-      }
+      '@type': 'Question',
+      name: 'What is EuroTCG?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "EuroTCG is Europe's leading platform for trading card game collection management and marketplace trading. We support multiple European languages and provide comprehensive tools for TCG enthusiasts.",
+      },
     },
     {
-      "@type": "Question",
-      "name": "Which trading card games are supported?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "EuroTCG supports all major trading card games including Pokémon, Magic: The Gathering, Yu-Gi-Oh!, and many European TCGs. Our platform is designed to handle any card-based collectible game."
-      }
+      '@type': 'Question',
+      name: 'Which trading card games are supported?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'EuroTCG supports all major trading card games including Pokémon, Magic: The Gathering, Yu-Gi-Oh!, and many European TCGs. Our platform is designed to handle any card-based collectible game.',
+      },
     },
     {
-      "@type": "Question",
-      "name": "Is EuroTCG available in my language?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! EuroTCG is available in 6 European languages: English, French, German, Spanish, Italian, and Dutch. We're committed to serving the entire European TCG community."
-      }
-    }
-  ]
+      '@type': 'Question',
+      name: 'Is EuroTCG available in my language?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Yes! EuroTCG is available in 6 European languages: English, French, German, Spanish, Italian, and Dutch. We're committed to serving the entire European TCG community.",
+      },
+    },
+  ],
 };
 
 // Combine all structured data
@@ -218,7 +218,7 @@ const allStructuredData = [
   websiteSchema,
   softwareApplicationSchema,
   faqSchema,
-  ...(structuredData ? [structuredData] : [])
+  ...(structuredData ? [structuredData] : []),
 ];
 ---
 
@@ -237,11 +237,16 @@ const allStructuredData = [
 <meta name="target" content="TCG Collectors, Card Traders, Gaming Community" />
 
 <!-- Robots -->
-{noIndex ? (
-  <meta name="robots" content="noindex, nofollow" />
-) : (
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-)}
+{
+  noIndex ? (
+    <meta name="robots" content="noindex, nofollow" />
+  ) : (
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+  )
+}
 
 <!-- Language and Region -->
 <meta name="language" content={locale} />
@@ -250,12 +255,14 @@ const allStructuredData = [
 <meta http-equiv="content-language" content={locale} />
 
 <!-- Alternate Language Links -->
-{alternateLinks.map(({ href, hreflang }) => (
-  <link rel="alternate" hreflang={hreflang} href={href} />
-))}
+{
+  alternateLinks.map(({ href, hreflang }) => (
+    <link rel="alternate" hreflang={hreflang} href={href} />
+  ))
+}
 
 <!-- Enhanced Open Graph Meta Tags -->
-<meta property="og:type" content={article ? "article" : "website"} />
+<meta property="og:type" content={article ? 'article' : 'website'} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={fullImageUrl} />
@@ -268,22 +275,30 @@ const allStructuredData = [
 <meta property="fb:app_id" content="your-facebook-app-id" />
 
 <!-- Open Graph Alternate Locales -->
-{alternateLinks.filter(link => link.hreflang !== 'x-default').map(({ hreflang }) => (
-  <meta property="og:locale:alternate" content={`${hreflang}_${hreflang.toUpperCase()}`} />
-))}
+{
+  alternateLinks
+    .filter(link => link.hreflang !== 'x-default')
+    .map(({ hreflang }) => (
+      <meta property="og:locale:alternate" content={`${hreflang}_${hreflang.toUpperCase()}`} />
+    ))
+}
 
 <!-- Article-specific Open Graph tags -->
-{article && (
-  <>
-    {article.publishedTime && <meta property="article:published_time" content={article.publishedTime} />}
-    {article.modifiedTime && <meta property="article:modified_time" content={article.modifiedTime} />}
-    {article.author && <meta property="article:author" content={article.author} />}
-    {article.section && <meta property="article:section" content={article.section} />}
-    {article.tags && article.tags.map(tag => (
-      <meta property="article:tag" content={tag} />
-    ))}
-  </>
-)}
+{
+  article && (
+    <>
+      {article.publishedTime && (
+        <meta property="article:published_time" content={article.publishedTime} />
+      )}
+      {article.modifiedTime && (
+        <meta property="article:modified_time" content={article.modifiedTime} />
+      )}
+      {article.author && <meta property="article:author" content={article.author} />}
+      {article.section && <meta property="article:section" content={article.section} />}
+      {article.tags && article.tags.map(tag => <meta property="article:tag" content={tag} />)}
+    </>
+  )
+}
 
 <!-- Enhanced Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />

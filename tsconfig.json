@@ -31,19 +31,8 @@
       "@/locales/*": ["./src/locales/*"],
       "@/types/*": ["./src/types/*"]
     },
-    "types": [
-      "@types/node",
-      "astro/client"
-    ]
+    "types": ["@types/node", "astro/client"]
   },
-  "include": [
-    "src/**/*",
-    "astro.config.mjs",
-    "config/tailwind.config.mjs"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    ".astro"
-  ]
+  "include": ["src/**/*", "astro.config.mjs", "config/tailwind.config.mjs"],
+  "exclude": ["node_modules", "dist", ".astro"]
 }

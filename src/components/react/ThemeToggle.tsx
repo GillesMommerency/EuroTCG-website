@@ -14,28 +14,26 @@ const ThemeToggle: React.FC = () => {
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    
+
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
-    
+
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('theme', newTheme);
     }
   };
 
   if (!mounted) {
-    return (
-      <div className="w-10 h-10 rounded-md border border-input bg-background" />
-    );
+    return <div className="border-input bg-background h-10 w-10 rounded-md border" />;
   }
 
   return (
     <button
       onClick={toggleTheme}
       className={cn(
-        "relative inline-flex h-10 w-10 items-center justify-center rounded-md border border-input",
-        "bg-background text-foreground transition-colors",
-        "hover:bg-accent hover:text-accent-foreground",
-        "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        'border-input relative inline-flex h-10 w-10 items-center justify-center rounded-md border',
+        'bg-background text-foreground transition-colors',
+        'hover:bg-accent hover:text-accent-foreground',
+        'focus:ring-primary focus:outline-none focus:ring-2 focus:ring-offset-2'
       )}
       aria-label="Toggle theme"
       type="button"

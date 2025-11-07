@@ -25,13 +25,13 @@ export const motionConfig = {
  */
 export const fadeIn = (element: Element, options: { duration?: number; delay?: number } = {}) => {
   const { duration = motionConfig.duration.normal, delay = 0 } = options;
-  
+
   if (typeof window === 'undefined') return;
-  
+
   const el = element as HTMLElement;
   el.style.opacity = '0';
   el.style.transition = `opacity ${duration}s ${motionConfig.easing.ease}`;
-  
+
   setTimeout(() => {
     el.style.opacity = '1';
   }, delay * 1000);
@@ -40,16 +40,19 @@ export const fadeIn = (element: Element, options: { duration?: number; delay?: n
 /**
  * Create a simple slide up animation using CSS
  */
-export const slideInUp = (element: Element, options: { duration?: number; delay?: number; distance?: number } = {}) => {
+export const slideInUp = (
+  element: Element,
+  options: { duration?: number; delay?: number; distance?: number } = {}
+) => {
   const { duration = motionConfig.duration.normal, delay = 0, distance = 20 } = options;
-  
+
   if (typeof window === 'undefined') return;
-  
+
   const el = element as HTMLElement;
   el.style.opacity = '0';
   el.style.transform = `translateY(${distance}px)`;
   el.style.transition = `opacity ${duration}s ${motionConfig.easing.ease}, transform ${duration}s ${motionConfig.easing.ease}`;
-  
+
   setTimeout(() => {
     el.style.opacity = '1';
     el.style.transform = 'translateY(0)';
@@ -59,12 +62,9 @@ export const slideInUp = (element: Element, options: { duration?: number; delay?
 /**
  * Stagger animations for lists
  */
-export const staggerIn = (
-  elements: NodeListOf<Element> | Element[],
-  stagger: number = 0.1
-) => {
+export const staggerIn = (elements: NodeListOf<Element> | Element[], stagger: number = 0.1) => {
   const elementsArray = Array.from(elements);
-  
+
   elementsArray.forEach((element, index) => {
     slideInUp(element, { delay: index * stagger });
   });
@@ -84,11 +84,11 @@ export const animateOnIntersect = (
   const defaultOptions: IntersectionObserverInit = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px',
-    ...options
+    ...options,
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
         animationFn(entry.target);
         observer.unobserve(entry.target);
@@ -96,7 +96,7 @@ export const animateOnIntersect = (
     });
   }, defaultOptions);
 
-  elements.forEach((element) => observer.observe(element));
+  elements.forEach(element => observer.observe(element));
 
   return observer;
 };
@@ -104,10 +104,7 @@ export const animateOnIntersect = (
 /**
  * Hover scale effect
  */
-export const hoverScale = (
-  element: Element,
-  scale: number = 1.05
-) => {
+export const hoverScale = (element: Element, scale: number = 1.05) => {
   if (typeof window === 'undefined') return;
 
   const el = element as HTMLElement;
@@ -142,10 +139,7 @@ export const prefersReducedMotion = (): boolean => {
 /**
  * Safe animation wrapper that respects user preferences
  */
-export const safeAnimate = (
-  animationFn: () => void,
-  fallbackFn?: () => void
-) => {
+export const safeAnimate = (animationFn: () => void, fallbackFn?: () => void) => {
   if (prefersReducedMotion()) {
     fallbackFn?.();
   } else {
@@ -158,10 +152,10 @@ export const safeAnimate = (
  */
 export const createSpinner = (element: Element) => {
   if (typeof window === 'undefined') return;
-  
+
   const el = element as HTMLElement;
   el.style.animation = 'spin 1s linear infinite';
-  
+
   // Add keyframes if not already present
   if (!document.querySelector('#spinner-keyframes')) {
     const style = document.createElement('style');
@@ -181,32 +175,32 @@ export const createSpinner = (element: Element) => {
  */
 export const initPageAnimations = () => {
   if (typeof window === 'undefined') return;
-  
+
   // Fade in page content
   const pageContent = document.querySelector('main');
   if (pageContent) {
     fadeIn(pageContent, { duration: motionConfig.duration.slow });
   }
-  
+
   // Animate elements with data-animate attribute
-  animateOnIntersect('[data-animate="fade-in"]', (element) => {
+  animateOnIntersect('[data-animate="fade-in"]', element => {
     fadeIn(element);
   });
-  
-  animateOnIntersect('[data-animate="slide-up"]', (element) => {
+
+  animateOnIntersect('[data-animate="slide-up"]', element => {
     slideInUp(element);
   });
-  
+
   // Stagger list items
   const staggerLists = document.querySelectorAll('[data-animate="stagger"]');
-  staggerLists.forEach((list) => {
+  staggerLists.forEach(list => {
     const items = list.children;
     staggerIn(Array.from(items));
   });
-  
+
   // Add hover effects to interactive elements
   const hoverElements = document.querySelectorAll('[data-hover="scale"]');
-  hoverElements.forEach((element) => {
+  hoverElements.forEach(element => {
     hoverScale(element);
   });
 };

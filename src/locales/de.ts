@@ -111,33 +111,36 @@ export default {
     comingSoon: 'Bald verfügbar',
     heading: 'Etwas Großartiges kommt bald',
     subheading: 'Wir bauen den ultimativen europäischen Sammelkartenspiel-Kollektion-Manager',
-    description: 'EuroTCG wird Ihre zentrale Plattform zum Scannen, Organisieren und Verwalten Ihrer Sammelkartensammlungen. Entwickelt für europäische Sammler, mit mehrsprachiger Unterstützung und DSGVO-Konformität.',
+    description:
+      'EuroTCG wird Ihre zentrale Plattform zum Scannen, Organisieren und Verwalten Ihrer Sammelkartensammlungen. Entwickelt für europäische Sammler, mit mehrsprachiger Unterstützung und DSGVO-Konformität.',
     features: {
       title: 'Was Sie erwarten können',
       scanning: {
         title: 'Erweiterte Kartenerkennung',
-        description: 'Verwenden Sie Ihre Handykamera, um Ihre Karten sofort zu identifizieren und zu katalogisieren'
+        description:
+          'Verwenden Sie Ihre Handykamera, um Ihre Karten sofort zu identifizieren und zu katalogisieren',
       },
       collection: {
         title: 'Sammlungsmanagement',
-        description: 'Organisieren Sie Ihre Karten mit benutzerdefinierten Kategorien, Wunschlisten und Handelslisten'
+        description:
+          'Organisieren Sie Ihre Karten mit benutzerdefinierten Kategorien, Wunschlisten und Handelslisten',
       },
       marketplace: {
         title: 'Europäischer Marktplatz',
-        description: 'Verbinden Sie sich mit Sammlern in ganz Europa zum Handeln und Verkaufen'
+        description: 'Verbinden Sie sich mit Sammlern in ganz Europa zum Handeln und Verkaufen',
       },
       mobile: {
         title: 'Mobile-First Design',
-        description: 'Optimiert für mobile Geräte mit Offline-Funktionen'
+        description: 'Optimiert für mobile Geräte mit Offline-Funktionen',
       },
       privacy: {
         title: 'DSGVO-konform',
-        description: 'Ihre Daten sind mit europäischen Datenschutzstandards geschützt'
+        description: 'Ihre Daten sind mit europäischen Datenschutzstandards geschützt',
       },
       multilingual: {
         title: 'Mehrsprachige Unterstützung',
-        description: 'Verfügbar in 6 europäischen Sprachen'
-      }
+        description: 'Verfügbar in 6 europäischen Sprachen',
+      },
     },
     progress: {
       title: 'Entwicklungsfortschritt',
@@ -146,41 +149,44 @@ export default {
       frontend: 'Frontend-Entwicklung',
       mobile: 'Mobile App',
       testing: 'Tests & QA',
-      launch: 'Start-Vorbereitung'
+      launch: 'Start-Vorbereitung',
     },
     newsletter: {
       title: 'Auf dem Laufenden bleiben',
-      subtitle: 'Erhalten Sie Updates über unseren Fortschritt und seien Sie der Erste, der benachrichtigt wird, wenn wir starten',
+      subtitle:
+        'Erhalten Sie Updates über unseren Fortschritt und seien Sie der Erste, der benachrichtigt wird, wenn wir starten',
       placeholder: 'Ihre E-Mail-Adresse eingeben',
       button: 'Benachrichtigen',
       success: 'Vielen Dank! Wir werden Sie benachrichtigen, wenn wir bereit sind.',
-      error: 'Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.'
+      error: 'Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.',
     },
     social: {
       title: 'Folgen Sie unserem Fortschritt',
       description: 'Erhalten Sie Einblicke hinter die Kulissen und exklusive Vorschauen',
       github: 'Quellcode auf GitHub ansehen',
       twitter: 'Updates auf Twitter folgen',
-      discord: 'Treten Sie unserer Discord-Community bei'
+      discord: 'Treten Sie unserer Discord-Community bei',
     },
     tech: {
       title: 'Entwickelt mit modernster Technologie',
-      subtitle: 'Wir verwenden die neuesten Webtechnologien, um ein schnelles, zuverlässiges und skalierbares Erlebnis zu gewährleisten'
+      subtitle:
+        'Wir verwenden die neuesten Webtechnologien, um ein schnelles, zuverlässiges und skalierbares Erlebnis zu gewährleisten',
     },
     contact: {
       title: 'Haben Sie Fragen?',
       subtitle: 'Wir würden gerne von Ihnen hören',
       description: 'Kontaktieren Sie unser Team',
       email: 'E-Mail senden',
-      github: 'GitHub Issues'
+      github: 'GitHub Issues',
     },
-    estimatedLaunch: 'Geschätzter Start: Q2 2024'
+    estimatedLaunch: 'Geschätzter Start: Q2 2024',
   },
 
   // SEO and metadata
   seo: {
     defaultTitle: 'EuroTCG - Europäischer Sammelkartenspiel-Manager',
-    defaultDescription: 'Die ultimative Plattform zum Scannen, Organisieren und Verwalten Ihrer Sammelkartensammlungen. Entwickelt für europäische Sammler mit mehrsprachiger Unterstützung.',
+    defaultDescription:
+      'Die ultimative Plattform zum Scannen, Organisieren und Verwalten Ihrer Sammelkartensammlungen. Entwickelt für europäische Sammler mit mehrsprachiger Unterstützung.',
     keywords: 'Sammelkarten, TCG, Sammlung, Scanner, Europa, Handel, DSGVO, mehrsprachig',
     author: 'EuroTCG Team',
     siteName: 'EuroTCG',
@@ -193,25 +199,25 @@ export default {
       product: 'Produkt',
       company: 'Unternehmen',
       resources: 'Ressourcen',
-      legal: 'Rechtliches'
+      legal: 'Rechtliches',
     },
     legal: {
       privacy: 'Datenschutz',
       terms: 'Nutzungsbedingungen',
       cookies: 'Cookie-Richtlinie',
-      gdpr: 'DSGVO'
+      gdpr: 'DSGVO',
     },
     social: {
       followUs: 'Folgen Sie uns',
       github: 'GitHub',
       twitter: 'Twitter',
-      discord: 'Discord'
+      discord: 'Discord',
     },
     newsletter: {
       title: 'Newsletter abonnieren',
       subtitle: 'Die neuesten Updates direkt in Ihren Posteingang.',
       placeholder: 'E-Mail eingeben',
-      button: 'Abonnieren'
+      button: 'Abonnieren',
     },
     copyright: 'Alle Rechte vorbehalten.',
   },
@@ -233,12 +239,12 @@ export default {
     404: {
       title: 'Seite nicht gefunden',
       description: 'Die Seite, die Sie suchen, existiert nicht.',
-      button: 'Zurück zur Startseite'
+      button: 'Zurück zur Startseite',
     },
     500: {
       title: 'Serverfehler',
       description: 'Etwas ist schief gelaufen. Bitte versuchen Sie es später erneut.',
-      button: 'Seite aktualisieren'
-    }
-  }
+      button: 'Seite aktualisieren',
+    },
+  },
 } as const;

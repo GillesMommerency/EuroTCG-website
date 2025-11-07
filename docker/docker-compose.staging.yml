@@ -1,0 +1,27 @@
+services:
+  eurotcg-website-staging:
+    image: ghcr.io/gillesmommerency/eurotcg-website:staging
+    container_name: eurotcg-website-staging
+    restart: always
+    environment:
+      - NODE_ENV=staging
+      - TZ=Europe/Brussels
+    networks:
+      - proxy
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:3000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.routers.eurotcg-staging.rule=Host(`staging.eurotcg.com`)
+      - traefik.http.routers.eurotcg-staging.entrypoints=https
+      - traefik.http.routers.eurotcg-staging.tls.certresolver=cloudflare
+      - traefik.http.services.eurotcg-staging.loadbalancer.server.port=3000
+
+networks:
+  proxy:
+    external: true
