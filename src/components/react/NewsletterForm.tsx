@@ -60,7 +60,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ locale }) => {
       setStatus('success');
       setMessage(text.success);
       setEmail('');
-    } catch (error) {
+    } catch {
       setStatus('error');
       setMessage(text.error);
     }

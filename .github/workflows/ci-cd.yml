@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: ESLint
-        run: npm run lint
+        run: npm run lint:ci
 
       - name: Format check (non-blocking)
         run: npm run format:check || echo "⚠️ Code formatting issues detected. Run 'npm run format' locally."
