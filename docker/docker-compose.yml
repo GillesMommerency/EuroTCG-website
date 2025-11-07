@@ -1,6 +1,6 @@
 services:
   eurotcg-website:
-    image: ghcr.io/<owner>/<repo>:latest
+    image: ghcr.io/gillesmommerency/eurotcg-website:production
     container_name: eurotcg-website
     restart: always
     environment:

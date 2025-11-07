@@ -159,15 +159,6 @@ jobs:
       group: deploy-staging
       cancel-in-progress: false
     steps:
-      - name: Debug show key header
-        env:
-          SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
-        run: |
-          echo "KEY HEAD:"
-          echo "$SSH_KEY" | sed -n '1,2p'
-          echo "KEY FOOTER:"
-          echo "$SSH_KEY" | sed -n '$(printf %s\\n "$SSH_KEY" | wc -l)-1,$(printf %s\\n "$SSH_KEY" | wc -l)p' || true
-
       - name: SSH Deploy (staging)
         uses: appleboy/ssh-action@v1.0.0
         with:
