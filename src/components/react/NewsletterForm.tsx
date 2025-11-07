@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
+import React, { useState } from 'react';
 
 interface NewsletterFormProps {
   locale: string;
@@ -60,7 +60,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ locale }) => {
       setStatus('success');
       setMessage(text.success);
       setEmail('');
-    } catch (error) {
+    } catch {
       setStatus('error');
       setMessage(text.error);
     }

@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: ESLint
-        run: npm run lint
+        run: npm run lint:ci
 
       - name: Format check (non-blocking)
         run: npm run format:check || echo "⚠️ Code formatting issues detected. Run 'npm run format' locally."
@@ -55,9 +55,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Auto-format code
-        run: npm run format
 
       - name: Build
         run: npm run build
@@ -96,7 +93,7 @@ jobs:
           configPath: './config/.lighthouserc.json'
           temporaryPublicStorage: true
           uploadArtifacts: true
-          budgetPath: './config/budget.json' # optional
+          budgetPath: './config/budget.json'
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -184,6 +181,8 @@ jobs:
           script: |
             set -e
             cd ~/eurotcg/website/staging
+
+            # Update repository
             if [ ! -d ".git" ]; then
               git clone --branch staging --depth 1 git@github.com:${{ github.repository }} .
             else
@@ -191,15 +190,44 @@ jobs:
               git checkout staging
               git pull origin staging
             fi
-            docker compose -f docker/docker-compose.staging.yml pull
-            docker compose -f docker/docker-compose.staging.yml up -d --remove-orphans
-            docker image prune -f
-            docker container prune -f
+
+            PROJECT_NAME="eurotcg-staging"
+            COMPOSE_FILE="docker/docker-compose.staging.yml"
+
+            echo "[staging] Pulling latest Docker images..."
+            docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" pull
+
+            echo "[staging] Starting / updating services..."
+            docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d
+
+            # Optional: force recreate if you reused the same tag but content changed
+            # docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d --force-recreate
+
+            echo "[staging] Pruning dangling images..."
+            docker image prune -f || true
+
+            echo "[staging] Deployment completed successfully!"
 
       - name: Health check (staging)
         run: |
-          sleep 30
-          curl -f ${{ secrets.STAGING_URL }}/health || exit 1
+          echo "Waiting for staging container to be ready..."
+          STAGING_URL="${{ vars.STAGING_URL }}"
+          # Ensure URL has protocol
+          if [[ ! "$STAGING_URL" =~ ^https?:// ]]; then
+            STAGING_URL="https://$STAGING_URL"
+          fi
+          echo "Health checking: $STAGING_URL/health"
+
+          for i in {1..12}; do
+            if curl -f "$STAGING_URL/health"; then
+              echo "✅ Staging health check passed"
+              exit 0
+            fi
+            echo "Attempt $i/12 failed, waiting 10s..."
+            sleep 10
+          done
+          echo "❌ Staging health check failed after 2 minutes"
+          exit 1
 
   deploy-production:
     name: Deploy to Production
@@ -223,6 +251,8 @@ jobs:
           script: |
             set -e
             cd ~/eurotcg/website/production
+
+            # Update repository
             if [ ! -d ".git" ]; then
               git clone --branch main --depth 1 git@github.com:${{ github.repository }} .
             else
@@ -230,15 +260,44 @@ jobs:
               git checkout main
               git pull origin main
             fi
-            docker compose -f docker/docker-compose.yml pull
-            docker compose -f docker/docker-compose.yml up -d --remove-orphans
-            docker image prune -f
-            docker container prune -f
+
+            PROJECT_NAME="eurotcg-prod"
+            COMPOSE_FILE="docker/docker-compose.yml"
+
+            echo "[prod] Pulling latest Docker images..."
+            docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" pull
+
+            echo "[prod] Starting / updating services..."
+            docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d
+
+            # Optional: force recreate if you reused the same tag but content changed
+            # docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d --force-recreate
+
+            echo "[prod] Pruning dangling images..."
+            docker image prune -f || true
+
+            echo "[prod] Deployment completed successfully!"
 
       - name: Health check (production)
         run: |
-          sleep 30
-          curl -f ${{ secrets.PRODUCTION_URL }}/health || exit 1
+          echo "Waiting for production container to be ready..."
+          PRODUCTION_URL="${{ vars.PRODUCTION_URL }}"
+          # Ensure URL has protocol
+          if [[ ! "$PRODUCTION_URL" =~ ^https?:// ]]; then
+            PRODUCTION_URL="https://$PRODUCTION_URL"
+          fi
+          echo "Health checking: $PRODUCTION_URL/health"
+
+          for i in {1..12}; do
+            if curl -f "$PRODUCTION_URL/health"; then
+              echo "✅ Production health check passed"
+              exit 0
+            fi
+            echo "Attempt $i/12 failed, waiting 10s..."
+            sleep 10
+          done
+          echo "❌ Production health check failed after 2 minutes"
+          exit 1
   notify:
     name: Notify Results
     runs-on: ubuntu-latest

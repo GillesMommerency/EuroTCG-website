@@ -44,6 +44,9 @@ LABEL org.opencontainers.image.description="European Trading Card Game Collectio
 LABEL org.opencontainers.image.source="https://github.com/eurotcg/eurotcg-website"
 LABEL org.opencontainers.image.licenses="MIT"
 
+# Install curl for health checks (must be done as root)
+RUN apk add --no-cache curl
+
 # Create a non-root user
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S astro -u 1001
@@ -62,6 +65,6 @@ EXPOSE 3000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:3000/ || exit 1
+  CMD curl -f http://localhost:3000/health || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]
