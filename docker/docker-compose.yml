@@ -18,12 +18,12 @@ services:
       - traefik.enable=true
       - traefik.docker.network=proxy
       - traefik.http.routers.eurotcg.rule=Host(`eurotcg.com`,`www.eurotcg.com`)
-      - traefik.http.routers.eurotcg.entrypoints=websecure
-      - traefik.http.routers.eurotcg.tls.certresolver=letsencrypt
+      - traefik.http.routers.eurotcg.entrypoints=https
+      - traefik.http.routers.eurotcg.tls.certresolver=cloudflare
       - traefik.http.services.eurotcg.loadbalancer.server.port=3000
       - traefik.http.routers.eurotcg-www.rule=Host(`www.eurotcg.com`)
-      - traefik.http.routers.eurotcg-www.entrypoints=websecure
-      - traefik.http.routers.eurotcg-www.tls.certresolver=letsencrypt
+      - traefik.http.routers.eurotcg-www.entrypoints=https
+      - traefik.http.routers.eurotcg-www.tls.certresolver=cloudflare
       - traefik.http.routers.eurotcg-www.middlewares=www-redirect
       - traefik.http.middlewares.www-redirect.redirectregex.regex=^https://www.eurotcg.com/(.*)
       - traefik.http.middlewares.www-redirect.redirectregex.replacement=https://eurotcg.com/$${1}

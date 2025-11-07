@@ -18,8 +18,8 @@ services:
       - traefik.enable=true
       - traefik.docker.network=proxy
       - traefik.http.routers.eurotcg-staging.rule=Host(`staging.eurotcg.com`)
-      - traefik.http.routers.eurotcg-staging.entrypoints=websecure
-      - traefik.http.routers.eurotcg-staging.tls.certresolver=letsencrypt
+      - traefik.http.routers.eurotcg-staging.entrypoints=https
+      - traefik.http.routers.eurotcg-staging.tls.certresolver=cloudflare
       - traefik.http.services.eurotcg-staging.loadbalancer.server.port=3000
 
 networks:
