@@ -191,24 +191,22 @@ jobs:
               git pull origin staging
             fi
 
-            # Stop existing containers gracefully
-            echo "Stopping existing containers..."
-            docker compose -f docker/docker-compose.staging.yml down --remove-orphans || true
+            PROJECT_NAME="eurotcg-staging"
+            COMPOSE_FILE="docker/docker-compose.staging.yml"
 
-            # Pull latest images
-            echo "Pulling latest Docker images..."
-            docker compose -f docker/docker-compose.staging.yml pull
+            echo "[staging] Pulling latest Docker images..."
+            docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" pull
 
-            # Start new containers
-            echo "Starting updated containers..."
-            docker compose -f docker/docker-compose.staging.yml up -d --remove-orphans
+            echo "[staging] Starting / updating services..."
+            docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d
 
-            # Cleanup old images and containers
-            echo "Cleaning up unused Docker resources..."
-            docker image prune -f --filter "label!=keep" || true
-            docker container prune -f || true
+            # Optional: force recreate if you reused the same tag but content changed
+            # docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d --force-recreate
 
-            echo "Deployment completed successfully!"
+            echo "[staging] Pruning dangling images..."
+            docker image prune -f || true
+
+            echo "[staging] Deployment completed successfully!"
 
       - name: Health check (staging)
         run: |
@@ -263,24 +261,22 @@ jobs:
               git pull origin main
             fi
 
-            # Stop existing containers gracefully
-            echo "Stopping existing containers..."
-            docker compose -f docker/docker-compose.yml down --remove-orphans || true
+            PROJECT_NAME="eurotcg-prod"
+            COMPOSE_FILE="docker/docker-compose.yml"
 
-            # Pull latest images
-            echo "Pulling latest Docker images..."
-            docker compose -f docker/docker-compose.yml pull
+            echo "[prod] Pulling latest Docker images..."
+            docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" pull
 
-            # Start new containers
-            echo "Starting updated containers..."
-            docker compose -f docker/docker-compose.yml up -d --remove-orphans
+            echo "[prod] Starting / updating services..."
+            docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d
 
-            # Cleanup old images and containers
-            echo "Cleanup unused Docker resources..."
-            docker image prune -f --filter "label!=keep" || true
-            docker container prune -f || true
+            # Optional: force recreate if you reused the same tag but content changed
+            # docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d --force-recreate
 
-            echo "Deployment completed successfully!"
+            echo "[prod] Pruning dangling images..."
+            docker image prune -f || true
+
+            echo "[prod] Deployment completed successfully!"
 
       - name: Health check (production)
         run: |
