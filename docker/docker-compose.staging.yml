@@ -23,5 +23,5 @@ services:
       - traefik.http.services.eurotcg-staging.loadbalancer.server.port=3000
 
 networks:
-  traefik:
+  proxy:
     external: true

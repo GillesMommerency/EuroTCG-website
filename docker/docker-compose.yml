@@ -30,5 +30,5 @@ services:
       - traefik.http.middlewares.www-redirect.redirectregex.permanent=true
 
 networks:
-  traefik:
+  proxy:
     external: true
