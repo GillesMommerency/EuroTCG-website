@@ -30,11 +30,8 @@ module.exports = {
     'public/',
     'config/',
     'docker/',
-    'scripts/',
     '*.config.js',
     '*.config.mjs',
     '*.config.ts',
-    'playwright-report/',
-    'test-results/',
   ],
 };
