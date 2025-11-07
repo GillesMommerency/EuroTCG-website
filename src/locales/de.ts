@@ -107,12 +107,12 @@ export default {
 
   // Under Construction Page
   underConstruction: {
-    title: 'EuroTCG - Im Aufbau',
+    title: 'EuroTCG - Europäischer TCG-Kollektion-Manager',
     comingSoon: 'Bald verfügbar',
-    heading: 'Etwas Großartiges kommt bald',
-    subheading: 'Wir bauen den ultimativen europäischen Sammelkartenspiel-Kollektion-Manager',
+    heading: 'Europas führende TCG-Plattform',
+    subheading: 'Erweiterte Kartenscans, EU-Preisvergleiche und Kollektionsverwaltung',
     description:
-      'EuroTCG wird Ihre zentrale Plattform zum Scannen, Organisieren und Verwalten Ihrer Sammelkartensammlungen. Entwickelt für europäische Sammler, mit mehrsprachiger Unterstützung und DSGVO-Konformität.',
+      'EuroTCG revolutioniert wie europäische Sammler ihre Sammelkarten verwalten. Scannen zur Identifizierung, EU-Marktpreise vergleichen, Kollektionen verwalten und Benachrichtigungen für neue Pokémon-Veröffentlichungen in Europa erhalten.',
     features: {
       title: 'Was Sie erwarten können',
       scanning: {
@@ -144,12 +144,12 @@ export default {
     },
     progress: {
       title: 'Entwicklungsfortschritt',
-      design: 'Design & UX',
-      backend: 'Backend-Entwicklung',
-      frontend: 'Frontend-Entwicklung',
-      mobile: 'Mobile App',
-      testing: 'Tests & QA',
-      launch: 'Start-Vorbereitung',
+      coreEngine: 'Kartenerkennung-Engine',
+      priceApi: 'EU-Preisdaten Integration',
+      collectionSystem: 'Sammlungsverwaltung',
+      mobileApp: 'iOS & Android Apps',
+      betaTesting: 'Beta-Tests & Optimierung',
+      launch: 'Europäische Markteinführung',
     },
     newsletter: {
       title: 'Auf dem Laufenden bleiben',

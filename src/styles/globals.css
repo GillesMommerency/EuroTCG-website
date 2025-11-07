@@ -5,65 +5,96 @@
 
 @layer base {
   :root {
-    /* Color palette */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* EuroTCG Neo‑Holo Light Mode - Restrained for accessibility */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 230 95% 68%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 230 95% 68%;
+    --radius: 0.75rem;
 
-    /* TCG Brand colors */
-    --tcg-blue: 221.2 83.2% 53.3%;
-    --tcg-red: 0 84.2% 60.2%;
-    --tcg-yellow: 47.9 95.8% 53.1%;
-    --tcg-green: 142.1 76.2% 36.3%;
-    --tcg-purple: 262.1 83.3% 57.8%;
-    --tcg-orange: 24.6 95% 53.1%;
+    /* EuroTCG Neo‑Holo Brand Colors - Holographic Inspired */
+    --holo-primary: 230 95% 68%; /* Electric Blue */
+    --holo-secondary: 280 85% 70%; /* Purple Shift */
+    --holo-tertiary: 310 75% 65%; /* Magenta Shift */
+    --holo-accent: 190 85% 65%; /* Cyan Shift */
+    --holo-success: 150 70% 55%; /* Green Shift */
+    --holo-warning: 40 95% 65%; /* Gold Shift */
+    --holo-error: 0 85% 65%; /* Red Shift */
+
+    /* TCG Card Rarity Colors */
+    --rarity-common: 240 3.8% 46.1%;
+    --rarity-uncommon: 150 70% 55%;
+    --rarity-rare: 230 95% 68%;
+    --rarity-ultra: 280 85% 70%;
+    --rarity-secret: 40 95% 65%;
+    --rarity-rainbow: 310 75% 65%;
+
+    /* Surface levels for depth */
+    --surface-0: 0 0% 100%; /* Cards, modals */
+    --surface-1: 240 4.8% 98%; /* Elevated elements */
+    --surface-2: 240 4.8% 96%; /* Dropdowns, tooltips */
+    --surface-3: 240 4.8% 94%; /* Active states */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* EuroTCG Neo‑Holo Dark Mode - Modern Dark Base */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 230 95% 68%;
+    --primary-foreground: 240 10% 3.9%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 94.1%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 230 95% 68%;
 
-    /* TCG Brand colors - Dark mode variants */
-    --tcg-blue: 217.2 91.2% 59.8%;
-    --tcg-red: 0 62.8% 50.6%;
-    --tcg-yellow: 47.9 95.8% 63.1%;
-    --tcg-green: 142.1 70.6% 45.3%;
-    --tcg-purple: 262.1 73.3% 67.8%;
-    --tcg-orange: 24.6 95% 63.1%;
+    /* EuroTCG Neo‑Holo Dark Brand Colors - Enhanced holographic effects */
+    --holo-primary: 230 95% 68%;
+    --holo-secondary: 280 85% 70%;
+    --holo-tertiary: 310 75% 65%;
+    --holo-accent: 190 85% 65%;
+    --holo-success: 150 70% 55%;
+    --holo-warning: 40 95% 65%;
+    --holo-error: 0 85% 65%;
+
+    /* TCG Card Rarity Colors - Dark mode enhanced */
+    --rarity-common: 240 5% 64.9%;
+    --rarity-uncommon: 150 70% 55%;
+    --rarity-rare: 230 95% 68%;
+    --rarity-ultra: 280 85% 70%;
+    --rarity-secret: 40 95% 65%;
+    --rarity-rainbow: 310 75% 65%;
+
+    /* Surface levels for depth in dark mode */
+    --surface-0: 240 10% 7%; /* Cards, modals */
+    --surface-1: 240 10% 10%; /* Elevated elements */
+    --surface-2: 240 3.7% 15.9%; /* Dropdowns, tooltips */
+    --surface-3: 240 3.7% 20%; /* Active states */
   }
 
   * {
@@ -205,18 +236,157 @@
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 
-  /* TCG specific styles */
-  .tcg-card {
-    @apply from-background to-muted/50 relative overflow-hidden rounded-xl border bg-gradient-to-br shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+  /* EuroTCG Neo‑Holo specific styles */
+  .neo-holo-card {
+    @apply relative overflow-hidden rounded-xl border shadow-lg transition-all duration-500;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--surface-0)) 0%,
+      hsl(var(--surface-1)) 50%,
+      hsl(var(--surface-0)) 100%
+    );
   }
 
-  .tcg-card::before {
+  .neo-holo-card::before {
     content: '';
-    @apply via-primary/5 to-primary/10 absolute inset-0 bg-gradient-to-br from-transparent opacity-0 transition-opacity duration-300;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      hsla(var(--holo-primary), 0) 0%,
+      hsla(var(--holo-secondary), 0.05) 25%,
+      hsla(var(--holo-tertiary), 0.08) 50%,
+      hsla(var(--holo-accent), 0.05) 75%,
+      hsla(var(--holo-primary), 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+    pointer-events: none;
   }
 
-  .tcg-card:hover::before {
-    @apply opacity-100;
+  .neo-holo-card:hover::before {
+    opacity: 1;
+  }
+
+  .neo-holo-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04),
+      0 0 0 1px hsla(var(--holo-primary), 0.05);
+  }
+
+  /* Holographic text effects */
+  .neo-holo-text {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--holo-primary)) 0%,
+      hsl(var(--holo-secondary)) 25%,
+      hsl(var(--holo-tertiary)) 50%,
+      hsl(var(--holo-accent)) 75%,
+      hsl(var(--holo-primary)) 100%
+    );
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: holo-shift 4s ease-in-out infinite;
+  }
+
+  /* Animated holographic gradient backgrounds */
+  .neo-holo-bg {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsla(var(--holo-primary), 0.03) 25%,
+      hsla(var(--holo-secondary), 0.05) 50%,
+      hsla(var(--holo-accent), 0.03) 75%,
+      hsl(var(--background)) 100%
+    );
+    background-size: 300% 300%;
+    animation: holo-bg-shift 8s ease-in-out infinite;
+  }
+
+  /* Scanning beam effect for card scanning feature */
+  .scan-beam {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-beam::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsla(var(--holo-primary), 0.3) 50%,
+      transparent 100%
+    );
+    animation: scan-sweep 2s ease-in-out infinite;
+  }
+
+  /* Rarity indicators */
+  .rarity-common {
+    color: hsl(var(--rarity-common));
+  }
+  .rarity-uncommon {
+    color: hsl(var(--rarity-uncommon));
+  }
+  .rarity-rare {
+    color: hsl(var(--rarity-rare));
+  }
+  .rarity-ultra {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--rarity-ultra)) 0%,
+      hsl(var(--rarity-rainbow)) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .rarity-secret {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--rarity-secret)) 0%,
+      hsl(var(--rarity-rainbow)) 50%,
+      hsl(var(--rarity-secret)) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: holo-shift 3s ease-in-out infinite;
+  }
+
+  /* Price comparison highlights */
+  .price-best {
+    background: linear-gradient(
+      135deg,
+      hsla(var(--holo-success), 0.1) 0%,
+      hsla(var(--holo-success), 0.05) 100%
+    );
+    border-color: hsl(var(--holo-success));
+  }
+
+  .price-average {
+    background: linear-gradient(
+      135deg,
+      hsla(var(--holo-warning), 0.1) 0%,
+      hsla(var(--holo-warning), 0.05) 100%
+    );
+    border-color: hsl(var(--holo-warning));
+  }
+
+  /* Alert notification styles */
+  .alert-pulse {
+    animation: alert-glow 2s ease-in-out infinite;
   }
 
   /* Language switcher styles */
@@ -260,6 +430,187 @@
   }
 }
 
+/* EuroTCG Neo‑Holo Keyframe Animations */
+@keyframes holo-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes holo-bg-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  33% {
+    background-position: 100% 50%;
+  }
+  66% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes scan-sweep {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes alert-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px hsla(var(--holo-warning), 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px hsla(var(--holo-warning), 0.8);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-gentle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.32;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes card-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg) scale(1.03);
+  }
+  75% {
+    transform: translateY(-8px) rotate(-1deg) scale(1.02);
+  }
+}
+
+@keyframes tcg-card-idle-3d {
+  0%,
+  100% {
+    transform: translateY(0px) rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+  }
+  20% {
+    transform: translateY(-4px) rotateY(8deg) rotateX(3deg) rotateZ(1deg);
+  }
+  40% {
+    transform: translateY(-8px) rotateY(-2deg) rotateX(5deg) rotateZ(-2deg);
+  }
+  60% {
+    transform: translateY(-6px) rotateY(-8deg) rotateX(-1deg) rotateZ(1deg);
+  }
+  80% {
+    transform: translateY(-3px) rotateY(4deg) rotateX(-3deg) rotateZ(-1deg);
+  }
+}
+
+@keyframes tcg-card-hover-float {
+  0%,
+  100% {
+    transform: translateY(-15px) translateZ(30px) rotateY(-12deg) rotateX(6deg) rotateZ(2deg);
+  }
+  33% {
+    transform: translateY(-22px) translateZ(40px) rotateY(8deg) rotateX(-4deg) rotateZ(-3deg);
+  }
+  66% {
+    transform: translateY(-18px) translateZ(35px) rotateY(15deg) rotateX(2deg) rotateZ(1deg);
+  }
+}
+
+@keyframes tcg-card-entrance {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotateX(-20deg) rotateY(25deg) scale(0.8);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-10px) rotateX(-5deg) rotateY(5deg) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg) scale(1);
+  }
+}
+
+@keyframes tcg-parallax-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes tcg-parallax-medium {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes tcg-parallax-fast {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -269,9 +620,14 @@
     text-wrap: pretty;
   }
 
-  /* Animation utilities */
+  /* EuroTCG Neo‑Holo Animation utilities */
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-fade-in-gentle {
+    animation: fade-in-gentle 1.2s ease-out forwards;
+    opacity: 0;
   }
 
   .animate-fade-up {
@@ -280,6 +636,64 @@
 
   .animate-slide-in {
     animation: slideIn 0.3s ease-out;
+  }
+
+  .animate-holo-shift {
+    animation: holo-shift 4s ease-in-out infinite;
+  }
+
+  .animate-scan-sweep {
+    animation: scan-sweep 2s ease-in-out infinite;
+  }
+
+  .animate-card-float {
+    animation: card-float 3s ease-in-out infinite;
+  }
+
+  /* Holographic gradient utilities */
+  .bg-holo-primary {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--holo-primary)) 0%,
+      hsl(var(--holo-secondary)) 100%
+    );
+  }
+
+  .bg-holo-accent {
+    background: linear-gradient(135deg, hsl(var(--holo-accent)) 0%, hsl(var(--holo-tertiary)) 100%);
+  }
+
+  .bg-holo-rainbow {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--holo-primary)) 0%,
+      hsl(var(--holo-secondary)) 20%,
+      hsl(var(--holo-tertiary)) 40%,
+      hsl(var(--holo-accent)) 60%,
+      hsl(var(--holo-success)) 80%,
+      hsl(var(--holo-warning)) 100%
+    );
+  }
+
+  /* Glass morphism effects */
+  .glass-holo {
+    background: linear-gradient(
+      135deg,
+      hsla(var(--surface-0), 0.8) 0%,
+      hsla(var(--surface-1), 0.6) 100%
+    );
+    backdrop-filter: blur(12px);
+    border: 1px solid hsla(var(--holo-primary), 0.2);
+  }
+
+  /* TCG Card 3D Effects */
+  .tcg-card-3d {
+    transform-style: preserve-3d;
+  }
+
+  .tcg-cards-container {
+    perspective: 1000px;
+    transform-style: preserve-3d;
   }
 
   /* Skip link for accessibility */

@@ -85,40 +85,86 @@ export default {
 
   // Under Construction Page
   underConstruction: {
-    title: 'EuroTCG - En Construction',
+    title: 'EuroTCG - Gestionnaire de Collection TCG Européen',
     comingSoon: 'Bientôt disponible',
-    heading: "Quelque chose d'incroyable arrive bientôt",
-    subheading: 'Nous construisons le gestionnaire de collection de cartes à jouer européen ultime',
+    heading: 'La Plateforme TCG Européenne de Référence',
+    subheading: 'Scanner de cartes avancé, comparaison de prix UE, et gestion de collection',
     description:
-      'EuroTCG sera votre plateforme de référence pour scanner, organiser et gérer vos collections de cartes à jouer. Conçu pour les collectionneurs européens, avec un support multilingue et la conformité RGPD.',
+      'EuroTCG révolutionne la façon dont les collectionneurs européens gèrent leurs cartes à jouer. Scannez pour identifier, comparez les prix du marché UE, gérez vos collections et recevez des alertes pour les nouvelles sorties Pokémon en Europe.',
     features: {
-      title: "À quoi s'attendre",
+      title: 'Fonctionnalités Principales',
       scanning: {
-        title: 'Scanner de cartes avancé',
+        title: 'Scanner de Cartes Intelligent',
         description:
-          "Utilisez l'appareil photo de votre téléphone pour identifier et cataloguer instantanément vos cartes",
+          'Reconnaissance par caméra IA qui identifie instantanément les cartes de tous les TCG majeurs',
+        benefits: [
+          '99% de précision',
+          'Fonctionne hors ligne',
+          'Supporte les cartes abîmées',
+          'Scanner multi-cartes',
+        ],
+      },
+      priceComparison: {
+        title: 'Intelligence Prix UE',
+        description: 'Suivi des prix en temps réel sur les marchés européens comme Cardmarket',
+        benefits: [
+          'Flux de prix en direct',
+          'Graphiques historiques',
+          'Alertes bonnes affaires',
+          'Analyses de marché',
+        ],
       },
       collection: {
-        title: 'Gestion de collection',
-        description:
-          "Organisez vos cartes avec des catégories personnalisées, des listes de souhaits et des listes d'échange",
+        title: 'Gestionnaire de Collection',
+        description: 'Outils complets pour organiser, suivre et évaluer toute votre collection',
+        benefits: [
+          'Suivi portefeuille',
+          "Notes d'état",
+          'Catégories personnalisées',
+          "Rapports d'export",
+        ],
       },
-      marketplace: {
-        title: 'Marché européen',
+      preGrading: {
+        title: 'Assistant de Pré-Notation',
+        description: "Analyse IA pour estimer l'état des cartes avant notation professionnelle",
+        benefits: ['Évaluation état', 'Prédictions notes', 'Calculateur ROI', 'Suivi soumissions'],
+      },
+      alerts: {
+        title: 'Alertes Sorties & Notifications',
         description:
-          "Connectez-vous avec des collectionneurs à travers l'Europe pour échanger et vendre",
+          'Restez en avance avec alertes instantanées pour nouvelles sorties Pokémon en Europe',
+        benefits: [
+          'Notifications sorties',
+          'Alertes restockage',
+          'Alertes baisse prix',
+          'Listes de surveillance',
+        ],
       },
       mobile: {
-        title: 'Design mobile-first',
-        description: 'Optimisé pour les appareils mobiles avec des capacités hors ligne',
+        title: 'Expérience Mobile-First',
+        description: 'Conçu pour collectionneurs nomades avec expérience mobile fluide',
+        benefits: ['Apps natives', 'Mode hors ligne', 'Sync cloud', 'Intégration caméra'],
       },
       privacy: {
-        title: 'Conforme RGPD',
-        description: 'Vos données sont protégées selon les normes de confidentialité européennes',
+        title: 'Standards Européens de Confidentialité',
+        description:
+          'Conforme RGPD avec protection des données européennes et confidentialité par conception',
+        benefits: [
+          'Conforme RGPD',
+          'Propriété données',
+          'Contrôles confidentialité',
+          'Serveurs UE',
+        ],
       },
       multilingual: {
-        title: 'Support multilingue',
-        description: 'Disponible en anglais, français, allemand, espagnol, italien et néerlandais',
+        title: 'Support Multi-Langues',
+        description: 'Entièrement localisé pour les marchés européens en 6 langues',
+        benefits: [
+          'Traductions natives',
+          'Devises locales',
+          'Marchés régionaux',
+          'Adaptation culturelle',
+        ],
       },
     },
     newsletter: {
@@ -134,14 +180,36 @@ export default {
       description: 'Obtenez des mises à jour en coulisses et des aperçus exclusifs',
     },
     progress: {
-      title: 'Progression du développement',
-      design: 'Design et UX',
-      backend: 'Développement backend',
-      mobile: 'Application mobile',
-      testing: 'Tests et QA',
-      launch: 'Préparation du lancement',
+      title: 'Progression du Développement',
+      coreEngine: 'Moteur de Reconnaissance de Cartes',
+      priceApi: 'Intégration Données Prix UE',
+      collectionSystem: 'Gestion de Collection',
+      mobileApp: 'Apps iOS et Android',
+      betaTesting: 'Tests Bêta et Optimisation',
+      launch: 'Préparation Lancement Européen',
     },
-    estimatedLaunch: 'Lancement estimé : T2 2024',
+    estimatedLaunch: 'Lancement prévu : T2 2025',
+    betaSignup: 'Rejoindre le Programme Bêta',
+    useCases: {
+      title: 'Parfait Pour',
+      collector: {
+        title: 'Collectionneurs Sérieux',
+        description:
+          'Suivre la valeur du portefeuille et gérer efficacement de grandes collections',
+      },
+      trader: {
+        title: 'Traders Actifs',
+        description: 'Identifier les échanges rentables avec données marché UE en temps réel',
+      },
+      investor: {
+        title: 'Investisseurs TCG',
+        description: 'Prendre des décisions éclairées avec analyses prix et données tendances',
+      },
+      casual: {
+        title: 'Joueurs Occasionnels',
+        description: 'Organiser vos cartes et découvrir leur valeur cachée',
+      },
+    },
     contact: {
       title: 'Des questions ?',
       description: 'Contactez notre équipe',
@@ -149,22 +217,88 @@ export default {
     },
   },
 
+  // App Features Showcase
+  appFeatures: {
+    scanning: {
+      title: 'Scanner de Cartes Révolutionnaire',
+      subtitle: 'Pointez, Scannez, Identifiez - En Secondes',
+      description:
+        "Notre moteur IA avancé reconnaît les cartes Pokémon, Magic: The Gathering, Yu-Gi-Oh!, et plus avec une précision leader de l'industrie.",
+      capabilities: [
+        'Scanner par lot multi-cartes',
+        'Fonctionne avec cartes abîmées ou usées',
+        'Détection instantanée set et rareté',
+        'Capacité de scan hors ligne',
+        'Support pour 15+ formats TCG',
+      ],
+    },
+    pricing: {
+      title: 'Intelligence Prix Européens',
+      subtitle: 'Données Marché UE en Temps Réel',
+      description:
+        'Suivez les prix sur les principales places de marché européennes incluant Cardmarket, avec tendances historiques et analyses de marché.',
+      capabilities: [
+        'Intégration Cardmarket en direct',
+        'Historique prix et analyse tendances',
+        'Alertes opportunités marché',
+        'Support multi-devises (EUR, GBP, CHF)',
+        'Calculs marge bénéficiaire',
+      ],
+    },
+    collections: {
+      title: 'Gestion de Collection Intelligente',
+      subtitle: 'Votre Coffre-Fort de Cartes Digital',
+      description:
+        'Organisez des milliers de cartes sans effort avec notre système de catégorisation intelligente et suivi de portefeuille.',
+      capabilities: [
+        'Évaluation automatique état',
+        'Suivi valeur portefeuille',
+        'Filtrage et recherche avancés',
+        'Analyses et insights collection',
+        'Sauvegarde et sync multi-appareils',
+      ],
+    },
+    alerts: {
+      title: 'Ne Ratez Jamais une Sortie',
+      subtitle: 'Restez en Avance sur les Sorties UE',
+      description:
+        'Recevez notifications instantanées pour nouveaux sets Pokémon, restockages, et opportunités prix chez les détaillants européens.',
+      capabilities: [
+        'Alertes sortie nouveaux sets',
+        'Notifications restockage',
+        'Alertes baisse prix',
+        'Annonces tournois',
+        'Suivi disponibilité régionale',
+      ],
+    },
+  },
+
+  // Market Integration
+  marketplaces: {
+    title: 'Places de Marché Européennes Intégrées',
+    cardmarket: 'Données Prix Cardmarket',
+    tcgplayer: 'Comparaison Internationale',
+    ebay: 'Insights Enchères',
+    local: 'Réseau Détaillants Locaux',
+  },
+
   // SEO and Meta
   seo: {
-    defaultTitle: 'EuroTCG - Gestionnaire de Collection de Cartes à Jouer Européen',
+    defaultTitle:
+      'EuroTCG - Scanner IA de Cartes et Tracker Prix UE pour Pokémon, Magic et Yu-Gi-Oh',
     defaultDescription:
-      'La plateforme ultime pour les collectionneurs de TCG européens. Scannez, organisez et gérez vos collections de cartes à jouer avec des outils avancés et la conformité RGPD.',
+      'Scannez cartes à jouer avec IA, comparez prix UE sur Cardmarket, gérez collections, et recevez alertes nouvelles sorties Pokémon. La plateforme TCG européenne ultime.',
     keywords:
-      'jeux de cartes à collectionner, TCG, gestionnaire de collection, scanner de cartes, marché européen, conforme RGPD, Pokemon, Magic, Yu-Gi-Oh',
+      'application scanner cartes, prix cartes pokemon europe, tracker prix cardmarket, gestionnaire collection TCG, alertes sorties pokemon, app notation cartes, cartes à jouer européennes, prix magic the gathering, valeurs cartes yugioh, reconnaissance IA cartes',
   },
 
   // Footer
   footer: {
     company: {
       title: 'Entreprise',
-      about: 'À propos',
+      about: "À propos d'EuroTCG",
       careers: 'Carrières',
-      press: 'Presse',
+      press: 'Kit Presse',
       blog: 'Blog',
       contact: 'Contact',
     },
@@ -172,17 +306,17 @@ export default {
       title: 'Produit',
       features: 'Fonctionnalités',
       pricing: 'Tarifs',
-      security: 'Sécurité',
+      security: 'Sécurité et Confidentialité',
       roadmap: 'Feuille de route',
-      changelog: 'Journal des modifications',
+      beta: 'Programme Bêta',
     },
-    support: {
-      title: 'Support',
+    resources: {
+      title: 'Ressources',
       help: "Centre d'aide",
-      documentation: 'Documentation',
-      api: 'Référence API',
-      status: 'Statut',
-      community: 'Communauté',
+      documentation: 'Docs API',
+      tutorials: 'Tutoriels',
+      status: 'Statut Service',
+      community: 'Forum Communauté',
     },
     legal: {
       title: 'Légal',
@@ -192,8 +326,8 @@ export default {
       gdpr: 'Conformité RGPD',
       imprint: 'Mentions légales',
     },
-    copyright: '© 2024 EuroTCG. Tous droits réservés.',
-    madeWith: 'Fait avec ❤️ en Europe',
+    copyright: '© 2025 EuroTCG. Tous droits réservés.',
+    madeWith: 'Conçu pour les collectionneurs européens',
   },
 
   // Forms

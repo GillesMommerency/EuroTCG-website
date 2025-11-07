@@ -85,37 +85,73 @@ export default {
 
   // Under Construction Page
   underConstruction: {
-    title: 'EuroTCG - Under Construction',
+    title: 'EuroTCG - European TCG Collection Manager',
     comingSoon: 'Coming Soon',
-    heading: 'Something Amazing is Coming Soon',
-    subheading: "We're building the ultimate European trading card game collection manager",
+    heading: "Europe's Premier TCG Platform",
+    subheading: 'Advanced card scanning, EU price comparison, and collection management',
     description:
-      'EuroTCG will be your go-to platform for scanning, organizing, and managing your trading card collections. Built with European collectors in mind, featuring multi-language support and GDPR compliance.',
+      'EuroTCG revolutionizes how European collectors manage their trading cards. Scan to identify, compare EU market prices, manage collections, and get alerts for new Pokémon drops across Europe.',
     features: {
-      title: 'What to Expect',
+      title: 'Core Features',
       scanning: {
-        title: 'Advanced Card Scanning',
-        description: 'Use your phone camera to instantly identify and catalog your cards',
+        title: 'Smart Card Scanning',
+        description: 'AI-powered camera recognition instantly identifies cards from all major TCGs',
+        benefits: [
+          '99% accuracy rate',
+          'Works offline',
+          'Supports damaged cards',
+          'Multi-card scanning',
+        ],
+      },
+      priceComparison: {
+        title: 'EU Price Intelligence',
+        description: 'Real-time price tracking across European marketplaces like Cardmarket',
+        benefits: ['Live price feeds', 'Historical charts', 'Deal alerts', 'Market insights'],
       },
       collection: {
-        title: 'Collection Management',
-        description: 'Organize your cards with custom categories, wishlists, and trading lists',
+        title: 'Collection Manager',
+        description: 'Comprehensive tools to organize, track, and value your entire collection',
+        benefits: ['Portfolio tracking', 'Condition grades', 'Custom categories', 'Export reports'],
       },
-      marketplace: {
-        title: 'European Marketplace',
-        description: 'Connect with collectors across Europe for trading and selling',
+      preGrading: {
+        title: 'Pre-Grading Assistant',
+        description: 'AI analysis helps estimate card conditions before professional grading',
+        benefits: [
+          'Condition assessment',
+          'Grade predictions',
+          'ROI calculator',
+          'Submission tracking',
+        ],
+      },
+      alerts: {
+        title: 'Drop Alerts & Notifications',
+        description: 'Stay ahead with instant alerts for new Pokémon releases across Europe',
+        benefits: [
+          'Release notifications',
+          'Restock alerts',
+          'Price drop alerts',
+          'Custom watchlists',
+        ],
       },
       mobile: {
-        title: 'Mobile-First Design',
-        description: 'Optimized for mobile devices with offline capabilities',
+        title: 'Mobile-First Experience',
+        description: 'Designed for collectors on-the-go with seamless mobile experience',
+        benefits: ['Native apps', 'Offline mode', 'Cloud sync', 'Camera integration'],
       },
       privacy: {
-        title: 'GDPR Compliant',
-        description: 'Your data is protected with European privacy standards',
+        title: 'European Privacy Standards',
+        description: 'GDPR compliant with European data protection and privacy by design',
+        benefits: ['GDPR compliant', 'Data ownership', 'Privacy controls', 'EU servers'],
       },
       multilingual: {
-        title: 'Multilingual Support',
-        description: 'Available in English, French, German, Spanish, Italian, and Dutch',
+        title: 'Multi-Language Support',
+        description: 'Fully localized for European markets in 6 languages',
+        benefits: [
+          'Native translations',
+          'Local currencies',
+          'Regional markets',
+          'Cultural adaptation',
+        ],
       },
     },
     newsletter: {
@@ -132,13 +168,34 @@ export default {
     },
     progress: {
       title: 'Development Progress',
-      design: 'Design & UX',
-      backend: 'Backend Development',
-      mobile: 'Mobile App',
-      testing: 'Testing & QA',
-      launch: 'Launch Preparation',
+      coreEngine: 'Card Recognition Engine',
+      priceApi: 'EU Price Data Integration',
+      collectionSystem: 'Collection Management',
+      mobileApp: 'iOS & Android Apps',
+      betaTesting: 'Beta Testing & Optimization',
+      launch: 'European Launch Preparation',
     },
-    estimatedLaunch: 'Estimated Launch: Q2 2024',
+    estimatedLaunch: 'Expected Launch: Q2 2025',
+    betaSignup: 'Join Beta Program',
+    useCases: {
+      title: 'Perfect For',
+      collector: {
+        title: 'Serious Collectors',
+        description: 'Track portfolio value and manage large collections efficiently',
+      },
+      trader: {
+        title: 'Active Traders',
+        description: 'Identify profitable trades with real-time EU market data',
+      },
+      investor: {
+        title: 'TCG Investors',
+        description: 'Make informed decisions with price analytics and trend data',
+      },
+      casual: {
+        title: 'Casual Players',
+        description: 'Organize your cards and discover their hidden value',
+      },
+    },
     contact: {
       title: 'Questions?',
       description: 'Get in touch with our team',
@@ -148,20 +205,85 @@ export default {
 
   // SEO and Meta
   seo: {
-    defaultTitle: 'EuroTCG - European Trading Card Game Collection Manager',
+    defaultTitle: 'EuroTCG - AI Card Scanner & EU Price Tracker for Pokémon, Magic & Yu-Gi-Oh',
     defaultDescription:
-      'The ultimate platform for European TCG collectors. Scan, organize, and manage your trading card collections with advanced tools and GDPR compliance.',
+      'Scan trading cards with AI, compare EU prices on Cardmarket, manage collections, and get alerts for new Pokémon drops. The ultimate European TCG platform.',
     keywords:
-      'trading card games, TCG, collection manager, card scanner, European marketplace, GDPR compliant, Pokemon, Magic, Yu-Gi-Oh',
+      'card scanner app, pokemon card prices europe, cardmarket price tracker, TCG collection manager, pokemon drop alerts, card grading app, european trading cards, magic the gathering prices, yugioh card values, AI card recognition',
+  },
+
+  // App Features Showcase
+  appFeatures: {
+    scanning: {
+      title: 'Revolutionary Card Scanning',
+      subtitle: 'Point, Scan, Identify - In Seconds',
+      description:
+        'Our advanced AI engine recognizes cards from Pokémon, Magic: The Gathering, Yu-Gi-Oh!, and more with industry-leading accuracy.',
+      capabilities: [
+        'Multi-card batch scanning',
+        'Works with damaged or worn cards',
+        'Instant set and rarity detection',
+        'Offline scanning capability',
+        'Support for 15+ TCG formats',
+      ],
+    },
+    pricing: {
+      title: 'European Price Intelligence',
+      subtitle: 'Real-Time EU Market Data',
+      description:
+        'Track prices across major European marketplaces including Cardmarket, with historical trends and market insights.',
+      capabilities: [
+        'Live Cardmarket integration',
+        'Price history & trend analysis',
+        'Market opportunity alerts',
+        'Multi-currency support (EUR, GBP, CHF)',
+        'Profit margin calculations',
+      ],
+    },
+    collections: {
+      title: 'Smart Collection Management',
+      subtitle: 'Your Digital Card Vault',
+      description:
+        'Organize thousands of cards effortlessly with our intelligent categorization and portfolio tracking system.',
+      capabilities: [
+        'Automated condition assessment',
+        'Portfolio value tracking',
+        'Advanced filtering & search',
+        'Collection analytics & insights',
+        'Backup & sync across devices',
+      ],
+    },
+    alerts: {
+      title: 'Never Miss a Drop',
+      subtitle: 'Stay Ahead of EU Releases',
+      description:
+        'Get instant notifications for new Pokémon sets, restocks, and price opportunities across European retailers.',
+      capabilities: [
+        'New set release alerts',
+        'Restock notifications',
+        'Price drop alerts',
+        'Tournament announcements',
+        'Regional availability tracking',
+      ],
+    },
+  },
+
+  // Market Integration
+  marketplaces: {
+    title: 'Integrated European Marketplaces',
+    cardmarket: 'Cardmarket Price Data',
+    tcgplayer: 'International Comparison',
+    ebay: 'Auction Insights',
+    local: 'Local Retailer Network',
   },
 
   // Footer
   footer: {
     company: {
       title: 'Company',
-      about: 'About Us',
+      about: 'About EuroTCG',
       careers: 'Careers',
-      press: 'Press',
+      press: 'Press Kit',
       blog: 'Blog',
       contact: 'Contact',
     },
@@ -169,17 +291,17 @@ export default {
       title: 'Product',
       features: 'Features',
       pricing: 'Pricing',
-      security: 'Security',
+      security: 'Security & Privacy',
       roadmap: 'Roadmap',
-      changelog: 'Changelog',
+      beta: 'Beta Program',
     },
-    support: {
-      title: 'Support',
+    resources: {
+      title: 'Resources',
       help: 'Help Center',
-      documentation: 'Documentation',
-      api: 'API Reference',
-      status: 'Status',
-      community: 'Community',
+      documentation: 'API Docs',
+      tutorials: 'Tutorials',
+      status: 'Service Status',
+      community: 'Community Forum',
     },
     legal: {
       title: 'Legal',
@@ -189,8 +311,8 @@ export default {
       gdpr: 'GDPR Compliance',
       imprint: 'Imprint',
     },
-    copyright: '© 2024 EuroTCG. All rights reserved.',
-    madeWith: 'Made with ❤️ in Europe',
+    copyright: '© 2025 EuroTCG. All rights reserved.',
+    madeWith: 'Built for European collectors',
   },
 
   // Forms

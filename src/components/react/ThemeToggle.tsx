@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { cn } from '@/lib/utils';
 
 const ThemeToggle: React.FC = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -29,12 +28,25 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className={cn(
-        'border-input relative inline-flex h-10 w-10 items-center justify-center rounded-md border',
-        'bg-background text-foreground transition-colors',
-        'hover:bg-accent hover:text-accent-foreground',
-        'focus:ring-primary focus:outline-none focus:ring-2 focus:ring-offset-2'
-      )}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '2.5rem',
+        width: '2.5rem',
+        borderRadius: '0.375rem',
+        border: '1px solid hsl(var(--border))',
+        backgroundColor: 'hsl(var(--background))',
+        color: 'hsl(var(--foreground))',
+        cursor: 'pointer',
+        transition: 'all 0.2s',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.backgroundColor = 'hsl(var(--accent))';
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.backgroundColor = 'hsl(var(--background))';
+      }}
       aria-label="Toggle theme"
       type="button"
     >
