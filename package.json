@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npm run lint:ci && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --ignore-path .gitignore --fix",
     "lint:ci": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --ignore-path .gitignore --max-warnings 20",
+    "lint:watch": "chokidar \"src/**/*.{js,jsx,ts,tsx,astro}\" -c \"npm run lint\"",
+    "lint:staged": "lint-staged",
     "format": "prettier --write . --config config/.prettierrc --ignore-path config/.prettierignore",
     "format:check": "prettier --check . --config config/.prettierrc --ignore-path config/.prettierignore",
     "type-check": "astro check",
@@ -47,6 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^8.46.3",
     "@typescript-eslint/parser": "^8.46.3",
     "astro-eslint-parser": "^1.2.2",
+    "chokidar-cli": "^3.0.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^0.34.0",
@@ -63,5 +66,11 @@
   "engines": {
     "node": ">=20.17.0",
     "npm": ">=10.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"],
+    "*.{astro}": ["eslint --fix", "prettier --write"],
+    "*.{json,md,yml,yaml,css,scss}": ["prettier --write"],
+    "*.{png,jpg,jpeg,gif,svg}": ["imagemin-lint-staged"]
   }
 }

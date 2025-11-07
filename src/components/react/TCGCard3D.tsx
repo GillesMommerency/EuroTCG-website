@@ -45,11 +45,15 @@ const TCGCard3D: React.FC<TCGCard3DProps> = ({
 
   // Handle mouse tracking for 3D effect
   useEffect(() => {
-    if (!enable3D) return;
+    if (!enable3D) {
+      return;
+    }
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = cardRef.current?.getBoundingClientRect();
-      if (!rect || !isHovered) return;
+      if (!rect || !isHovered) {
+        return;
+      }
 
       // Check if mouse is actually over the card
       const isOverCard =
@@ -85,7 +89,9 @@ const TCGCard3D: React.FC<TCGCard3DProps> = ({
 
   // Calculate 3D transforms
   const get3DTransform = (): string => {
-    if (!enable3D || !mousePosition || !cardRef.current || !isHovered) return '';
+    if (!enable3D || !mousePosition || !cardRef.current || !isHovered) {
+      return '';
+    }
 
     // mousePosition is already normalized (-1 to 1) from handleMouseMove
     const rotateY = Math.max(-12, Math.min(12, mousePosition.x * 12));
@@ -208,7 +214,7 @@ const TCGCard3D: React.FC<TCGCard3DProps> = ({
 
     try {
       return `data:image/svg+xml;base64,${btoa(svgContent)}`;
-    } catch (error) {
+    } catch {
       // Fallback to URL encoding if btoa fails
       return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgContent)}`;
     }
@@ -224,10 +230,18 @@ const TCGCard3D: React.FC<TCGCard3DProps> = ({
     const cardKey = cardName.toLowerCase().replace(/\s+/g, '-');
 
     if (game === 'pokemon') {
-      if (cardKey.includes('charizard')) return '/images/cards/pokemon/charizard.png';
-      if (cardKey.includes('pikachu')) return '/images/cards/pokemon/pikachu.png';
-      if (cardKey.includes('blastoise')) return '/images/cards/pokemon/blastoise.png';
-      if (cardKey.includes('venusaur')) return '/images/cards/pokemon/venusaur.png';
+      if (cardKey.includes('charizard')) {
+        return '/images/cards/pokemon/charizard.png';
+      }
+      if (cardKey.includes('pikachu')) {
+        return '/images/cards/pokemon/pikachu.png';
+      }
+      if (cardKey.includes('blastoise')) {
+        return '/images/cards/pokemon/blastoise.png';
+      }
+      if (cardKey.includes('venusaur')) {
+        return '/images/cards/pokemon/venusaur.png';
+      }
     }
 
     if (game === 'onepiece' && cardKey.includes('luffy')) {
