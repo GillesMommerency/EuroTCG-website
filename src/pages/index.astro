@@ -228,8 +228,9 @@ const structuredData = {
 
         <!-- Controls -->
         <div class="flex items-center gap-3">
-          <LanguageSwitcher client:load currentLocale={locale} languageUrls={languageUrls} />
-          <ThemeToggle client:load />
+          <!-- React components - testing with fixed setup -->
+          <LanguageSwitcher client:visible currentLocale={locale} languageUrls={languageUrls} />
+          <ThemeToggle client:visible />
         </div>
       </div>
     </div>
@@ -263,7 +264,7 @@ const structuredData = {
         <!-- Top Left Corner - Charizard -->
         <div class="absolute" style="left: 3vw; top: 15vh;">
           <TCGCard3D
-            client:load
+            client:visible
             game="pokemon"
             cardName="Charizard"
             imageUrl="/images/cards/pokemon/charizard.png"
@@ -277,10 +278,10 @@ const structuredData = {
           />
         </div>
 
-        <!-- Top Right - Luffy (GOOD POSITION) -->
+        <!-- Top Right - Luffy -->
         <div class="absolute" style="right: 3vw; top: 25vh;">
           <TCGCard3D
-            client:load
+            client:visible
             game="onepiece"
             cardName="Monkey D. Luffy"
             imageUrl="/images/cards/onepiece/luffy.png"
@@ -297,7 +298,7 @@ const structuredData = {
         <!-- Bottom Left - Elsa -->
         <div class="absolute" style="left: 8vw; bottom: 20vh;">
           <TCGCard3D
-            client:load
+            client:visible
             game="lorcana"
             cardName="Elsa"
             imageUrl="/images/cards/lorcana/elsa.png"
@@ -314,7 +315,7 @@ const structuredData = {
         <!-- Bottom Right - Magic -->
         <div class="absolute" style="right: 8vw; bottom: 12vh;">
           <TCGCard3D
-            client:load
+            client:visible
             game="magic"
             cardName="The One Ring"
             imageUrl="/images/cards/magic/the-one-ring.png"
@@ -397,7 +398,7 @@ const structuredData = {
 
           <!-- Newsletter Signup -->
           <div class="mb-8">
-            <NewsletterForm client:load locale={locale} />
+            <NewsletterForm client:visible locale={locale} />
           </div>
 
           <!-- Early Access Info -->
@@ -492,7 +493,7 @@ const structuredData = {
                     <span class="text-muted-foreground text-sm font-medium">{item.progress}%</span>
                   </div>
                   <ProgressBar
-                    client:load
+                    client:visible
                     label={item.name}
                     progress={item.progress}
                     delay={200 + index * 100}

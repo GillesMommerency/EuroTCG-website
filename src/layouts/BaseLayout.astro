@@ -56,8 +56,13 @@ const dir = localeInfo.dir;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Preload critical fonts -->
-    <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Use Google Fonts instead of local fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- DNS prefetch for external domains -->
     <link rel="dns-prefetch" href="//plausible.io" />
@@ -155,6 +160,8 @@ const dir = localeInfo.dir;
     </div>
 
     <!-- Service Worker Registration -->
+    <!-- Service worker registration disabled until sw.js is created -->
+    <!--
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -169,6 +176,7 @@ const dir = localeInfo.dir;
         });
       }
     </script>
+    -->
 
     <!-- Error boundary for React components -->
     <script>

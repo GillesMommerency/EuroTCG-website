@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface TCGCard3DProps {
   game: 'pokemon' | 'onepiece' | 'yugioh' | 'magic' | 'lorcana';
@@ -27,9 +27,9 @@ const TCGCard3D: React.FC<TCGCard3DProps> = ({
   enableFadeIn = true,
   enable3D = true,
 }) => {
-  const [isVisible, setIsVisible] = React.useState(!enableFadeIn);
-  const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = React.useState(false);
+  const [isVisible, setIsVisible] = useState(!enableFadeIn);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   // Handle fade-in animation

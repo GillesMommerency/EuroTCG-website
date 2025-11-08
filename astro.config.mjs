@@ -30,9 +30,7 @@ export default defineConfig({
       applyBaseStyles: false, // We'll use our custom base styles
       configFile: './config/tailwind.config.mjs',
     }),
-    react({
-      include: ['**/react/*'],
-    }),
+    react(),
     sitemap({
       i18n: {
         defaultLocale: 'en',
