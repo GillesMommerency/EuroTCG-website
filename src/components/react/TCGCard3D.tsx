@@ -90,7 +90,7 @@ const TCGCard3D: React.FC<TCGCard3DProps> = ({
   // Calculate 3D transforms
   const get3DTransform = (): string => {
     if (!enable3D || !mousePosition || !cardRef.current || !isHovered) {
-      return '';
+      return 'none';
     }
 
     // mousePosition is already normalized (-1 to 1) from handleMouseMove
@@ -304,7 +304,7 @@ const TCGCard3D: React.FC<TCGCard3DProps> = ({
             perspective: '1500px',
             position: 'relative',
             transformStyle: 'preserve-3d',
-            transform: get3DTransform(),
+            transform: get3DTransform() || 'none',
             filter: getGlowEffect(),
             animation:
               enable3D && isHovered

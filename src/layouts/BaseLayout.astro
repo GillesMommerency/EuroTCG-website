@@ -114,9 +114,12 @@ const dir = localeInfo.dir;
       }
     </script>
 
-    <!-- GDPR-compliant Analytics (Plausible) -->
-    <script is:inline defer data-domain="eurotcg.com" src="https://plausible.io/js/script.js"
-    ></script>
+    <!-- GDPR-compliant Analytics (Plausible) - Production only -->
+    {
+      import.meta.env.PROD && (
+        <script is:inline defer data-domain="eurotcg.com" src="https://plausible.io/js/script.js" />
+      )
+    }
   </head>
 
   <body class="bg-background text-foreground min-h-screen antialiased">
@@ -181,13 +184,19 @@ const dir = localeInfo.dir;
     <!-- Error boundary for React components -->
     <script>
       window.addEventListener('error', event => {
-        console.error('Global error:', event.error);
-        // You could send this to an error reporting service
+        // Silently handle errors in production, log only in development
+        if (window.location.hostname === 'localhost') {
+          // eslint-disable-next-line no-console
+          console.error('Global error:', event.error);
+        }
       });
 
       window.addEventListener('unhandledrejection', event => {
-        console.error('Unhandled promise rejection:', event.reason);
-        // You could send this to an error reporting service
+        // Silently handle promise rejections in production
+        if (window.location.hostname === 'localhost') {
+          // eslint-disable-next-line no-console
+          console.error('Unhandled promise rejection:', event.reason);
+        }
       });
     </script>
   </body>
