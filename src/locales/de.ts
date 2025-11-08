@@ -107,39 +107,81 @@ export default {
 
   // Under Construction Page
   underConstruction: {
-    title: 'EuroTCG - Europäischer TCG-Kollektion-Manager',
+    title: 'EuroTCG - Europäischer TCG Sammlungsmanager',
     comingSoon: 'Bald verfügbar',
-    heading: 'Europas führende TCG-Plattform',
-    subheading: 'Erweiterte Kartenscans, EU-Preisvergleiche und Kollektionsverwaltung',
+    heading: 'Europas Beste TCG Sammlungs-App',
+    subheading: 'Fortschrittliches Kartenscanning, EU-Preisvergleiche und Sammlungsmanagement',
     description:
-      'EuroTCG revolutioniert wie europäische Sammler ihre Sammelkarten verwalten. Scannen zur Identifizierung, EU-Marktpreise vergleichen, Kollektionen verwalten und Benachrichtigungen für neue Pokémon-Veröffentlichungen in Europa erhalten.',
+      'EuroTCG revolutioniert wie europäische Sammler ihre Sammelkarten verwalten. Scannen zum Identifizieren, EU-Marktpreise vergleichen, Sammlungen verwalten und Benachrichtigungen für neue Pokémon-Veröffentlichungen in ganz Europa erhalten.',
     features: {
-      title: 'Was Sie erwarten können',
+      title: 'Kernfunktionen',
       scanning: {
-        title: 'Erweiterte Kartenerkennung',
-        description:
-          'Verwenden Sie Ihre Handykamera, um Ihre Karten sofort zu identifizieren und zu katalogisieren',
+        title: 'Intelligenter Kartenscanner',
+        description: 'KI-gesteuerte Kamera-Erkennung identifiziert sofort Karten aller großen TCGs',
+        benefits: [
+          '99% Genauigkeit',
+          'Funktioniert offline',
+          'Unterstützt beschädigte Karten',
+          'Multi-Karten-Scanning',
+        ],
+      },
+      priceComparison: {
+        title: 'EU Preis-Intelligence',
+        description: 'Echtzeit-Preisverfolgung auf europäischen Marktplätzen wie Cardmarket',
+        benefits: ['Live-Preisfeeds', 'Historische Diagramme', 'Deal-Alerts', 'Markt-Einblicke'],
       },
       collection: {
-        title: 'Sammlungsmanagement',
+        title: 'Sammlungsmanager',
         description:
-          'Organisieren Sie Ihre Karten mit benutzerdefinierten Kategorien, Wunschlisten und Handelslisten',
+          'Umfassende Tools zum Organisieren, Verfolgen und Bewerten Ihrer gesamten Sammlung',
+        benefits: [
+          'Portfolio-Tracking',
+          'Zustandsbewertungen',
+          'Benutzerdefinierte Kategorien',
+          'Export-Berichte',
+        ],
       },
-      marketplace: {
-        title: 'Europäischer Marktplatz',
-        description: 'Verbinden Sie sich mit Sammlern in ganz Europa zum Handeln und Verkaufen',
+      preGrading: {
+        title: 'Pre-Grading Assistent',
+        description:
+          'KI-Analyse hilft bei der Einschätzung von Kartenzuständen vor professionellem Grading',
+        benefits: [
+          'Zustandsbewertung',
+          'Grade-Vorhersagen',
+          'ROI-Rechner',
+          'Einreichungs-Tracking',
+        ],
+      },
+      alerts: {
+        title: 'Drop Alerts & Benachrichtigungen',
+        description:
+          'Bleiben Sie voraus mit sofortigen Alerts für neue Pokémon-Veröffentlichungen in ganz Europa',
+        benefits: [
+          'Release-Benachrichtigungen',
+          'Restock-Alerts',
+          'Preissenkung-Alerts',
+          'Benutzerdefinierte Watchlists',
+        ],
       },
       mobile: {
-        title: 'Mobile-First Design',
-        description: 'Optimiert für mobile Geräte mit Offline-Funktionen',
+        title: 'Mobile-First Erfahrung',
+        description: 'Entwickelt für Sammler unterwegs mit nahtloser mobiler Erfahrung',
+        benefits: ['Native Apps', 'Offline-Modus', 'Cloud-Sync', 'Kamera-Integration'],
       },
       privacy: {
-        title: 'DSGVO-konform',
-        description: 'Ihre Daten sind mit europäischen Datenschutzstandards geschützt',
+        title: 'Europäische Datenschutzstandards',
+        description: 'DSGVO-konform mit europäischem Datenschutz und Privacy by Design',
+        benefits: ['DSGVO-konform', 'Datenbesitz', 'Datenschutz-Kontrollen', 'EU-Server'],
       },
       multilingual: {
         title: 'Mehrsprachige Unterstützung',
-        description: 'Verfügbar in 6 europäischen Sprachen',
+        description: 'Vollständig lokalisiert für europäische Märkte in 6 Sprachen',
+        benefits: [
+          'Native Übersetzungen',
+          'Lokale Währungen',
+          'Regionale Märkte',
+          'Kulturelle Anpassung',
+        ],
       },
     },
     progress: {

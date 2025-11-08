@@ -107,39 +107,81 @@ export default {
 
   // Under Construction Page
   underConstruction: {
-    title: 'EuroTCG - In Ontwikkeling',
+    title: 'EuroTCG - Europese TCG Collectie Manager',
     comingSoon: 'Binnenkort beschikbaar',
-    heading: 'Iets Geweldigs Komt Eraan',
-    subheading: 'We bouwen de ultieme Europese ruilkaarten collectie manager',
+    heading: "Europa's Beste TCG Collectie App",
+    subheading: 'Geavanceerd kaarten scannen, EU prijsvergelijking, en collectie beheer',
     description:
-      'EuroTCG wordt jouw go-to platform voor het scannen, organiseren en beheren van je ruilkaarten collecties. Gebouwd met Europese verzamelaars in gedachten, met meertalige ondersteuning en AVG-compliance.',
+      'EuroTCG revolutioneert hoe Europese verzamelaars hun ruilkaarten beheren. Scan om te identificeren, vergelijk EU marktprijzen, beheer collecties, en ontvang meldingen voor nieuwe Pokémon releases door heel Europa.',
     features: {
-      title: 'Wat te Verwachten',
+      title: 'Kernfunctionaliteiten',
       scanning: {
-        title: 'Geavanceerd Kaarten Scannen',
+        title: 'Slimme Kaart Scanner',
         description:
-          'Gebruik je telefoon camera om je kaarten direct te identificeren en catalogiseren',
+          'AI-aangedreven camera herkenning identificeert direct kaarten van alle grote TCGs',
+        benefits: [
+          '99% nauwkeurigheid',
+          'Werkt offline',
+          'Ondersteunt beschadigde kaarten',
+          'Multi-kaart scannen',
+        ],
+      },
+      priceComparison: {
+        title: 'EU Prijs Intelligentie',
+        description: 'Real-time prijstracking op Europese marktplaatsen zoals Cardmarket',
+        benefits: ['Live prijsfeeds', 'Historische grafieken', 'Deal alerts', 'Markt inzichten'],
       },
       collection: {
-        title: 'Collectie Beheer',
-        description:
-          'Organiseer je kaarten met aangepaste categorieën, verlanglijsten en ruillijsten',
+        title: 'Collectie Manager',
+        description: 'Uitgebreide tools om je hele collectie te organiseren, volgen en waarderen',
+        benefits: [
+          'Portfolio tracking',
+          'Conditie beoordelingen',
+          'Aangepaste categorieën',
+          'Export rapporten',
+        ],
       },
-      marketplace: {
-        title: 'Europese Marktplaats',
-        description: 'Verbind met verzamelaars door heel Europa voor ruilen en verkopen',
+      preGrading: {
+        title: 'Pre-Grading Assistent',
+        description:
+          'AI analyse helpt bij het inschatten van kaart condities voor professionele grading',
+        benefits: [
+          'Conditie beoordeling',
+          'Grade voorspellingen',
+          'ROI calculator',
+          'Inzending tracking',
+        ],
+      },
+      alerts: {
+        title: 'Drop Alerts & Notificaties',
+        description:
+          'Blijf voorop met directe alerts voor nieuwe Pokémon releases door heel Europa',
+        benefits: [
+          'Release notificaties',
+          'Restock alerts',
+          'Prijsdaling alerts',
+          'Aangepaste watchlists',
+        ],
       },
       mobile: {
-        title: 'Mobile-First Design',
-        description: 'Geoptimaliseerd voor mobiele apparaten met offline mogelijkheden',
+        title: 'Mobile-First Ervaring',
+        description: 'Ontworpen voor verzamelaars onderweg met naadloze mobiele ervaring',
+        benefits: ['Native apps', 'Offline modus', 'Cloud sync', 'Camera integratie'],
       },
       privacy: {
-        title: 'AVG Compliant',
-        description: 'Je data is beschermd met Europese privacy standaarden',
+        title: 'Europese Privacy Standaarden',
+        description: 'AVG compliant met Europese databescherming en privacy by design',
+        benefits: ['AVG compliant', 'Data eigenaarschap', 'Privacy controles', 'EU servers'],
       },
       multilingual: {
         title: 'Meertalige Ondersteuning',
-        description: 'Beschikbaar in 6 Europese talen',
+        description: 'Volledig gelokaliseerd voor Europese markten in 6 talen',
+        benefits: [
+          'Native vertalingen',
+          'Lokale valuta',
+          'Regionale markten',
+          'Culturele aanpassing',
+        ],
       },
     },
     design: {

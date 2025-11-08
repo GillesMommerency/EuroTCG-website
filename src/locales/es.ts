@@ -107,39 +107,91 @@ export default {
 
   // Under Construction Page
   underConstruction: {
-    title: 'EuroTCG - En Construcción',
+    title: 'EuroTCG - Gestor de Colección TCG Europeo',
     comingSoon: 'Próximamente',
-    heading: 'Algo Increíble Viene Pronto',
-    subheading: 'Estamos construyendo el gestor de colecciones de cartas europeo definitivo',
+    heading: 'La Mejor App de Colección TCG de Europa',
+    subheading: 'Escaneo avanzado de cartas, comparación de precios UE, y gestión de colecciones',
     description:
-      'EuroTCG será tu plataforma principal para escanear, organizar y gestionar tus colecciones de cartas. Construido pensando en los coleccionistas europeos, con soporte multiidioma y cumplimiento GDPR.',
+      'EuroTCG revoluciona cómo los coleccionistas europeos gestionan sus cartas. Escanea para identificar, compara precios del mercado UE, gestiona colecciones, y recibe alertas de nuevos lanzamientos Pokémon en toda Europa.',
     features: {
-      title: 'Qué Esperar',
+      title: 'Funcionalidades Principales',
       scanning: {
-        title: 'Escaneo Avanzado de Cartas',
+        title: 'Escáner de Cartas Inteligente',
         description:
-          'Usa la cámara de tu teléfono para identificar y catalogar instantáneamente tus cartas',
+          'Reconocimiento por cámara IA que identifica instantáneamente cartas de todos los TCGs principales',
+        benefits: [
+          '99% de precisión',
+          'Funciona sin conexión',
+          'Soporta cartas dañadas',
+          'Escaneo multi-carta',
+        ],
+      },
+      priceComparison: {
+        title: 'Inteligencia de Precios UE',
+        description: 'Seguimiento de precios en tiempo real en mercados europeos como Cardmarket',
+        benefits: [
+          'Feeds de precios en vivo',
+          'Gráficos históricos',
+          'Alertas de ofertas',
+          'Insights de mercado',
+        ],
       },
       collection: {
-        title: 'Gestión de Colecciones',
-        description:
-          'Organiza tus cartas con categorías personalizadas, listas de deseos y listas de intercambio',
+        title: 'Gestor de Colecciones',
+        description: 'Herramientas completas para organizar, rastrear y valorar toda tu colección',
+        benefits: [
+          'Seguimiento de cartera',
+          'Calificaciones de estado',
+          'Categorías personalizadas',
+          'Reportes de exportación',
+        ],
       },
-      marketplace: {
-        title: 'Mercado Europeo',
-        description: 'Conecta con coleccionistas de toda Europa para intercambiar y vender',
+      preGrading: {
+        title: 'Asistente de Pre-Gradado',
+        description:
+          'Análisis IA ayuda a estimar condiciones de cartas antes del gradado profesional',
+        benefits: [
+          'Evaluación de estado',
+          'Predicciones de grado',
+          'Calculadora ROI',
+          'Seguimiento de envíos',
+        ],
+      },
+      alerts: {
+        title: 'Alertas de Lanzamientos y Notificaciones',
+        description:
+          'Mantente adelante con alertas instantáneas para nuevos lanzamientos Pokémon en Europa',
+        benefits: [
+          'Notificaciones de lanzamientos',
+          'Alertas de restock',
+          'Alertas de bajadas de precio',
+          'Listas de seguimiento personalizadas',
+        ],
       },
       mobile: {
-        title: 'Diseño Mobile-First',
-        description: 'Optimizado para dispositivos móviles con capacidades offline',
+        title: 'Experiencia Mobile-First',
+        description: 'Diseñado para coleccionistas en movimiento con experiencia móvil fluida',
+        benefits: [
+          'Apps nativas',
+          'Modo sin conexión',
+          'Sincronización en la nube',
+          'Integración de cámara',
+        ],
       },
       privacy: {
-        title: 'Cumple GDPR',
-        description: 'Tus datos están protegidos con estándares de privacidad europeos',
+        title: 'Estándares Europeos de Privacidad',
+        description: 'Cumple GDPR con protección de datos europea y privacidad por diseño',
+        benefits: ['Cumple GDPR', 'Propiedad de datos', 'Controles de privacidad', 'Servidores UE'],
       },
       multilingual: {
-        title: 'Soporte Multiidioma',
-        description: 'Disponible en 6 idiomas europeos',
+        title: 'Soporte Multi-idioma',
+        description: 'Completamente localizado para mercados europeos en 6 idiomas',
+        benefits: [
+          'Traducciones nativas',
+          'Monedas locales',
+          'Mercados regionales',
+          'Adaptación cultural',
+        ],
       },
     },
     progress: {

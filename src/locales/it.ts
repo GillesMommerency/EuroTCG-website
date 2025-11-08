@@ -107,39 +107,86 @@ export default {
 
   // Under Construction Page
   underConstruction: {
-    title: 'EuroTCG - In Costruzione',
+    title: 'EuroTCG - Gestore Collezioni TCG Europeo',
     comingSoon: 'Prossimamente',
-    heading: 'Qualcosa di Incredibile Sta Arrivando',
-    subheading: 'Stiamo costruendo il gestore di collezioni di carte europeo definitivo',
+    heading: 'La Migliore App per Collezioni TCG in Europa',
+    subheading: 'Scansione carte avanzata, confronto prezzi UE, e gestione collezioni',
     description:
-      'EuroTCG sarà la tua piattaforma di riferimento per scansionare, organizzare e gestire le tue collezioni di carte. Costruito pensando ai collezionisti europei, con supporto multilingue e conformità GDPR.',
+      'EuroTCG rivoluziona il modo in cui i collezionisti europei gestiscono le loro carte. Scansiona per identificare, confronta prezzi del mercato UE, gestisci collezioni, e ricevi avvisi per nuove uscite Pokémon in tutta Europa.',
     features: {
-      title: 'Cosa Aspettarsi',
+      title: 'Funzionalità Principali',
       scanning: {
-        title: 'Scansione Avanzata delle Carte',
+        title: 'Scanner Carte Intelligente',
         description:
-          'Usa la fotocamera del tuo telefono per identificare e catalogare istantaneamente le tue carte',
+          'Riconoscimento tramite fotocamera IA che identifica istantaneamente carte di tutti i principali TCG',
+        benefits: [
+          '99% di precisione',
+          'Funziona offline',
+          'Supporta carte danneggiate',
+          'Scansione multi-carta',
+        ],
+      },
+      priceComparison: {
+        title: 'Intelligence Prezzi UE',
+        description: 'Tracciamento prezzi in tempo reale su mercati europei come Cardmarket',
+        benefits: ['Feed prezzi live', 'Grafici storici', 'Avvisi offerte', 'Insights di mercato'],
       },
       collection: {
-        title: 'Gestione delle Collezioni',
+        title: 'Gestore Collezioni',
         description:
-          'Organizza le tue carte con categorie personalizzate, liste dei desideri e liste di scambio',
+          'Strumenti completi per organizzare, tracciare e valutare tutta la tua collezione',
+        benefits: [
+          'Tracking portfolio',
+          'Valutazioni condizioni',
+          'Categorie personalizzate',
+          'Report esportazione',
+        ],
       },
-      marketplace: {
-        title: 'Mercato Europeo',
-        description: 'Connettiti con collezionisti in tutta Europa per scambiare e vendere',
+      preGrading: {
+        title: 'Assistente Pre-Grading',
+        description:
+          'Analisi IA aiuta a stimare condizioni delle carte prima del grading professionale',
+        benefits: [
+          'Valutazione condizioni',
+          'Predizioni gradi',
+          'Calcolatore ROI',
+          'Tracking invii',
+        ],
+      },
+      alerts: {
+        title: 'Avvisi Uscite & Notifiche',
+        description: 'Resta avanti con avvisi istantanei per nuove uscite Pokémon in tutta Europa',
+        benefits: [
+          'Notifiche uscite',
+          'Avvisi restock',
+          'Avvisi calo prezzi',
+          'Watchlist personalizzate',
+        ],
       },
       mobile: {
-        title: 'Design Mobile-First',
-        description: 'Ottimizzato per dispositivi mobili con capacità offline',
+        title: 'Esperienza Mobile-First',
+        description: 'Progettato per collezionisti in movimento con esperienza mobile fluida',
+        benefits: [
+          'App native',
+          'Modalità offline',
+          'Sincronizzazione cloud',
+          'Integrazione fotocamera',
+        ],
       },
       privacy: {
-        title: 'Conforme GDPR',
-        description: 'I tuoi dati sono protetti con standard di privacy europei',
+        title: 'Standard Europei di Privacy',
+        description: 'Conforme GDPR con protezione dati europea e privacy by design',
+        benefits: ['Conforme GDPR', 'Proprietà dati', 'Controlli privacy', 'Server UE'],
       },
       multilingual: {
-        title: 'Supporto Multilingue',
-        description: 'Disponibile in 6 lingue europee',
+        title: 'Supporto Multi-lingua',
+        description: 'Completamente localizzato per mercati europei in 6 lingue',
+        benefits: [
+          'Traduzioni native',
+          'Valute locali',
+          'Mercati regionali',
+          'Adattamento culturale',
+        ],
       },
     },
     design: {
@@ -157,13 +204,12 @@ export default {
       launch: 'Preparazione al Lancio',
     },
     newsletter: {
-      title: 'Rimani Aggiornato',
-      subtitle:
-        'Ricevi aggiornamenti sui nostri progressi e sii il primo a sapere quando lanceremo',
+      title: 'Accesso Anticipato & Aggiornamenti',
+      subtitle: "Unisciti alla lista d'attesa per accesso beta prioritario e ultime notizie",
       placeholder: 'Inserisci la tua email',
-      button: 'Notificami',
-      success: 'Grazie! Ti avviseremo quando saremo pronti.',
-      error: 'Qualcosa è andato storto. Riprova.',
+      button: "Unisciti alla Lista d'Attesa",
+      success: "Perfetto! Sei nella lista per l'accesso anticipato.",
+      error: 'Ops! Qualcosa è andato storto. Riprova.',
     },
     social: {
       title: 'Segui i nostri progressi',
@@ -218,10 +264,10 @@ export default {
       discord: 'Discord',
     },
     newsletter: {
-      title: 'Iscriviti alla Newsletter',
-      subtitle: 'Gli ultimi aggiornamenti direttamente nella tua casella.',
+      title: "Lista d'Attesa EuroTCG",
+      subtitle: 'Accesso anticipato e aggiornamenti sviluppo.',
       placeholder: 'Inserisci email',
-      button: 'Iscriviti',
+      button: 'Unisciti',
     },
     copyright: 'Tutti i diritti riservati.',
   },

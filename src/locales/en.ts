@@ -87,7 +87,7 @@ export default {
   underConstruction: {
     title: 'EuroTCG - European TCG Collection Manager',
     comingSoon: 'Coming Soon',
-    heading: "Europe's Premier TCG Platform",
+    heading: "Europe's Premier TCG Collection App",
     subheading: 'Advanced card scanning, EU price comparison, and collection management',
     description:
       'EuroTCG revolutionizes how European collectors manage their trading cards. Scan to identify, compare EU market prices, manage collections, and get alerts for new Pokémon drops across Europe.',

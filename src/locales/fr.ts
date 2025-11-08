@@ -87,7 +87,7 @@ export default {
   underConstruction: {
     title: 'EuroTCG - Gestionnaire de Collection TCG Européen',
     comingSoon: 'Bientôt disponible',
-    heading: 'La Plateforme TCG Européenne de Référence',
+    heading: "L'App de Collection TCG Européenne de Référence",
     subheading: 'Scanner de cartes avancé, comparaison de prix UE, et gestion de collection',
     description:
       'EuroTCG révolutionne la façon dont les collectionneurs européens gèrent leurs cartes à jouer. Scannez pour identifier, comparez les prix du marché UE, gérez vos collections et recevez des alertes pour les nouvelles sorties Pokémon en Europe.',
