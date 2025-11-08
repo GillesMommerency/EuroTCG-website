@@ -84,10 +84,6 @@ export function removeLocaleFromPathname(pathname: string): string {
  * Add locale prefix to pathname
  */
 export function addLocaleToPathname(pathname: string, locale: Locale): string {
-  if (locale === defaultLocale) {
-    return pathname;
-  }
-
   const cleanPathname = removeLocaleFromPathname(pathname);
   return `/${locale}${cleanPathname}`;
 }
@@ -96,10 +92,6 @@ export function addLocaleToPathname(pathname: string, locale: Locale): string {
  * Get localized path
  */
 export function getLocalizedPath(path: string, locale: Locale): string {
-  if (locale === defaultLocale) {
-    return path;
-  }
-
   return `/${locale}${path}`;
 }
 

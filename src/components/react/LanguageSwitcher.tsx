@@ -24,13 +24,19 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLocale, lang
       window.location.href = languageUrls[langCode];
     } else {
       const currentPath = window.location.pathname;
+      // Remove the current locale from the path
       const currentPathWithoutLocale = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '');
-      const newPath =
-        langCode === 'en'
-          ? currentPathWithoutLocale || '/'
-          : `/${langCode}${currentPathWithoutLocale || '/'}`;
 
-      window.location.href = newPath;
+      // All locales including English get prefixes now
+      let newPath = `/${langCode}${currentPathWithoutLocale || ''}`;
+
+      // Ensure we don't have double slashes or missing trailing slash for root
+      if (newPath === `/${langCode}`) {
+        newPath = `/${langCode}/`;
+      }
+
+      // Use window.location.assign for better browser history handling
+      window.location.assign(newPath);
     }
   };
 

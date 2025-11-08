@@ -8,19 +8,12 @@ export default defineConfig({
   site: 'https://eurotcg.com',
   trailingSlash: 'ignore',
 
-  // Internationalization
+  // Internationalization - all locales including EN get prefixed
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'fr', 'de', 'es', 'it', 'nl'],
     routing: {
-      prefixDefaultLocale: false,
-    },
-    fallback: {
-      fr: 'en',
-      de: 'en',
-      es: 'en',
-      it: 'en',
-      nl: 'en',
+      prefixDefaultLocale: true,
     },
   },
 
