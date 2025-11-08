@@ -260,9 +260,12 @@ const structuredData = {
       </div>
 
       <!-- Floating 3D TCG Cards -->
-      <div class="tcg-cards-container absolute inset-0 hidden lg:block" style="z-index: 1;">
+      <div
+        class="tcg-cards-container pointer-events-none absolute inset-0 hidden lg:block"
+        style="z-index: 1;"
+      >
         <!-- Top Left Corner - Charizard -->
-        <div class="absolute" style="left: 3vw; top: 15vh;">
+        <div class="pointer-events-auto absolute" style="left: 3vw; top: 15vh;">
           <TCGCard3D
             client:visible
             game="pokemon"
@@ -278,8 +281,8 @@ const structuredData = {
           />
         </div>
 
-        <!-- Top Right - Luffy -->
-        <div class="absolute" style="right: 3vw; top: 25vh;">
+        <!-- Top Right Corner - One Piece -->
+        <div class="pointer-events-auto absolute" style="right: 3vw; top: 25vh;">
           <TCGCard3D
             client:visible
             game="onepiece"
@@ -295,8 +298,8 @@ const structuredData = {
           />
         </div>
 
-        <!-- Bottom Left - Elsa -->
-        <div class="absolute" style="left: 8vw; bottom: 20vh;">
+        <!-- Bottom Left - Lorcana -->
+        <div class="pointer-events-auto absolute" style="left: 8vw; bottom: 20vh;">
           <TCGCard3D
             client:visible
             game="lorcana"
@@ -313,7 +316,7 @@ const structuredData = {
         </div>
 
         <!-- Bottom Right - Magic -->
-        <div class="absolute" style="right: 8vw; bottom: 12vh;">
+        <div class="pointer-events-auto absolute" style="right: 8vw; bottom: 12vh;">
           <TCGCard3D
             client:visible
             game="magic"
