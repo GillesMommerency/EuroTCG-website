@@ -3,6 +3,8 @@ export default {
   nav: {
     home: 'Accueil',
     features: 'Fonctionnalités',
+    progress: 'Progrès',
+    community: 'Communauté',
     pricing: 'Tarifs',
     about: 'À propos',
     contact: 'Contact',
@@ -15,6 +17,7 @@ export default {
 
   // Common
   common: {
+    tagline: 'Plateforme de Trading Européenne',
     loading: 'Chargement...',
     error: 'Erreur',
     success: 'Succès',
@@ -93,6 +96,8 @@ export default {
       'EuroTCG révolutionne la façon dont les collectionneurs européens gèrent leurs cartes à jouer. Scannez pour identifier, comparez les prix du marché UE, gérez vos collections et recevez des alertes pour les nouvelles sorties Pokémon en Europe.',
     features: {
       title: 'Fonctionnalités Principales',
+      subtitle:
+        "Outils révolutionnaires conçus pour les collectionneurs européens - du scan alimenté par IA à l'intelligence de marché UE en temps réel",
       scanning: {
         title: 'Scanner de Cartes Intelligent',
         description:
@@ -168,12 +173,15 @@ export default {
       },
     },
     newsletter: {
-      title: 'Restez informé',
-      description: 'Soyez le premier à savoir quand nous lancerons',
+      title: 'Accès Anticipé & Mises à Jour',
+      subtitle:
+        "Rejoignez la liste d'attente pour un accès beta prioritaire et les dernières nouvelles",
       placeholder: 'Entrez votre adresse e-mail',
-      button: 'Me notifier',
-      success: 'Merci ! Nous vous tiendrons au courant.',
+      button: 'Rejoindre la Liste',
+      success: "Parfait ! Vous êtes sur la liste pour l'accès anticipé.",
       error: 'Veuillez entrer une adresse e-mail valide.',
+      loading: 'Inscription...',
+      privacy: 'Aucun spam, jamais. Désabonnement facile. Entièrement conforme RGPD.',
     },
     social: {
       title: 'Suivez notre progression',
@@ -181,6 +189,8 @@ export default {
     },
     progress: {
       title: 'Progression du Développement',
+      subtitle:
+        "Suivez notre parcours alors que nous construisons l'avenir du trading TCG européen",
       coreEngine: 'Moteur de Reconnaissance de Cartes',
       priceApi: 'Intégration Données Prix UE',
       collectionSystem: 'Gestion de Collection',
@@ -190,6 +200,26 @@ export default {
     },
     estimatedLaunch: 'Lancement prévu : T2 2025',
     betaSignup: 'Rejoindre le Programme Bêta',
+    earlyAccessInfo:
+      'Rejoignez <span class="text-primary font-semibold">500+</span> collectionneurs qui attendent déjà l\'accès anticipé',
+    keyPoints: {
+      scanner: {
+        title: 'Scanner Carte IA',
+        subtitle: '99% de Précision',
+      },
+      pricing: {
+        title: 'Suivi Prix UE',
+        subtitle: 'Données Cardmarket Live',
+      },
+      mobile: {
+        title: 'Mobile-First',
+        subtitle: 'Apps iOS & Android',
+      },
+      alerts: {
+        title: 'Alertes Sorties',
+        subtitle: 'Ratez Aucune Sortie',
+      },
+    },
     useCases: {
       title: 'Parfait Pour',
       collector: {
@@ -214,6 +244,25 @@ export default {
       title: 'Des questions ?',
       description: 'Contactez notre équipe',
       email: 'hello@eurotcg.com',
+    },
+    community: {
+      title: 'Rejoignez la Communauté',
+      subtitle:
+        "Connectez-vous avec d'autres collectionneurs, restez informés du développement, et soyez les premiers à accéder aux nouvelles fonctionnalités",
+      discord: {
+        title: 'Discord',
+        description: 'Chat en temps réel et mises à jour',
+      },
+      twitter: {
+        title: 'Twitter',
+        description: 'Dernières nouvelles et annonces',
+      },
+      github: {
+        title: 'GitHub',
+        description: 'Développement open source',
+      },
+      getInTouch: 'Contactez-nous',
+      contactUs: 'Nous Contacter',
     },
   },
 

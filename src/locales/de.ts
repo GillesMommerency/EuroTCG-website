@@ -2,7 +2,9 @@ export default {
   // Navigation
   nav: {
     home: 'Startseite',
-    features: 'Funktionen',
+    features: 'Features',
+    progress: 'Fortschritt',
+    community: 'Community',
     pricing: 'Preise',
     about: 'Über uns',
     contact: 'Kontakt',
@@ -15,7 +17,8 @@ export default {
 
   // Common
   common: {
-    loading: 'Laden...',
+    tagline: 'Europäische Trading-Plattform',
+    loading: 'Wird geladen...',
     error: 'Fehler',
     success: 'Erfolg',
     cancel: 'Abbrechen',
@@ -115,6 +118,8 @@ export default {
       'EuroTCG revolutioniert wie europäische Sammler ihre Sammelkarten verwalten. Scannen zum Identifizieren, EU-Marktpreise vergleichen, Sammlungen verwalten und Benachrichtigungen für neue Pokémon-Veröffentlichungen in ganz Europa erhalten.',
     features: {
       title: 'Kernfunktionen',
+      subtitle:
+        'Revolutionäre Tools für europäische Sammler - von KI-gestütztem Scannen bis zu Echtzeit-EU-Marktintelligenz',
       scanning: {
         title: 'Intelligenter Kartenscanner',
         description: 'KI-gesteuerte Kamera-Erkennung identifiziert sofort Karten aller großen TCGs',
@@ -186,6 +191,7 @@ export default {
     },
     progress: {
       title: 'Entwicklungsfortschritt',
+      subtitle: 'Verfolgen Sie unsere Reise beim Aufbau der Zukunft des europäischen TCG-Handels',
       coreEngine: 'Kartenerkennung-Engine',
       priceApi: 'EU-Preisdaten Integration',
       collectionSystem: 'Sammlungsverwaltung',
@@ -194,13 +200,14 @@ export default {
       launch: 'Europäische Markteinführung',
     },
     newsletter: {
-      title: 'Auf dem Laufenden bleiben',
-      subtitle:
-        'Erhalten Sie Updates über unseren Fortschritt und seien Sie der Erste, der benachrichtigt wird, wenn wir starten',
+      title: 'Früher Zugang & Updates',
+      subtitle: 'Treten Sie der Warteliste für Beta-Priorität und neueste Nachrichten bei',
       placeholder: 'Ihre E-Mail-Adresse eingeben',
-      button: 'Benachrichtigen',
-      success: 'Vielen Dank! Wir werden Sie benachrichtigen, wenn wir bereit sind.',
-      error: 'Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.',
+      button: 'Warteliste Beitreten',
+      success: 'Perfekt! Sie stehen auf der Liste für frühen Zugang.',
+      error: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+      loading: 'Beitreten...',
+      privacy: 'Kein Spam, niemals. Einfache Abmeldung. Vollständig DSGVO-konform.',
     },
     social: {
       title: 'Folgen Sie unserem Fortschritt',
@@ -221,7 +228,47 @@ export default {
       email: 'E-Mail senden',
       github: 'GitHub Issues',
     },
-    estimatedLaunch: 'Geschätzter Start: Q2 2024',
+    community: {
+      title: 'Der Gemeinschaft Beitreten',
+      subtitle:
+        'Vernetzen Sie sich mit anderen Sammlern, bleiben Sie über die Entwicklung informiert, und erhalten Sie als Erste Zugang zu neuen Funktionen',
+      discord: {
+        title: 'Discord',
+        description: 'Echtzeit-Chat und Updates',
+      },
+      twitter: {
+        title: 'Twitter',
+        description: 'Neueste Nachrichten und Ankündigungen',
+      },
+      github: {
+        title: 'GitHub',
+        description: 'Open-Source-Entwicklung',
+      },
+      getInTouch: 'Kontakt Aufnehmen',
+      contactUs: 'Kontaktieren Sie Uns',
+    },
+    estimatedLaunch: 'Erwartete Einführung: Q2 2025',
+    betaSignup: 'Beta-Programm Beitreten',
+    earlyAccessInfo:
+      'Schließen Sie sich <span class="text-primary font-semibold">500+</span> Sammlern an, die bereits auf frühen Zugang warten',
+    keyPoints: {
+      scanner: {
+        title: 'KI Kartenscanner',
+        subtitle: '99% Genauigkeit',
+      },
+      pricing: {
+        title: 'EU Preisverfolgung',
+        subtitle: 'Live Cardmarket Daten',
+      },
+      mobile: {
+        title: 'Mobile-First',
+        subtitle: 'iOS & Android Apps',
+      },
+      alerts: {
+        title: 'Release Alerts',
+        subtitle: 'Verpassen Sie Nichts',
+      },
+    },
   },
 
   // SEO and metadata

@@ -3,6 +3,8 @@ export default {
   nav: {
     home: 'Home',
     features: 'Functies',
+    progress: 'Voortgang',
+    community: 'Community',
     pricing: 'Prijzen',
     about: 'Over ons',
     contact: 'Contact',
@@ -15,6 +17,7 @@ export default {
 
   // Common
   common: {
+    tagline: 'Europees Trading Platform',
     loading: 'Laden...',
     error: 'Fout',
     success: 'Succes',
@@ -115,6 +118,8 @@ export default {
       'EuroTCG revolutioneert hoe Europese verzamelaars hun ruilkaarten beheren. Scan om te identificeren, vergelijk EU marktprijzen, beheer collecties, en ontvang meldingen voor nieuwe Pokémon releases door heel Europa.',
     features: {
       title: 'Kernfunctionaliteiten',
+      subtitle:
+        'Revolutionaire tools ontworpen voor Europese verzamelaars - van AI-gestuurde scanning tot real-time EU marktintelligentie',
       scanning: {
         title: 'Slimme Kaart Scanner',
         description:
@@ -189,8 +194,30 @@ export default {
       description: 'Modern design en intuïtieve interface voor een uitstekende gebruikerservaring.',
     },
     estimatedLaunch: 'Geschatte lancering begin 2025',
+    betaSignup: 'Doe Mee aan Beta Programma',
+    earlyAccessInfo:
+      'Sluit je aan bij <span class="text-primary font-semibold">500+</span> verzamelaars die al wachten op vroege toegang',
+    keyPoints: {
+      scanner: {
+        title: 'AI Kaart Scanner',
+        subtitle: '99% Nauwkeurigheid',
+      },
+      pricing: {
+        title: 'EU Prijs Tracking',
+        subtitle: 'Live Cardmarket Data',
+      },
+      mobile: {
+        title: 'Mobile-First',
+        subtitle: 'iOS & Android Apps',
+      },
+      alerts: {
+        title: 'Release Alerts',
+        subtitle: 'Mis Niets',
+      },
+    },
     progress: {
       title: 'Ontwikkelingsvoortgang',
+      subtitle: 'Volg onze reis terwijl we de toekomst van Europees TCG-handelen bouwen',
       design: 'Design & UX',
       backend: 'Backend Ontwikkeling',
       frontend: 'Frontend Ontwikkeling',
@@ -199,13 +226,14 @@ export default {
       launch: 'Launch Voorbereiding',
     },
     newsletter: {
-      title: 'Blijf Op de Hoogte',
-      subtitle:
-        'Ontvang updates over onze voortgang en wees de eerste die het weet wanneer we lanceren',
+      title: 'Vroege Toegang & Updates',
+      subtitle: 'Sluit je aan bij de wachtlijst voor prioriteit beta-toegang en laatste nieuws',
       placeholder: 'Voer je e-mail in',
-      button: 'Meld me aan',
-      success: 'Bedankt! We laten je weten wanneer we klaar zijn.',
-      error: 'Er ging iets mis. Probeer het opnieuw.',
+      button: 'Wachtlijst Toetreden',
+      success: 'Perfect! Je staat op de lijst voor vroege toegang.',
+      error: 'Voer alsjeblieft een geldig e-mailadres in.',
+      loading: 'Toetreden...',
+      privacy: 'Geen spam, nooit. Eenvoudig uitschrijven. Volledig AVG-conform.',
     },
     social: {
       title: 'Volg onze voortgang',
@@ -225,6 +253,25 @@ export default {
       description: 'Aarzel niet om contact met ons op te nemen voor vragen of suggesties.',
       email: 'Stuur E-mail',
       github: 'GitHub Issues',
+    },
+    community: {
+      title: 'Word Lid van de Community',
+      subtitle:
+        'Verbind je met andere verzamelaars, blijf op de hoogte van ontwikkelingen, en krijg als eerste toegang tot nieuwe functies',
+      discord: {
+        title: 'Discord',
+        description: 'Real-time chat en updates',
+      },
+      twitter: {
+        title: 'Twitter',
+        description: 'Laatste nieuws en aankondigingen',
+      },
+      github: {
+        title: 'GitHub',
+        description: 'Open source ontwikkeling',
+      },
+      getInTouch: 'Neem Contact Op',
+      contactUs: 'Contacteer Ons',
     },
   },
 

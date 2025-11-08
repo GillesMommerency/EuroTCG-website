@@ -3,6 +3,8 @@ export default {
   nav: {
     home: 'Home',
     features: 'Funzionalità',
+    progress: 'Progresso',
+    community: 'Comunità',
     pricing: 'Prezzi',
     about: 'Chi siamo',
     contact: 'Contatti',
@@ -15,6 +17,7 @@ export default {
 
   // Common
   common: {
+    tagline: 'Piattaforma di Trading Europea',
     loading: 'Caricamento...',
     error: 'Errore',
     success: 'Successo',
@@ -115,6 +118,8 @@ export default {
       'EuroTCG rivoluziona il modo in cui i collezionisti europei gestiscono le loro carte. Scansiona per identificare, confronta prezzi del mercato UE, gestisci collezioni, e ricevi avvisi per nuove uscite Pokémon in tutta Europa.',
     features: {
       title: 'Funzionalità Principali',
+      subtitle:
+        "Strumenti rivoluzionari progettati per collezionisti europei - dalla scansione alimentata da IA all'intelligenza di mercato UE in tempo reale",
       scanning: {
         title: 'Scanner Carte Intelligente',
         description:
@@ -194,8 +199,30 @@ export default {
       description: "Design moderno e interfaccia intuitiva per un'esperienza utente eccellente.",
     },
     estimatedLaunch: "Lancio stimato per l'inizio del 2025",
+    betaSignup: 'Unisciti al Programma Beta',
+    earlyAccessInfo:
+      'Unisciti a <span class="text-primary font-semibold">500+</span> collezionisti che stanno già aspettando l\'accesso anticipato',
+    keyPoints: {
+      scanner: {
+        title: 'Scanner Carte IA',
+        subtitle: '99% di Precisione',
+      },
+      pricing: {
+        title: 'Tracking Prezzi UE',
+        subtitle: 'Dati Live Cardmarket',
+      },
+      mobile: {
+        title: 'Mobile-First',
+        subtitle: 'App iOS & Android',
+      },
+      alerts: {
+        title: 'Avvisi Rilasci',
+        subtitle: 'Non Perdere Nulla',
+      },
+    },
     progress: {
       title: 'Progresso dello Sviluppo',
+      subtitle: 'Segui il nostro viaggio mentre costruiamo il futuro del trading TCG europeo',
       design: 'Design & UX',
       backend: 'Sviluppo Backend',
       frontend: 'Sviluppo Frontend',
@@ -209,7 +236,9 @@ export default {
       placeholder: 'Inserisci la tua email',
       button: "Unisciti alla Lista d'Attesa",
       success: "Perfetto! Sei nella lista per l'accesso anticipato.",
-      error: 'Ops! Qualcosa è andato storto. Riprova.',
+      error: 'Per favore inserisci un indirizzo email valido.',
+      loading: 'Unendosi...',
+      privacy: 'Niente spam, mai. Disiscrizione facile. Completamente conforme GDPR.',
     },
     social: {
       title: 'Segui i nostri progressi',
@@ -229,6 +258,25 @@ export default {
       description: 'Non esitare a contattarci per qualsiasi domanda o suggerimento.',
       email: 'Invia Email',
       github: 'GitHub Issues',
+    },
+    community: {
+      title: 'Unisciti alla Comunità',
+      subtitle:
+        'Connettiti con altri collezionisti, resta aggiornato sullo sviluppo, e sii il primo ad accedere alle nuove funzionalità',
+      discord: {
+        title: 'Discord',
+        description: 'Chat in tempo reale e aggiornamenti',
+      },
+      twitter: {
+        title: 'Twitter',
+        description: 'Ultime notizie e annunci',
+      },
+      github: {
+        title: 'GitHub',
+        description: 'Sviluppo open source',
+      },
+      getInTouch: 'Mettiti in Contatto',
+      contactUs: 'Contattaci',
     },
   },
 

@@ -3,6 +3,8 @@ export default {
   nav: {
     home: 'Home',
     features: 'Features',
+    progress: 'Progress',
+    community: 'Community',
     pricing: 'Pricing',
     about: 'About',
     contact: 'Contact',
@@ -15,6 +17,7 @@ export default {
 
   // Common
   common: {
+    tagline: 'European Trading Platform',
     loading: 'Loading...',
     error: 'Error',
     success: 'Success',
@@ -93,6 +96,8 @@ export default {
       'EuroTCG revolutionizes how European collectors manage their trading cards. Scan to identify, compare EU market prices, manage collections, and get alerts for new Pokémon drops across Europe.',
     features: {
       title: 'Core Features',
+      subtitle:
+        'Revolutionary tools designed for European collectors - from AI-powered scanning to real-time EU market intelligence',
       scanning: {
         title: 'Smart Card Scanning',
         description: 'AI-powered camera recognition instantly identifies cards from all major TCGs',
@@ -155,12 +160,14 @@ export default {
       },
     },
     newsletter: {
-      title: 'Stay Updated',
-      description: 'Be the first to know when we launch',
+      title: 'Early Access & Updates',
+      subtitle: 'Join the waitlist for priority beta access and latest news',
       placeholder: 'Enter your email address',
-      button: 'Notify Me',
-      success: "Thank you! We'll keep you updated.",
+      button: 'Join Waitlist',
+      success: "Perfect! You're on the list for early access.",
       error: 'Please enter a valid email address.',
+      loading: 'Joining...',
+      privacy: 'No spam, ever. Easy unsubscribe. Fully GDPR compliant.',
     },
     social: {
       title: 'Follow Our Progress',
@@ -168,6 +175,7 @@ export default {
     },
     progress: {
       title: 'Development Progress',
+      subtitle: 'Track our journey as we build the future of European TCG trading',
       coreEngine: 'Card Recognition Engine',
       priceApi: 'EU Price Data Integration',
       collectionSystem: 'Collection Management',
@@ -177,6 +185,26 @@ export default {
     },
     estimatedLaunch: 'Expected Launch: Q2 2025',
     betaSignup: 'Join Beta Program',
+    earlyAccessInfo:
+      'Join <span class="text-primary font-semibold">500+</span> collectors already waiting for early access',
+    keyPoints: {
+      scanner: {
+        title: 'AI Card Scanner',
+        subtitle: '99% Accuracy',
+      },
+      pricing: {
+        title: 'EU Price Tracking',
+        subtitle: 'Live Cardmarket Data',
+      },
+      mobile: {
+        title: 'Mobile-First',
+        subtitle: 'iOS & Android Apps',
+      },
+      alerts: {
+        title: 'Drop Alerts',
+        subtitle: 'Never Miss Releases',
+      },
+    },
     useCases: {
       title: 'Perfect For',
       collector: {
@@ -200,6 +228,25 @@ export default {
       title: 'Questions?',
       description: 'Get in touch with our team',
       email: 'hello@eurotcg.com',
+    },
+    community: {
+      title: 'Join the Community',
+      subtitle:
+        'Connect with fellow collectors, stay updated on development, and be first to access new features',
+      discord: {
+        title: 'Discord',
+        description: 'Real-time chat & updates',
+      },
+      twitter: {
+        title: 'Twitter',
+        description: 'Latest news & announcements',
+      },
+      github: {
+        title: 'GitHub',
+        description: 'Open source development',
+      },
+      getInTouch: 'Get in Touch',
+      contactUs: 'Contact Us',
     },
   },
 

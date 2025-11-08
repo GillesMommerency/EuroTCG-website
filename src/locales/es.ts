@@ -3,6 +3,8 @@ export default {
   nav: {
     home: 'Inicio',
     features: 'Características',
+    progress: 'Progreso',
+    community: 'Comunidad',
     pricing: 'Precios',
     about: 'Acerca de',
     contact: 'Contacto',
@@ -15,6 +17,7 @@ export default {
 
   // Common
   common: {
+    tagline: 'Plataforma de Trading Europea',
     loading: 'Cargando...',
     error: 'Error',
     success: 'Éxito',
@@ -115,6 +118,8 @@ export default {
       'EuroTCG revoluciona cómo los coleccionistas europeos gestionan sus cartas. Escanea para identificar, compara precios del mercado UE, gestiona colecciones, y recibe alertas de nuevos lanzamientos Pokémon en toda Europa.',
     features: {
       title: 'Funcionalidades Principales',
+      subtitle:
+        'Herramientas revolucionarias diseñadas para coleccionistas europeos - desde escaneo con IA hasta inteligencia de mercado UE en tiempo real',
       scanning: {
         title: 'Escáner de Cartas Inteligente',
         description:
@@ -196,6 +201,7 @@ export default {
     },
     progress: {
       title: 'Progreso de Desarrollo',
+      subtitle: 'Sigue nuestro viaje mientras construimos el futuro del trading TCG europeo',
       design: 'Diseño y UX',
       backend: 'Desarrollo Backend',
       frontend: 'Desarrollo Frontend',
@@ -204,13 +210,14 @@ export default {
       launch: 'Preparación de Lanzamiento',
     },
     newsletter: {
-      title: 'Mantente Actualizado',
-      subtitle:
-        'Recibe actualizaciones sobre nuestro progreso y sé el primero en saber cuando lancemos',
+      title: 'Acceso Temprano y Actualizaciones',
+      subtitle: 'Únete a la lista de espera para acceso beta prioritario y últimas noticias',
       placeholder: 'Ingresa tu email',
-      button: 'Notificarme',
-      success: '¡Gracias! Te notificaremos cuando estemos listos.',
-      error: 'Algo salió mal. Por favor intenta de nuevo.',
+      button: 'Unirse a Lista',
+      success: '¡Perfecto! Estás en la lista para acceso temprano.',
+      error: 'Por favor ingresa una dirección de email válida.',
+      loading: 'Uniéndose...',
+      privacy: 'Sin spam, nunca. Fácil cancelación. Completamente conforme RGPD.',
     },
     social: {
       title: 'Sigue nuestro progreso',
@@ -231,7 +238,47 @@ export default {
       email: 'Enviar Email',
       github: 'GitHub Issues',
     },
+    community: {
+      title: 'Únete a la Comunidad',
+      subtitle:
+        'Conecta con otros coleccionistas, mantente actualizado sobre el desarrollo, y sé el primero en acceder a nuevas funciones',
+      discord: {
+        title: 'Discord',
+        description: 'Chat en tiempo real y actualizaciones',
+      },
+      twitter: {
+        title: 'Twitter',
+        description: 'Últimas noticias y anuncios',
+      },
+      github: {
+        title: 'GitHub',
+        description: 'Desarrollo de código abierto',
+      },
+      getInTouch: 'Ponte en Contacto',
+      contactUs: 'Contáctanos',
+    },
     estimatedLaunch: 'Lanzamiento Estimado: Q2 2024',
+    betaSignup: 'Unirse al Programa Beta',
+    earlyAccessInfo:
+      'Únete a <span class="text-primary font-semibold">500+</span> coleccionistas que ya esperan el acceso temprano',
+    keyPoints: {
+      scanner: {
+        title: 'Escáner Cartas IA',
+        subtitle: '99% Precisión',
+      },
+      pricing: {
+        title: 'Seguimiento Precios UE',
+        subtitle: 'Datos Live Cardmarket',
+      },
+      mobile: {
+        title: 'Mobile-First',
+        subtitle: 'Apps iOS & Android',
+      },
+      alerts: {
+        title: 'Alertas Lanzamientos',
+        subtitle: 'Nunca Pierdas Nada',
+      },
+    },
   },
 
   // SEO and metadata

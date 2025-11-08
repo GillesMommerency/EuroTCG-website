@@ -1,4 +1,10 @@
 import { cn } from '@/lib/utils';
+import de from '@/locales/de';
+import en from '@/locales/en';
+import es from '@/locales/es';
+import fr from '@/locales/fr';
+import it from '@/locales/it';
+import nl from '@/locales/nl';
 import React, { useState } from 'react';
 
 interface NewsletterFormProps {
@@ -10,29 +16,18 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ locale }) => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
 
-  // Simple translations for now
-  const t = {
-    en: {
-      title: 'Stay Updated',
-      description: 'Be the first to know when we launch',
-      placeholder: 'Enter your email address',
-      button: 'Notify Me',
-      success: "Thank you! We'll keep you updated.",
-      error: 'Please enter a valid email address.',
-      loading: 'Subscribing...',
-    },
-    fr: {
-      title: 'Restez informé',
-      description: 'Soyez le premier à savoir quand nous lancerons',
-      placeholder: 'Entrez votre adresse e-mail',
-      button: 'Me notifier',
-      success: 'Merci ! Nous vous tiendrons au courant.',
-      error: 'Veuillez entrer une adresse e-mail valide.',
-      loading: 'Inscription...',
-    },
+  // Get translations from locale files
+  const translations = {
+    en,
+    fr,
+    de,
+    es,
+    it,
+    nl,
   };
 
-  const text = t[locale as keyof typeof t] || t.en;
+  const t = translations[locale as keyof typeof translations] || en;
+  const text = t.underConstruction.newsletter;
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -70,7 +65,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ locale }) => {
     <div className="mx-auto max-w-md">
       <div className="mb-6 text-center">
         <h3 className="text-foreground mb-2 text-2xl font-bold">{text.title}</h3>
-        <p className="text-muted-foreground">{text.description}</p>
+        <p className="text-muted-foreground">{text.subtitle}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -125,11 +120,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ locale }) => {
         )}
       </form>
 
-      <p className="text-muted-foreground mt-4 text-center text-xs">
-        {locale === 'fr'
-          ? 'Nous respectons votre vie privée. Pas de spam, désabonnement facile.'
-          : 'We respect your privacy. No spam, easy unsubscribe.'}
-      </p>
+      <p className="text-muted-foreground mt-4 text-center text-xs">{text.privacy}</p>
     </div>
   );
 };

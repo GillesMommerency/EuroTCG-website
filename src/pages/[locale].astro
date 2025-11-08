@@ -216,7 +216,7 @@ const structuredData = {
           </div>
           <div class="flex flex-col">
             <span class="text-foreground text-xl font-bold">EuroTCG</span>
-            <span class="text-muted-foreground text-xs">European Trading Platform</span>
+            <span class="text-muted-foreground text-xs">{t.common.tagline}</span>
           </div>
         </div>
 
@@ -225,17 +225,17 @@ const structuredData = {
           <a
             href="#features"
             class="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
-            >Features</a
+            >{t.nav.features}</a
           >
           <a
             href="#progress"
             class="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
-            >Progress</a
+            >{t.nav.progress}</a
           >
           <a
             href="#community"
             class="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
-            >Community</a
+            >{t.nav.community}</a
           >
         </nav>
 
@@ -392,23 +392,39 @@ const structuredData = {
               >
                 📷
               </div>
-              <p class="text-foreground text-sm font-semibold">AI Card Scanner</p>
-              <p class="text-muted-foreground text-xs">99% Accuracy</p>
+              <p class="text-foreground text-sm font-semibold">
+                {t.underConstruction.keyPoints.scanner.title}
+              </p>
+              <p class="text-muted-foreground text-xs">
+                {t.underConstruction.keyPoints.scanner.subtitle}
+              </p>
             </div>
             <div class="neo-holo-card p-6 text-center">
               <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center text-2xl">💰</div>
-              <p class="text-foreground text-sm font-semibold">EU Price Tracking</p>
-              <p class="text-muted-foreground text-xs">Live Cardmarket Data</p>
+              <p class="text-foreground text-sm font-semibold">
+                {t.underConstruction.keyPoints.pricing.title}
+              </p>
+              <p class="text-muted-foreground text-xs">
+                {t.underConstruction.keyPoints.pricing.subtitle}
+              </p>
             </div>
             <div class="neo-holo-card p-6 text-center">
               <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center text-2xl">📱</div>
-              <p class="text-foreground text-sm font-semibold">Mobile-First</p>
-              <p class="text-muted-foreground text-xs">iOS & Android Apps</p>
+              <p class="text-foreground text-sm font-semibold">
+                {t.underConstruction.keyPoints.mobile.title}
+              </p>
+              <p class="text-muted-foreground text-xs">
+                {t.underConstruction.keyPoints.mobile.subtitle}
+              </p>
             </div>
             <div class="neo-holo-card p-6 text-center">
               <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center text-2xl">🔔</div>
-              <p class="text-foreground text-sm font-semibold">Drop Alerts</p>
-              <p class="text-muted-foreground text-xs">Never Miss Releases</p>
+              <p class="text-foreground text-sm font-semibold">
+                {t.underConstruction.keyPoints.alerts.title}
+              </p>
+              <p class="text-muted-foreground text-xs">
+                {t.underConstruction.keyPoints.alerts.subtitle}
+              </p>
             </div>
           </div>
 
@@ -418,10 +434,7 @@ const structuredData = {
           </div>
 
           <!-- Early Access Info -->
-          <p class="text-muted-foreground text-sm">
-            Join <span class="text-primary font-semibold">500+</span> collectors already waiting for
-            early access
-          </p>
+          <p class="text-muted-foreground text-sm" set:html={t.underConstruction.earlyAccessInfo} />
         </div>
       </div>
     </section>
@@ -434,8 +447,7 @@ const structuredData = {
             {t.underConstruction.features.title}
           </h2>
           <p class="text-muted-foreground mx-auto max-w-3xl text-lg">
-            Revolutionary tools designed for European collectors - from AI-powered scanning to
-            real-time EU market intelligence
+            {t.underConstruction.features.subtitle}
           </p>
         </div>
 
@@ -493,10 +505,10 @@ const structuredData = {
         <div class="mx-auto max-w-4xl">
           <div class="mb-16 text-center">
             <h2 class="text-foreground mb-4 text-3xl font-bold sm:text-4xl">
-              Development Progress
+              {t.underConstruction.progress.title}
             </h2>
             <p class="text-muted-foreground text-lg">
-              Track our journey as we build the future of European TCG trading
+              {t.underConstruction.progress.subtitle}
             </p>
           </div>
 
@@ -533,7 +545,7 @@ const structuredData = {
                 class="neo-holo-card inline-flex items-center px-8 py-4 text-sm font-semibold transition-all duration-300 hover:scale-105"
                 style="background: linear-gradient(135deg, hsl(var(--holo-primary)) 0%, hsl(var(--holo-secondary)) 100%); color: white; text-decoration: none;"
               >
-                Join Beta Program
+                {t.underConstruction.betaSignup}
               </a>
             </div>
           </div>
@@ -544,10 +556,11 @@ const structuredData = {
     <!-- Community Section -->
     <section id="community" class="bg-muted/20 py-20 lg:py-32">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-foreground mb-4 text-3xl font-bold sm:text-4xl">Join the Community</h2>
+        <h2 class="text-foreground mb-4 text-3xl font-bold sm:text-4xl">
+          {t.underConstruction.community.title}
+        </h2>
         <p class="text-muted-foreground mx-auto mb-12 max-w-2xl text-lg">
-          Connect with fellow collectors, stay updated on development, and be first to access new
-          features
+          {t.underConstruction.community.subtitle}
         </p>
 
         <div class="mx-auto mb-12 grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-3">
@@ -565,8 +578,12 @@ const structuredData = {
                 ></path>
               </svg>
             </div>
-            <h3 class="text-foreground mb-2 font-semibold">Discord</h3>
-            <p class="text-muted-foreground text-sm">Real-time chat & updates</p>
+            <h3 class="text-foreground mb-2 font-semibold">
+              {t.underConstruction.community.discord.title}
+            </h3>
+            <p class="text-muted-foreground text-sm">
+              {t.underConstruction.community.discord.description}
+            </p>
           </a>
 
           <a
@@ -583,8 +600,12 @@ const structuredData = {
                 ></path>
               </svg>
             </div>
-            <h3 class="text-foreground mb-2 font-semibold">Twitter</h3>
-            <p class="text-muted-foreground text-sm">Latest news & announcements</p>
+            <h3 class="text-foreground mb-2 font-semibold">
+              {t.underConstruction.community.twitter.title}
+            </h3>
+            <p class="text-muted-foreground text-sm">
+              {t.underConstruction.community.twitter.description}
+            </p>
           </a>
 
           <a
@@ -601,18 +622,24 @@ const structuredData = {
                 ></path>
               </svg>
             </div>
-            <h3 class="text-foreground mb-2 font-semibold">GitHub</h3>
-            <p class="text-muted-foreground text-sm">Open source development</p>
+            <h3 class="text-foreground mb-2 font-semibold">
+              {t.underConstruction.community.github.title}
+            </h3>
+            <p class="text-muted-foreground text-sm">
+              {t.underConstruction.community.github.description}
+            </p>
           </a>
         </div>
 
         <div class="text-center">
-          <h3 class="text-foreground mb-4 text-lg font-semibold">Get in Touch</h3>
+          <h3 class="text-foreground mb-4 text-lg font-semibold">
+            {t.underConstruction.community.getInTouch}
+          </h3>
           <a
             href="mailto:hello@eurotcg.com"
             class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center rounded-lg px-8 py-3 text-sm font-medium transition-colors"
           >
-            Contact Us
+            {t.underConstruction.community.contactUs}
           </a>
         </div>
       </div>
